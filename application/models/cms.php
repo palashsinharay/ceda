@@ -10,7 +10,7 @@ class Cms extends CI_Model {
 	public $_product = 'products';
         public $_tender = 'tender';
 	public $_resource_center = 'resource_center';
-	public $_categories = 'categories';
+	public $_categories = 'product_category';
 	public $_lowerSlider = 'lower_slider';
         public $_user = 'users';
 	public $result = null;
@@ -234,6 +234,24 @@ class Cms extends CI_Model {
 
 
         }
+        function get_category_image()
+        {
+                //$query = $this->db->get_where($this->_categories,array ('categories_id' => $catID));
+		//echo $this->db->last_query();
+		//die();
+		//$this->result = $query->result();
+            
+            
+            $query = $this->db->query("SELECT cat_image FROM ".$this->_categories." WHERE cat_id = (SELECT MAX(cat_id) FROM ".$this->_categories.")");
+            if ($query->num_rows()== 1)
+            {
+                $row = $query->row();
+                $row->cat_image;
+                return $row->cat_image;
+            }
+
+		
+        }        
         
 
 	}	

@@ -12,6 +12,7 @@ class Admin extends CI_Controller {
         $this->load->helper('url');
         /* ------------------ */ 
         $this->load->library('grocery_CRUD');
+        //$this->load->library('image_lib');
         $this->load->model('Cms');
        
        
@@ -256,19 +257,48 @@ class Admin extends CI_Controller {
     $crud->set_theme('datatables');
     $crud->set_table('product_category')
         ->set_subject('Product Categories')
-        ->columns('cat_name','status')
+        ->columns('cat_name','status','cat_image')
         ->display_as('cat_name','Categories Name')
-        ->display_as('status','Status');
+        ->display_as('status','Status')
+        ->display_as('cat_image','Categories Image');
         
 
 
     //below code is for edit and add
-    $crud->fields('cat_name','status');
+    $crud->fields('cat_name','status','cat_image');
     //below is validation
-         $crud->set_rules('categories_name','Categories Mame ','required')
-               ->set_rules('status','Status','required');
+         $crud->set_rules('cat_name','Categories Name ','required')
+               ->set_rules('status','Status','required')
+               ->set_rules('cat_image','Image','required');
     //below code is for file upload
+    
+    $crud->set_field_upload('cat_image','assets/uploads/files/category');
     $output = $crud->render();
+    $cat_image = $this->Cms->get_category_image();
+  // echo "Apppath : ".FCPATH."</br>";
+   //$slash="\'";
+    
+$config['image_library'] = 'gd';
+$config['source_image'] = FCPATH.'assets\uploads\files\category\\'.$cat_image;
+$config['new_image'] = FCPATH.'assets\uploads\files\category\thumb\\';
+$config['create_thumb'] = FALSE;
+$config['maintain_ratio'] = FALSE;
+$config['width'] = 160;
+$config['height'] = 100;
+
+//print_r($config);
+
+$this->load->library('image_lib');
+$this->image_lib->initialize($config);  
+
+if ( ! $this->image_lib->resize())
+{
+     $this->image_lib->display_errors();
+}
+   
+    
+    
+    
     $this->_example_output($output);
 }
 
