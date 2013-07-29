@@ -220,7 +220,7 @@ class Admin extends CI_Controller {
     $crud->set_theme('datatables');
     $crud->set_table('product')
         ->set_subject('Product')
-        ->columns('name','desc','cat_id','price','application','specs','cataloge','image','product_meta','status')
+        ->columns('name','desc','cat_id','price','application','specs','cataloge','image','product_meta','status','featured')
         ->display_as('name','Product Name')
         ->display_as('desc','Product Description')
         ->display_as('cat_id','Product Category')
@@ -230,17 +230,18 @@ class Admin extends CI_Controller {
         ->display_as('cataloge','Cataloge')    
         ->display_as('image','Product image')
         ->display_as('product_meta','Product Meta')
-        ->display_as('status','status');
+        ->display_as('status','status')
+        ->display_as('featured','Featured');
 
 
     //below code is for edit and add
-    $crud->fields('name','desc','cat_id','price','application','specs','cataloge','image','product_meta','status');
+    $crud->fields('name','desc','cat_id','price','application','specs','cataloge','image','product_meta','status','featured');
     //$crud->required_fields('title','email',);
 
 
 
     //below is validation
-     $crud->required_fields('name','desc','cat_id','price','application','specs','cataloge','image','product_meta','status');
+     $crud->required_fields('name','desc','cat_id','price','application','specs','cataloge','image','product_meta','status','featured');
     //below code is for file upload
     $crud->set_field_upload('cataloge','assets/uploads/files');
     $crud->set_field_upload('image','assets/uploads/files');

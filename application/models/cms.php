@@ -7,7 +7,8 @@ class Cms extends CI_Model {
 	public $_table = 'cmspage';
 	public $_meduiatable = 'media_gallery';
 	public $_topmenu = 'topmenu';
-	public $_product = 'products';
+	public $_product = 'product';
+        public $_newstable = 'news';
         public $_tender = 'tender';
 	public $_resource_center = 'resource_center';
 	public $_categories = 'product_category';
@@ -115,7 +116,7 @@ class Cms extends CI_Model {
 	}
 	
         //function for getting gallery page content
-	function get_news_list($limit=50)
+	function get_news_list($limit=3)
 	{
                 $query = $this->db->get($this->_newstable, $limit);
 		
@@ -135,7 +136,8 @@ class Cms extends CI_Model {
 	}
 	
         //function for getting gallery page content
-	function get_productList($catId)
+	
+        function get_productList($catId)
 	{
 		$query = $this->db->get_where($this->_product,array('categories_id' => $catId));
 		
@@ -145,8 +147,9 @@ class Cms extends CI_Model {
 	}
 	function get_fetured_product()
 	{
-		$query = $this->db->get_where($this->_product,array('featured' => 1),4);
-		
+		$query = $this->db->get_where($this->_product,array('featured' => '1'),3);
+//		echo $this->db->last_query();
+//                die();
                 
 		$this->result = $query->result();
 

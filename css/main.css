@@ -1,0 +1,61 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/*.container{
+    width: 940px !important;
+    border: 1px solid red;
+}*/
+.nav-second{
+    background: #464542;
+    height: 32px;
+}
+.header-text{
+    color: #FFFFFF;
+    padding-top: 15px;
+}
+#google_translate_element{
+    padding: 10px;
+}
+.navbar-inner{
+    background-image: none;
+    background-color: #464543;
+}
+.nav-inner{
+    border-color: #656563;
+}
+.yamm{
+ background: #000000;
+}
+
+.yamm .yamm-content a,
+.yamm .yamm-content a:hover,
+.yamm .yamm-content a:focus {
+  background: transparent;
+  font-weight: normal;      
+}
+.yamm .yamm-content a {
+  color: #0088CC;
+}
+.yamm .yamm-content a:hover,
+.yamm .yamm-content a:focus {
+  color: #005580;
+}
+.well-ceda {
+	margin-bottom:5px;
+}
+.product-image-left-ceda{
+	margin-left:3px;
+}
+
+
+
+
+
+
+
+
+
+
+
