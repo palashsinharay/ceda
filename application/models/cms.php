@@ -117,7 +117,7 @@ class Cms extends CI_Model {
 	}
 	
         //function for getting gallery page content
-	function get_news_list($limit=3)
+	function get_news_list($limit=2)
 	{
                 $query = $this->db->get($this->_newstable, $limit);
 		
