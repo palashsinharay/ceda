@@ -71,9 +71,14 @@
                                           <div class="span5" style="margin-left:40px">
                                           <h5>details</h5>
                                           <p><?php echo $value->desc; ?></p>
-                                          
-                                          
                                           </div>
+                                          <?php if($value->review!=''): ?>
+                                          <div class="clearfix"></div>
+                                          <div class="span5" style="margin-left:40px">
+                                          <h5>review</h5>
+                                          <p><?php echo $value->review; ?></p>
+                                          </div>
+                                          <?php endif; ?>
                                           <div class="span5" style="margin-left:40px">
                                           <button class="btn btn-inverse pull-left">buy</button>
                                           </div>

@@ -14,6 +14,7 @@ class Cms extends CI_Model {
 	public $_categories = 'product_category';
 	public $_lowerSlider = 'lower_slider';
         public $_user = 'users';
+        public $_blogtable = 'blog';
 	public $result = null;
 
 	function __construct()
@@ -133,6 +134,25 @@ class Cms extends CI_Model {
 		$this->result = $query->result();
 		
 		return $this->result[0];
+	}
+        
+        
+                //function for getting gallery page content
+	function get_blog_list($limit=3)
+	{
+                $query = $this->db->get($this->_blogtable, $limit);
+		
+		$this->result = $query->result();
+	
+		return $this->result;
+	}
+        function get_comment_list($limit=3)
+	{
+                $query = $this->db->get($this->_blogtable, $limit);
+		
+		$this->result = $query->result();
+	
+		return $this->result;
 	}
 	
         //function for getting gallery page content
