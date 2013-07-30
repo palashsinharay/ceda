@@ -26,11 +26,9 @@ class Main extends CI_Controller {
     }
     public function _renderView($page,$data) {
                 
-/*                $data['featured_menu'] = $this->Cms->get_featured_menu();
-                $data['news'] = $this->Cms->get_news_list(1);
-                $data['whoweare_links']=$this->Cms->get_page_basedonCatId('aboutus');
-                
-*/              //$data['top_menu']=$this->Cms->get_topmenu(); 
+                 $data['allCategoryData'] = $this->Cms->get_product_cat();
+                 
+                 //$data['top_menu']=$this->Cms->get_topmenu(); 
                 //$data['product_cat']=$this->Cms->get_product_cat();
 //                echo "<pre>";
 //                print_r($data['top_menu']);
@@ -67,12 +65,29 @@ class Main extends CI_Controller {
 //		echo "</pre>";
 //		die();
 	           
-        $this->_renderView('index',$data);
+                $this->_renderView('index',$data);
         
         
 
     }
 
+    
+    public function productList($catId)
+    {
+                $data['categoryList'] = $this->Cms->get_category_name($catId);
+                $data['productList'] = $this->Cms->get_productList($catId);
+                $data['newsList'] = $this->Cms->get_news_list();
+//                echo "<pre>";
+//                print_r($data['newsList']);
+//		echo "</pre>";
+//		die();
+	           
+                $this->_renderView('product_list',$data);
+        
+        
+
+    }
+    
     public function page($id)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);

@@ -5,7 +5,7 @@
 //die();
 ?>            
 
-        </div> <!-- /container -->
+      
         <!-- Example row of columns -->
         <div class="container well">
             <div class="row">

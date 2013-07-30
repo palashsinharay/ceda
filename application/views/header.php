@@ -1,3 +1,18 @@
+<?php 
+
+//echo "<pre>";
+//print_r($productList);
+//echo "</pre>";
+//
+//echo "<pre>";
+//print_r($newsList);
+//echo "</pre>";
+//echo "<pre>";
+//print_r($allCategoryData);
+//echo "</pre>";
+//die();
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -13,7 +28,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css')?>">
         <style>
             body {
-                padding-top: 125px;
+/*                padding-top: 125px;*/
                 padding-bottom: 40px;
             }
         </style>
@@ -32,7 +47,7 @@
 
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
                     <div class="row">
@@ -110,7 +125,56 @@ function googleTranslateElementInit() {
                               </ul>
                             </li>
                             <!-- Pictures -->
-                            <li class="dropdown yamm-fullwidth">
+<!--                            <li class="dropdown yamm-fullwidth">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Pictures <b class="caret"></b> </a>
+                              <ul class="dropdown-menu">
+                                <li>
+                                  <div class="yamm-content">
+                                   
+                                      <?php 
+                                         $count=0;
+                                         foreach ($allCategoryData as $value): $count++; 
+                                               $data['productList'] = $this->Cms->get_productList($value->cat_id);
+                                           
+                                         ?> 
+                                    <?php if($count%4==0):?>
+                                    <div class="row-fluid">
+                                      <ul class="thumbnails">
+                                       <?php endif;?> 
+                                          <li class="span3">
+                                        
+                                            
+                                         <div>
+
+                                          <a class="" href="/main/productList/<?php echo $value->cat_id;?>"> <img alt="150x120" src="<?php echo base_url('assets/uploads/files/category/thumb/'.$value->cat_image) ;?>" width="100" height="80"> </a>
+                                          <h4><?php echo $value->cat_name; ?></h4>
+                                          <ul class="media-list">
+                                            <?php foreach ($data['productList'] as $pvalue): ?>
+                                                 <li><a href="#"><?php echo $pvalue->name; ?></a></li>
+                                            <?php endforeach;?> 
+                                              
+                                          </ul>
+                                         </div>
+                                        
+                                      </li>
+                                      
+                                  
+                                                         
+                                        
+                                      <?php if($count%4==0):?> 
+                                      </ul>
+                                    </div>
+                                    <?php endif;?>
+                                     <?php endforeach;?>     
+                                  </div>
+                                </li>
+                              </ul>
+                            </li>-->
+  
+
+
+
+<li class="dropdown yamm-fullwidth">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Pictures <b class="caret"></b> </a>
                               <ul class="dropdown-menu">
                                 <li>
@@ -121,7 +185,7 @@ function googleTranslateElementInit() {
                                         <li class="span3">
                                         
                                         <div>
-                                          <a class="" href="#"> <img alt="150x120" src="<?php echo base_url('img/product.jpg')?>" width="100" height="80"> </a>
+                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
                                           <h4>Category 1</h4>
                                           <ul class="media-list">
                                           <li><a href="#">Product 1</a></li>
@@ -133,7 +197,7 @@ function googleTranslateElementInit() {
                                           </div>
                                           
                                           <div>
-                                          <a class="" href="#"> <img alt="150x120" src="<?php echo base_url('img/product.jpg')?>" width="100" height="80"> </a>
+                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
                                           <h4>Category 1</h4>
                                           <ul class="media-list">
                                           <li><a href="#">Product 1</a></li>
@@ -149,7 +213,7 @@ function googleTranslateElementInit() {
                                         </li>
                                         <li class="span3">
                                             <div>
-                                          <a class="" href="#"> <img alt="150x120" src="<?php echo base_url('img/product.jpg')?>" width="100" height="80"> </a>
+                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
                                           <h4>Category 1</h4>
                                           <ul class="media-list">
                                           <li><a href="#">Product 1</a></li>
@@ -161,7 +225,7 @@ function googleTranslateElementInit() {
                                           </div>
                                           
                                           <div>
-                                          <a class="" href="#"> <img alt="150x120" src="<?php echo base_url('img/product.jpg')?>" width="100" height="80"> </a>
+                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
                                           <h4>Category 1</h4>
                                           <ul class="media-list">
                                           <li><a href="#">Product 1</a></li>
@@ -174,7 +238,7 @@ function googleTranslateElementInit() {
                                         </li>
                                         <li class="span3">
                                             <div>
-                                          <a class="" href="#"> <img alt="150x120" src="<?php echo base_url('img/product.jpg')?>" width="100" height="80"> </a>
+                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
                                           <h4>Category 1</h4>
                                           <ul class="media-list">
                                           <li><a href="#">Product 1</a></li>
@@ -186,7 +250,7 @@ function googleTranslateElementInit() {
                                           </div>
                                           
                                           <div>
-                                          <a class="" href="#"> <img alt="150x120" src="<?php echo base_url('img/product.jpg')?>" width="100" height="80"> </a>
+                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
                                           <h4>Category 1</h4>
                                           <ul class="media-list">
                                           <li><a href="#">Product 1</a></li>
@@ -200,7 +264,7 @@ function googleTranslateElementInit() {
                                         
                                         <li class="span3">
                                             <div>
-                                          <a class="" href="#"> <img alt="150x120" src="<?php echo base_url('img/product.jpg')?>" width="100" height="80"> </a>
+                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
                                           <h4>Category 1</h4>
                                           <ul class="media-list">
                                           <li><a href="#">Product 1</a></li>
@@ -212,7 +276,7 @@ function googleTranslateElementInit() {
                                           </div>
                                           
                                            <div>
-                                          <a class="" href="#"> <img alt="150x120" src="<?php echo base_url('img/product.jpg')?>" width="100" height="80"> </a>
+                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
                                           <h4>Category 1</h4>
                                           <ul class="media-list">
                                           <li><a href="#">Product 1</a></li>
@@ -234,7 +298,11 @@ function googleTranslateElementInit() {
                                 </li>
                               </ul>
                             </li>
-            
+
+
+
+
+
                           </ul>
                           </div>
                           <div class="span3 pull-right" >
@@ -290,4 +358,4 @@ function googleTranslateElementInit() {
                     </div>
             </div>
             
-
+          </div> <!-- /container -->

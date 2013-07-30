@@ -41,7 +41,7 @@ class Cms extends CI_Model {
         }
         function get_category_name($catID)
         {
-                $query = $this->db->get_where($this->_categories,array ('categories_id' => $catID));
+                $query = $this->db->get_where($this->_categories,array ('cat_id' => $catID));
 		//echo $this->db->last_query();
 		//die();
 		$this->result = $query->result();
@@ -139,7 +139,8 @@ class Cms extends CI_Model {
 	
         function get_productList($catId)
 	{
-		$query = $this->db->get_where($this->_product,array('categories_id' => $catId));
+		
+               $query = $this->db->get_where($this->_product,array('cat_id' => $catId));
 		
 		$this->result = $query->result();
 
