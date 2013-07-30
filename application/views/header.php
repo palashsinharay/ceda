@@ -125,183 +125,55 @@ function googleTranslateElementInit() {
                               </ul>
                             </li>
                             <!-- Pictures -->
-<!--                            <li class="dropdown yamm-fullwidth">
+                         <li class="dropdown yamm-fullwidth">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Pictures <b class="caret"></b> </a>
                               <ul class="dropdown-menu">
                                 <li>
                                   <div class="yamm-content">
                                    
                                       <?php 
-                                         $count=0;
-                                         foreach ($allCategoryData as $value): $count++; 
+                                         $count=-1;
+                                         foreach ($allCategoryData as $value):  $count++; 
                                                $data['productList'] = $this->Cms->get_productList($value->cat_id);
                                            
                                          ?> 
-                                    <?php if($count%4==0):?>
+                                    <?php if( ($count == 0)):?>
                                     <div class="row-fluid">
+                                       
                                       <ul class="thumbnails">
-                                       <?php endif;?> 
+                                        <?php endif;?> 
                                           <li class="span3">
                                         
                                             
-                                         <div>
-
+                                        
                                           <a class="" href="/main/productList/<?php echo $value->cat_id;?>"> <img alt="150x120" src="<?php echo base_url('assets/uploads/files/category/thumb/'.$value->cat_image) ;?>" width="100" height="80"> </a>
                                           <h4><?php echo $value->cat_name; ?></h4>
                                           <ul class="media-list">
                                             <?php foreach ($data['productList'] as $pvalue): ?>
                                                  <li><a href="#"><?php echo $pvalue->name; ?></a></li>
-                                            <?php endforeach;?> 
+                                            <?php  endforeach;?> 
                                               
                                           </ul>
-                                         </div>
+                                         
                                         
                                       </li>
                                       
                                   
                                                          
                                         
-                                      <?php if($count%4==0):?> 
+                                      <?php if($count==3):?>
                                       </ul>
+                                        
                                     </div>
-                                    <?php endif;?>
-                                     <?php endforeach;?>     
-                                  </div>
-                                </li>
-                              </ul>
-                            </li>-->
-  
-
-
-
-<li class="dropdown yamm-fullwidth">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Pictures <b class="caret"></b> </a>
-                              <ul class="dropdown-menu">
-                                <li>
-                                  <div class="yamm-content">
-                                    <!-- thumbnails needs a row-fluid to make span fluid -->
-                                    <div class="row-fluid">
-                                      <ul class="thumbnails">
-                                        <li class="span3">
-                                        
-                                        <div>
-                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
-                                          <h4>Category 1</h4>
-                                          <ul class="media-list">
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          
-                                          
-                                          </ul>
-                                          </div>
-                                          
-                                          <div>
-                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
-                                          <h4>Category 1</h4>
-                                          <ul class="media-list">
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          
-                                          
-                                          </ul>
-                                          </div>
-                                          
-                                         
-                                        
-                                        </li>
-                                        <li class="span3">
-                                            <div>
-                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
-                                          <h4>Category 1</h4>
-                                          <ul class="media-list">
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          
-                                          
-                                          </ul>
-                                          </div>
-                                          
-                                          <div>
-                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
-                                          <h4>Category 1</h4>
-                                          <ul class="media-list">
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          
-                                          
-                                          </ul>
-                                          </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div>
-                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
-                                          <h4>Category 1</h4>
-                                          <ul class="media-list">
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          
-                                          
-                                          </ul>
-                                          </div>
-                                          
-                                          <div>
-                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
-                                          <h4>Category 1</h4>
-                                          <ul class="media-list">
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          
-                                          
-                                          </ul>
-                                          </div>
-                                        </li>
-                                        
-                                        <li class="span3">
-                                            <div>
-                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
-                                          <h4>Category 1</h4>
-                                          <ul class="media-list">
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          
-                                          
-                                          </ul>
-                                          </div>
-                                          
-                                           <div>
-                                          <a class="" href="#"> <img alt="150x120" src="img/product.jpg" width="100" height="80"> </a>
-                                          <h4>Category 1</h4>
-                                          <ul class="media-list">
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          <li><a href="#">Product 1</a></li>
-                                          
-                                          
-                                          </ul>
-                                          </div>
-                                        </li>
-                                        
-                                        
-                                        
-                                        
+                                      <div class="row-fluid">
                                        
-                                      </ul>
-                                    </div>
+                                      <ul class="thumbnails">
+                                    <?php endif;?>
+                                     <?php  endforeach;?>     
                                   </div>
                                 </li>
                               </ul>
                             </li>
-
-
-
-
 
                           </ul>
                           </div>
@@ -347,14 +219,16 @@ function googleTranslateElementInit() {
                 </div>
                 </div>
                 <div class="span4">
-                       <address>
-                            <strong>Twitter, Inc.</strong><br>
-                            795 Folsom Ave, Suite 600<br>
-                            San Francisco, CA 94107<br>
-                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                            </address>
-                        <img style="margin-bottom:5px;" src="http://images.batronix.com/logo/cc_payment.png" alt=""><br><img src="http://images.batronix.com/logo/Paypal-Logo.png" alt="">
-      <p>Credit Card, PayPal, Bank Transfer, Cash On Delivery</p>
+                       <lable class="label">News updates</lable>
+                    <ul  class="media-list">
+                        <?php foreach ($newsList as $value): ?>  
+                        <li><h5><a href="#"><?php echo $value->title;?></a></h5>
+                        <p><?php echo $value->description;?></p>
+                    </li>
+                    <?php endforeach;?>
+                                 
+                                   
+                    </ul>
                     </div>
             </div>
             
