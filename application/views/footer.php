@@ -58,5 +58,54 @@
             g.src='//www.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
-    </body>
+    
+<script type="text/javascript">
+$(document).ready(function() {
+
+$('#submit_commit').click(function() {
+
+
+var form_data = {
+comment 	: $('#comment').val(),
+blog_id 	: $('#blog_id').val(),
+ajax 	: '1'
+};
+		
+		//alert($('#cap_div').text());	
+		if($('#comment').val()=='')
+			{
+					//alert("Enter NAME");
+					msg="Comemnt Field must not be blank !";
+					$('.success-message').html(msg);
+					$('.success-message').fadeIn(500).show();
+					return false;
+								
+			}
+			else
+			{
+				$.ajax({
+				url: "<?php echo site_url('blog/submitComment'); ?>",
+				//url: "main/email_send",
+				type: 'POST',
+				async : false,
+				data: form_data,
+				success: function(msg) {
+				//alert(msg);
+				
+				$('.success-message').html(msg);
+				$('.success-message').fadeIn(500).show();
+				
+				}
+				});
+		
+		
+		}
+return false;
+});
+
+
+
+});
+</script>
+</body>
 </html>

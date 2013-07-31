@@ -20,30 +20,73 @@ class Blog extends CI_Controller {
 		//$this->email->initialize($this->config);
        $this->load->helper('url');
        $this->load->helper('form');
-		$this->load->model('Cms');
+       $this->load->model('Cms');
                
  
     }
+ public function _renderView($page,$data) {
+                
+                $data['allCategoryData'] = $this->Cms->get_product_cat();
+                $this->load->view('header.php',$data);
+                $this->load->view($page.'.php',$data);
+                $this->load->view('footer.php',$data);
+    }    
     function index()
     {
-     
-//echo "hii"; 
+        $data['newsList'] = $this->Cms->get_news_list();
         $data['blogList'] = $this->Cms->get_blog_list();
+//        foreach ($data['blogList']as $value)
+//        {
+//            $data['recentcommentList'] = $this->Cms->get_recent_comment_list($value->id,3);
+//            
+//        }
+         $this->_renderView('blog_veiw',$data);
+        // $data['recentcommentList'] = $this->Cms->get_recent_comment_list($id,$limit);
+        
 //        echo "<pre>";
 //        print_r( $data['blogList']);
 //        echo "</pre>" ;
-        $this->load->view('header.php',$data);
-        $this->load->view('blog_veiw.php',$data);
-        $this->load->view('footer.php',$data);
+   }
+   
+    function blogdetail($blogID)
+    {
+        $data['newsList'] = $this->Cms->get_news_list();
+        $data['blogDetail'] = $this->Cms->get_blogDetail($blogID);
+        $data['allcommentList'] = $this->Cms->get_all_comment_list($data['blogDetail']->id);
+//        echo "<pre>";
+//        print_r($data);
+//        echo "</pre>" ;
+
+       $this->_renderView('blog_detail',$data);
     }
+    
+    function submitComment()
+    {
+//        echo $this->input->post("comment");
+//        echo $this->input->post("blog_id");
+//        die();
+        
+        unset($_POST['action']);
+        $posted=array();
+        $posted["blog_id"]  	= trim($this->input->post("blog_id"));
+        $posted["comment"]  	= trim($this->input->post("comment"));
+        $posted["author"]  	= "adminBunty";
+        
+        $i_newid=$this->Cms->insert_comment($posted);
+        if($i_newid!=0)
+        {
+            echo "Your Comment is awaiting for Admin Approval , Thank you .";
+        }
+        else
+        {
+            echo "Comment sending failed !! ";
+        }
+    }
+   
     function comment($blogID)
     {
        $data['commnetList'] = $this->Cms->get_comment_list($blogID);
-        
-
-        $this->load->view('header.php',$data);
-        $this->load->view('comment_veiw.php',$data);
-        $this->load->view('footer.php',$data);
+       $this->_renderView('comment_veiw',$data);
     }
 
 }

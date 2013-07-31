@@ -15,6 +15,7 @@ class Cms extends CI_Model {
 	public $_lowerSlider = 'lower_slider';
         public $_user = 'users';
         public $_blogtable = 'blog';
+        public $_commenttable = 'comments';
 	public $result = null;
 
 	function __construct()
@@ -146,13 +147,54 @@ class Cms extends CI_Model {
 	
 		return $this->result;
 	}
-        function get_comment_list($limit=3)
-	{
-                $query = $this->db->get($this->_blogtable, $limit);
+        function get_blogDetail($blogID) {
+                $query = $this->db->get_where($this->_blogtable,array('id' => $blogID));
 		
+		$this->result = $query->result();
+
+		return $this->result[0];
+        }        
+        function get_all_comment_list($blogID)
+	{
+               
+                $query = $this->db->order_by('timestamp', 'DESC')->get_where($this->_commenttable,array('blog_id' => $blogID,'status'=>'1'));
+		//echo $this->db->last_query();
 		$this->result = $query->result();
 	
 		return $this->result;
+	}
+        function get_recent_comment_list($id,$limit=3)
+	{
+                $query = $this->db->order_by('timestamp', 'DESC')->get_where($this->_commenttable,array('blog_id =' => $id,'status'=>'1'),$limit);
+		//echo $this->db->last_query();
+		$this->result = $query->result();
+	
+		return $this->result;
+	}
+	
+        function insert_comment($posted)
+	{
+            $i_ret_=0; ////Returns false
+            if(!empty($posted))
+            {
+                                $s_qry="Insert Into ".$this->_commenttable." Set ";
+                                $s_qry.=" blog_id=? ";
+                                $s_qry.=", comment_text=? ";
+                                $s_qry.=", author=? ";
+                                $s_qry.=", status=? ";
+                                $this->db->query($s_qry,array(
+                                $posted["blog_id"],
+                                $posted["comment"],
+                                $posted["author"],
+                                '0',
+             ));
+                //echo $this->db->last_query();
+                //die();
+                $i_ret_=$this->db->insert_id();     
+                
+            }
+            unset($s_qry, $info );
+            return $i_ret_;
 	}
 	
         //function for getting gallery page content

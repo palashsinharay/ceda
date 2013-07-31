@@ -8,6 +8,10 @@
 //echo "</pre>";
 //
 //die();
+//echo "<pre>";
+//print_r($recentcommentList);
+//echo "</pre>";
+
 ?>
         
         <!-- Example row of columns -->
@@ -20,7 +24,14 @@
                         
                         
                         
-                        <?php foreach ($blogList as $value): ?>  
+                        <?php 
+                        foreach ($blogList as $value): 
+                        $data['recentcommentList'] = $this->Cms->get_recent_comment_list($value->id);
+//                        echo "<pre>";
+//                        print_r($data['recentcommentList']);
+//                        echo "</pre>";
+
+                        ?>  
                         <div class="span8">
                         
                         <hr />
@@ -29,26 +40,33 @@
                             <div class="media-body well">
                             
                                           <div class="pull-left" style="margin-left:40px">
-                                          <strong>Blog name</strong>
-                                          <br/>
-                                          <br/>
                                           <ul class="media-list">
-                                          <li><?php echo $value->title; ?></li>
+                                          <li><h2><a href="<?php echo base_url('blog/blogdetail').'/'.$value->id; ?>"><?php echo $value->title; ?></a></h2></li>
                                           </ul>
                                           </div>
                                           
                                           
                                           <div class="clearfix"></div>
                                           <div class="span5" style="margin-left:40px">
-                                          <h5>Description</h5>
-                                          <p><?php echo $value->desc; ?></p>
+                                          <p><?php echo substr($value->desc,0,100); ?></p>
+                                          <span class="pull-right"><p><a href="<?php echo base_url('blog/blogdetail').'/'.$value->id; ?>">....more</a></p></span>
                                           </div>
-                                          
                                           <div class="clearfix"></div>
+                                         
                                           <div class="span5" style="margin-left:40px">
-                                          
-                                          <p><a href="/blog/comment/<?php echo $value->id;?>">Comment</a></p>
+                                          <h5>Comments</h5>
                                           </div>
+                                         <?php  foreach ($data['recentcommentList'] as $commentvalue): ?>
+                                          
+                                          <div class="span5" style="margin-left:40px">
+                                         
+                                          <p><?php echo $commentvalue->comment_text; ?></p>
+                                          </div>
+                                         <?php  endforeach; ?>
+                                          <div class="clearfix"></div>
+<!--                                          <div class="span5" style="margin-left:40px">
+                                          <p><a href="/blog/comment/<?php echo $value->id;?>">Comment</a></p>
+                                          </div>-->
                                          
                                 </div>
                                 </div> 
@@ -58,7 +76,19 @@
                        
                     </div>
                 </div>
-           
+        <div class="span3 well">
+                    <h4>Support</h4>
+                    <img style="margin-bottom:5px;" src="<?php echo base_url('img/support.jpg')?>" alt="">
+                    <address>
+                            <strong>Ceda, Inc.</strong><br>
+                            795 Folsom Ave, Suite 600<br>
+                            San Francisco, CA 94107<br>
+                            <abbr title="Phone">USA Toll-free:</abbr> +1-888-268-6154
+                            <abbr title="email">Email:</abbr>support@ceda.in
+                            </address>
+                        <img style="margin-bottom:5px;" src="http://images.batronix.com/logo/cc_payment.png" alt=""><br><img src="http://images.batronix.com/logo/Paypal-Logo.png" alt="">
+                         <p>Credit Card, PayPal, Bank Transfer, Cash On Delivery</p>
+               </div>     
      
             </div>
             <hr>
