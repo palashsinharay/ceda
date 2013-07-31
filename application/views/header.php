@@ -146,7 +146,7 @@ function googleTranslateElementInit() {
                                         
                                             
                                         
-                                          <a class="" href="/main/productList/<?php echo $value->cat_id;?>"> <img alt="150x120" src="<?php echo base_url('assets/uploads/files/category/thumb/'.$value->cat_image) ;?>" width="100" height="80"> </a>
+                                              <a class="" href="<?php echo base_url('main/productList').'/'.$value->cat_id;?>"> <img alt="150x120" src="<?php echo base_url('assets/uploads/files/category/thumb/'.$value->cat_image) ;?>" width="100" height="80"> </a>
                                           <h4><?php echo $value->cat_name; ?></h4>
                                           <ul class="media-list">
                                             <?php foreach ($data['productList'] as $pvalue): ?>
