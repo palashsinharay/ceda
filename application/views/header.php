@@ -30,6 +30,7 @@
             body {
 /*                padding-top: 125px;*/
                 padding-bottom: 40px;
+                 background: url("img/gradient.png") repeat-x scroll 0 0 #FCF9F3;
             }
         </style>
         <link rel="stylesheet" href="<?php echo base_url('css/bootstrap-responsive.css')?>">
@@ -47,7 +48,7 @@
 
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
 
-        <div class="navbar navbar-inverse">
+        <div class="navbar navbar-inverse navbar-static-top">
             <div class="navbar-inner">
                 <div class="container">
                     <div class="row">
@@ -58,7 +59,7 @@
                     <div class="span3 pull-right">
                             <div id="google_translate_element" ></div><script type="text/javascript">
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 }
 </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         

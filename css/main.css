@@ -45,6 +45,10 @@
 .well-ceda {
 	margin-bottom:5px;
 }
+.well {
+        background-color: white;
+        border: 1px solid #DBDBDB;
+}
 .product-image-left-ceda{
 	margin-left:3px;
 }
