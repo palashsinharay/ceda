@@ -101,6 +101,19 @@ class Main extends CI_Controller {
        $this->_renderView('news_detail',$data);
     }
     
+    function productdetail($productID)
+    {
+       $data['newsList'] = $this->Cms->get_news_list();
+        $data['productDetail'] = $this->Cms->get_productDetail($productID);
+       
+//        echo "<pre>";
+//        print_r($data['productDetail']);
+//        echo "</pre>" ;
+//        die();
+
+       $this->_renderView('product_details',$data);
+    }
+    
     public function page($id)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);

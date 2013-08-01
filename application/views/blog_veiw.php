@@ -72,8 +72,10 @@
                                 </div> 
                         </div>                        
                        
-                       <?php endforeach;?>   
-                       
+                       <?php endforeach;
+                      
+                       ?>   
+                      
                     </div>
                 </div>
         <div class="span3 well">
