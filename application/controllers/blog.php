@@ -52,7 +52,7 @@ class Blog extends CI_Controller {
     {
         $data['newsList'] = $this->Cms->get_news_list();
         $data['blogDetail'] = $this->Cms->get_blogDetail($blogID);
-        $data['allcommentList'] = $this->Cms->get_all_comment_list($data['blogDetail']->id);
+        $data['allcommentList'] = $this->Cms->get_all_comment_list($data['blogDetail']->blog_id);
 //        echo "<pre>";
 //        print_r($data);
 //        echo "</pre>" ;

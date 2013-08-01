@@ -26,7 +26,7 @@
                         
                         <?php 
                         foreach ($blogList as $value): 
-                        $data['recentcommentList'] = $this->Cms->get_recent_comment_list($value->id);
+                        $data['recentcommentList'] = $this->Cms->get_recent_comment_list($value->blog_id);
 //                        echo "<pre>";
 //                        print_r($data['recentcommentList']);
 //                        echo "</pre>";
@@ -41,7 +41,7 @@
                             
                                           <div class="pull-left" style="margin-left:40px">
                                           <ul class="media-list">
-                                          <li><h2><a href="<?php echo base_url('blog/blogdetail').'/'.$value->id; ?>"><?php echo $value->title; ?></a></h2></li>
+                                          <li><h2><a href="<?php echo base_url('blog/blogdetail').'/'.$value->blog_id; ?>"><?php echo $value->title; ?></a></h2></li>
                                           </ul>
                                           </div>
                                           
@@ -49,7 +49,7 @@
                                           <div class="clearfix"></div>
                                           <div class="span5" style="margin-left:40px">
                                           <p><?php echo substr($value->desc,0,100); ?></p>
-                                          <span class="pull-right"><p><a href="<?php echo base_url('blog/blogdetail').'/'.$value->id; ?>">....more</a></p></span>
+                                          <span class="pull-right"><p><a href="<?php echo base_url('blog/blogdetail').'/'.$value->blog_id; ?>">....more</a></p></span>
                                           </div>
                                           <div class="clearfix"></div>
                                          

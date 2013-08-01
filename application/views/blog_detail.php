@@ -34,7 +34,7 @@
                     
                     <hr/>
                     <form action="#" method="post">
-                        <input type="hidden" name="blog_id" id="blog_id" value="<?php echo $blogDetail->id;?>" />   
+                        <input type="hidden" name="blog_id" id="blog_id" value="<?php echo $blogDetail->blog_id;?>" />   
                     <h4>Add comment</h4>
                     <textarea class="form-control" rows="3" id="comment"></textarea>
                     <br/>

@@ -139,16 +139,16 @@ class Cms extends CI_Model {
         
         
                 //function for getting gallery page content
-	function get_blog_list($limit=3)
+	function get_blog_list($limit=10)
 	{
-                $query = $this->db->get($this->_blogtable, $limit);
+                $query = $this->db->order_by('timestamp', 'DESC')->get($this->_blogtable, $limit);
 		
 		$this->result = $query->result();
 	
 		return $this->result;
 	}
         function get_blogDetail($blogID) {
-                $query = $this->db->get_where($this->_blogtable,array('id' => $blogID));
+                $query = $this->db->get_where($this->_blogtable,array('blog_id' => $blogID));
 		
 		$this->result = $query->result();
 

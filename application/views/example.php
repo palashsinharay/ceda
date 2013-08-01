@@ -43,8 +43,11 @@ a:hover
                 <li id="about"><a href='<?php echo base_url('admin/service')?>'>Service</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/product_categorie')?>'>Product Category</a></li>
                 <li id="contact"><a href='<?php echo base_url('admin/products')?>'>Products</a></li>
+                <li id="contact"><a href='<?php echo base_url('admin/products')?>'>Product Images</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/contactus')?>'>Contact Us</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/news')?>'>News</a></li>
+                <li id="services"><a href='<?php echo base_url('admin/blog')?>'>Blog</a></li>
+                <li id="services"><a href='<?php echo base_url('admin/comments')?>'>Comments</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/siteconfig')?>'>Site Config</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/logout')?>'>logout</a></li>
                 

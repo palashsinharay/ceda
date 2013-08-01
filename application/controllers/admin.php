@@ -220,7 +220,7 @@ class Admin extends CI_Controller {
     $crud->set_theme('datatables');
     $crud->set_table('product')
         ->set_subject('Product')
-        ->columns('name','desc','cat_id','price','application','specs','cataloge','image','product_meta','status','featured','review','stock')
+        ->columns('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','status','featured','review','stock')
         ->display_as('name','Product Name')
         ->display_as('desc','Product Description')
         ->display_as('cat_id','Product Category')
@@ -228,7 +228,9 @@ class Admin extends CI_Controller {
         ->display_as('application','Application')
         ->display_as('specs','Specs')
         ->display_as('cataloge','Cataloge')    
-        ->display_as('image','Product image')
+        ->display_as('image','Product Front Image')
+        ->display_as('image2','Product Rear image')
+        ->display_as('image3','Product Side image')
         ->display_as('product_meta','Product Meta')
         ->display_as('status','status')
         ->display_as('featured','Featured')
@@ -237,7 +239,7 @@ class Admin extends CI_Controller {
 
 
     //below code is for edit and add
-    $crud->fields('name','desc','cat_id','price','application','specs','cataloge','image','product_meta','status','featured','review','stock');
+    $crud->fields('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','status','featured','review','stock');
     //$crud->required_fields('title','email',);
 
 
@@ -247,6 +249,8 @@ class Admin extends CI_Controller {
     //below code is for file upload
     $crud->set_field_upload('cataloge','assets/uploads/files');
     $crud->set_field_upload('image','assets/uploads/files');
+    $crud->set_field_upload('image2','assets/uploads/files');
+    $crud->set_field_upload('image3','assets/uploads/files');
     //$crud->set_relation('cid','cmspage','menutitle');
     $crud->set_relation('cat_id','product_category','cat_name');
     $output = $crud->render();
@@ -305,6 +309,7 @@ if ( ! $this->image_lib->resize())
     $this->_example_output($output);
 }
 
+   
 
 
     function  contactus() {
@@ -375,6 +380,51 @@ if ( ! $this->image_lib->resize())
     $output = $crud->render();
     $this->_example_output($output);
 } 
+
+ function  blog() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('blog')
+        ->set_subject('Blog')
+        ->columns('title','desc','timestamp','author')
+        ->display_as('title','Blog Title')
+        ->display_as('desc','Blog Content')
+        ->display_as('timestamp','Post Time')       
+        ->display_as('author','Author');
+
+
+    //below code is for edit and add
+    $crud->fields('title','desc','author');
+    $crud->required_fields('title','desc','author');
+    $output = $crud->render();
+    $this->_example_output($output);
+} 
+
+function  comments() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('comments')
+        ->set_subject('Comments')
+        ->columns('blog_id','comment_text','author','status','timestamp')
+        ->display_as('blog_id','Blog Title')
+        ->display_as('comment_text','Comment')
+        ->display_as('timestamp','Post Time')       
+        ->display_as('author','Author')
+        ->display_as('status','Status');
+
+
+    //below code is for edit and add
+    $crud->fields('blog_id','comment_text','author','status');
+    $crud->required_fields('blog_id','comment_text','author','status');
+    $crud->set_relation('blog_id','blog','title');
+    $output = $crud->render();
+    $this->_example_output($output);
+} 
+
 
 }
  
