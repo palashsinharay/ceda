@@ -51,14 +51,36 @@
         <script src="<?php echo base_url('js/vendor/bootstrap.min.js')?>"></script>
 
         <script src="<?php echo base_url('js/main.js')?>"></script>
-
+ <script src="<?php echo base_url('js/bootstrap-magnify.min.js')?>"></script>
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
             g.src='//www.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
+   <script>
+            
+    $(function () {
+    $('#myTab a:first').tab('show');
+//    $('.cont img#1b').hide(); 
+    $('.cont img#2b').hide(); 
+    $('.cont img#3b').hide();
+    $('.cont img').magnify();
     
+                $('.zoomthumb img').click( function(){
+                    var t = $(this).attr("id")
+                    $('.cont img#1b').hide(); 
+                    $('.cont img#2b').hide(); 
+                    $('.cont img#3b').hide(); 
+                    $('.cont img#'+t+'b').show();  
+                });
+    })
+    
+    $('#myTab a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+    })
+    </script>   
 <script type="text/javascript">
 $(document).ready(function() {
 

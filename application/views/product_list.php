@@ -31,7 +31,7 @@
                            <div class="media">
                            <div class="span2 pull-left product-image-left-ceda">
                         
-                            <a href="#">
+                            <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>">
                                  <h4 class="media-heading"><?php echo $value->name; ?></h4>
                                  <img class="media-object" src="<?php echo base_url('img/product.jpg')?>">
                             </a><br />

@@ -33,6 +33,8 @@ class Blog extends CI_Controller {
     }    
     function index()
     {
+        
+        
         $data['newsList'] = $this->Cms->get_news_list();
         $data['blogList'] = $this->Cms->get_blog_list();
 //        foreach ($data['blogList']as $value)
