@@ -88,6 +88,19 @@ class Main extends CI_Controller {
 
     }
     
+    function newsdetail($newsID)
+    {
+       $data['newsList'] = $this->Cms->get_news_list();
+        $data['newsDetail'] = $this->Cms->get_news_content($newsID);
+       
+//        echo "<pre>";
+//        print_r($data['blogDetail']);
+//        echo "</pre>" ;
+//        die();
+
+       $this->_renderView('news_detail',$data);
+    }
+    
     public function page($id)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);

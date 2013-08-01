@@ -222,8 +222,8 @@ function googleTranslateElementInit() {
                        <lable class="label">News updates</lable>
                     <ul  class="media-list">
                         <?php foreach ($newsList as $value): ?>  
-                        <li><h5><a href="#"><?php echo $value->title;?></a></h5>
-                        <p><?php echo $value->description;?></p>
+                        <li><h5><a href="<?php echo base_url('main/newsdetail').'/'.$value->id;?>"><?php echo $value->title;?></a></h5>
+                        <?php echo substr($value->description,0,150);?>
                     </li>
                     <?php endforeach;?>
                                  
