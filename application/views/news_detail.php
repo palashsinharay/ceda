@@ -60,7 +60,7 @@
                 
                 <div class="span3 well">
                     <h4>Support</h4>
-                    <img style="margin-bottom:5px;" src="img/support.jpg" alt="">
+                    <img style="margin-bottom:5px;" src="<?php echo base_url('img/support.jpg')?>" alt="">
                     <address>
                             <strong>Ceda, Inc.</strong><br>
                             795 Folsom Ave, Suite 600<br>
