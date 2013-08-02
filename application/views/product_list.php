@@ -33,7 +33,7 @@
                         
                             <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>">
                                  <h4 class="media-heading"><?php echo $value->name; ?></h4>
-                                 <img class="media-object" src="<?php echo base_url('img/product.jpg')?>">
+                                 <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$value->image);?>">
                             </a><br />
                             </div>
                             <div class="media-body well">

@@ -27,11 +27,13 @@ class Main extends CI_Controller {
     public function _renderView($page,$data) {
                 
                  $data['allCategoryData'] = $this->Cms->get_product_cat();
+                 $data['allServicesData'] = $this->Cms->get_service_list();
+                 $data['cmsData'] = $this->Cms->get_page_content_all();
                  
                  //$data['top_menu']=$this->Cms->get_topmenu(); 
                 //$data['product_cat']=$this->Cms->get_product_cat();
 //                echo "<pre>";
-//                print_r($data['top_menu']);
+//                print_r($data['allServicesData']);
 //		echo "</pre>";
 //		die();
                 
@@ -87,6 +89,20 @@ class Main extends CI_Controller {
         
 
     }
+   public function newsList()
+    {
+                $data['newsListAll'] = $this->Cms->get_news_list_all();
+                 $data['newsList'] = $this->Cms->get_news_list();
+//                echo "<pre>";
+//                print_r($data['newsList']);
+//		echo "</pre>";
+//		die();
+	           
+                $this->_renderView('news_list',$data);
+        
+        
+
+    }
     
     function newsdetail($newsID)
     {
@@ -99,6 +115,19 @@ class Main extends CI_Controller {
 //        die();
 
        $this->_renderView('news_detail',$data);
+    }
+    
+      function servicedetail($serviceID)
+    {
+        $data['newsList'] = $this->Cms->get_news_list();
+         $data['serviceDetail'] = $this->Cms->get_service_content($serviceID);
+       
+//        echo "<pre>";
+//        print_r($data['serviceDetail']);
+//        echo "</pre>" ;
+//        die();
+
+       $this->_renderView('service',$data);
     }
     
     function productdetail($productID)
@@ -117,19 +146,15 @@ class Main extends CI_Controller {
     public function page($id)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
-
+                $data['newsList'] = $this->Cms->get_news_list();
 //		echo "<pre>";
 //              print_r($data['pageDetail']);
 //		echo "</pre>";
 //		die();
                 switch ($data['pageDetail']->type) {
-                    case 'content':$this->_renderView('inner_page',$data);
+                    case 'content':$this->_renderView('inner',$data);
                         break;
-                    case 'product':$this->_renderView('inner_page',$data);
-                        break;
-                     case 'contact':$this->_renderViewContact('contact_us',$data);
-                        break;
-                     case 'enquiry':$this->_renderViewContact('enquiry',$data);
+                    case 'contact':$this->_renderViewContact('contact_us',$data);
                         break;
                     default:
                       $this->_renderView('inner_page',$data);

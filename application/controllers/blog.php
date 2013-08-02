@@ -27,6 +27,9 @@ class Blog extends CI_Controller {
  public function _renderView($page,$data) {
                 
                 $data['allCategoryData'] = $this->Cms->get_product_cat();
+                $data['cmsData'] = $this->Cms->get_page_content_all();
+                $data['allServicesData'] = $this->Cms->get_service_list();
+                
                 $this->load->view('header.php',$data);
                 $this->load->view($page.'.php',$data);
                 $this->load->view('footer.php',$data);

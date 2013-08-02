@@ -7,9 +7,9 @@
             <!--<p>&copy; Company 2012</p>-->
                 <div class="span3 "><strong>Links</strong><br><br>
                 <ul class="media-list">
-                <li><a href="">Home</a></li>
-                <li><a href="">About Us</a></li>
-                <li><a href="">Services</a></li>
+                <li><a href="<?php echo base_url();?>">Home</a></li>
+                <li><a href="<?php echo base_url('main/page').'/11';?>">About Us</a></li>
+                <li><a href="<?php echo base_url('main/newsList');?>">News List</a></li>
                 <li><a href="">Contact Us</a></li>
                 
                 

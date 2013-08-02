@@ -90,7 +90,7 @@
                             </address>
                         <img style="margin-bottom:5px;" src="http://images.batronix.com/logo/cc_payment.png" alt=""><br><img src="http://images.batronix.com/logo/Paypal-Logo.png" alt="">
                          <p>Credit Card, PayPal, Bank Transfer, Cash On Delivery</p>
-               </div>     
+        </div>     
      
             </div>
             <hr>

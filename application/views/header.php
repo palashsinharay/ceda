@@ -10,6 +10,9 @@
 //echo "<pre>";
 //print_r($allCategoryData);
 //echo "</pre>";
+//echo "<pre>";
+//print_r($allServicesData);
+//echo "</pre>";
 //die();
 ?>
 
@@ -86,49 +89,27 @@ function googleTranslateElementInit() {
                            <ul class="nav">
                             <!-- Classic list -->
                             <li>
-                            <a href="#"> Home </a>
+                            <a href="<?php echo base_url();?>"> Home </a>
                             </li>
-                            <!-- Accordion demo -->
-                            <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Classic <b class="caret"></b> </a><!-- Classic Dropdown -->
-                              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                <li>
-                                  <a tabindex="-1" href="#"> Action </a>
-                                </li>
-                                <li>
-                                  <a tabindex="-1" href="#"> Another action </a>
-                                </li>
-                                <li>
-                                  <a tabindex="-1" href="#"> Something else here </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                  <a tabindex="-1" href="#"> Separated link </a>
-                                </li>
-                              </ul>
+                            <?php foreach ($cmsData as $value): ?>  
+                            <li>
+                            <a href="<?php echo base_url('main/page').'/'.$value->cid;?>"> <?php echo $value->menutitle; ?> </a>
                             </li>
+                            <?php endforeach;?> 
                             <!-- Classic dropdown -->
                             <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Classic <b class="caret"></b> </a><!-- Classic Dropdown -->
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Services <b class="caret"></b> </a><!-- Classic Dropdown -->
                               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                <li>
-                                  <a tabindex="-1" href="#"> Action </a>
+                               <?php foreach ($allServicesData as $value): ?>  
+                                  <li>
+                                  <a tabindex="-1" href="<?php echo base_url('main/servicedetail').'/'.$value->s_id;?>"> <?php echo $value->s_name; ?> </a>
                                 </li>
-                                <li>
-                                  <a tabindex="-1" href="#"> Another action </a>
-                                </li>
-                                <li>
-                                  <a tabindex="-1" href="#"> Something else here </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                  <a tabindex="-1" href="#"> Separated link </a>
-                                </li>
+                               <?php endforeach;?>   
                               </ul>
                             </li>
                             <!-- Pictures -->
                          <li class="dropdown yamm-fullwidth">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Pictures <b class="caret"></b> </a>
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Products <b class="caret"></b> </a>
                               <ul class="dropdown-menu">
                                 <li>
                                   <div class="yamm-content">
@@ -152,7 +133,7 @@ function googleTranslateElementInit() {
                                           <h4><?php echo $value->cat_name; ?></h4>
                                           <ul class="media-list">
                                             <?php foreach ($data['productList'] as $pvalue): ?>
-                                                 <li><a href="#"><?php echo $pvalue->name; ?></a></li>
+                                                 <li><a href="<?php echo base_url('main/productdetail').'/'.$pvalue->pid;?>"><?php echo $pvalue->name; ?></a></li>
                                             <?php  endforeach;?> 
                                               
                                           </ul>
@@ -175,6 +156,10 @@ function googleTranslateElementInit() {
                                   </div>
                                 </li>
                               </ul>
+                            </li>
+                            
+                            <li>
+                            <a href="<?php echo base_url('blog').'/';?>"> Blog </a>
                             </li>
 
                           </ul>
@@ -228,7 +213,7 @@ function googleTranslateElementInit() {
                         <?php echo substr($value->description,0,150);?>
                     </li>
                     <?php endforeach;?>
-                                 
+                <span class="pull-right"><p><a href="<?php echo base_url('main/newsList');?>">All News</a></p></span>                 
                                    
                     </ul>
                     </div>

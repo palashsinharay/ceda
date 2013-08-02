@@ -9,7 +9,7 @@ class Cms extends CI_Model {
 	public $_topmenu = 'topmenu';
 	public $_product = 'product';
         public $_newstable = 'news';
-        public $_tender = 'tender';
+        public $_service= 'service';
 	public $_resource_center = 'resource_center';
 	public $_categories = 'product_category';
 	public $_lowerSlider = 'lower_slider';
@@ -125,7 +125,15 @@ class Cms extends CI_Model {
 		$this->result = $query->result();
 	
 		return $this->result;
-	}	
+	}
+        function get_news_list_all()
+	{
+                $query = $this->db->get($this->_newstable);
+		
+		$this->result = $query->result();
+	
+		return $this->result;
+	}
 	
 	//function for getting cms page content
 	function get_news_content($id)
@@ -232,9 +240,21 @@ class Cms extends CI_Model {
 
 		return $this->result[0];
         }
-	function get_recruitment_content($id)
+        
+        function get_service_list()
+        {
+            
+            $query = $this->db->get_where($this->_service,array());
+	
+            $this->result = $query->result();
+
+            return $this->result;
+        }
+        
+        
+	function get_service_content($id)
 	{
-		$query = $this->db->get_where($this->_job,array('id =' => $id));
+		$query = $this->db->get_where($this->_service,array('s_id =' => $id));
 		
 		$this->result = $query->result();
 		

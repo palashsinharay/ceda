@@ -15,7 +15,7 @@
                         <div class="span7">
                                <div class="media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object" src="<?php echo base_url('img/product.jpg')?>">
+                                    <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$value->image);?>" height="150" width="150">
                                 </a>
                                 <div class="media-body">
                                 <h4 class="media-heading"><?php echo $value->name;?></h4>
