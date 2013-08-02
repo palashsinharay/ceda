@@ -13,7 +13,13 @@
 //echo "<pre>";
 //print_r($allServicesData);
 //echo "</pre>";
+
+//echo "<pre>";
+//print_r($siteConfig);
+//echo "</pre>";
+
 //die();
+
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +30,29 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>CEDA</title>
-        <meta name="description" content="">
+        <title><?php echo $siteConfig->sitename;?></title>
+    
+        <?php if(isset($productDetail)):?>
+        <meta name="description" content="<?php echo $productDetail->product_meta;?>">
+        <meta name="keywords" content="<?php echo $productDetail->product_meta_key;?>"/>
+         <?php elseif(isset($newsDetail)):?>
+        <meta name="description" content="<?php echo $newsDetail->news_meta_desc;?>">
+        <meta name="keywords" content="<?php echo $newsDetail->news_meta_key;?>"/>
+        <?php elseif(isset($serviceDetail)): ?>
+        <meta name="description" content="<?php echo $serviceDetail->s_meta_desc;?>">
+        <meta name="keywords" content="<?php echo $serviceDetail->s_meta_key;?>"/>
+        <?php elseif(isset($pageDetail)): ?>
+        <meta name="description" content="<?php echo $pageDetail->metadesc;?>">
+        <meta name="keywords" content="<?php echo $pageDetail->metakey;?>"/>
+        <?php elseif(isset($blogDetail)): ?>
+        <meta name="description" content="<?php echo $blogDetail->metadesc;?>">
+        <meta name="keywords" content="<?php echo $blogDetail->metakey;?>"/>
+        <?php else: ?>
+        <meta name="description" content="<?php echo $siteConfig->metadesc;?>">
+        <meta name="keywords" content="<?php echo $siteConfig->metakey;?>"/>
+        <?php endif; ?>
+        
+        
         <meta name="viewport" content="width=device-width">
         <meta name="google-translate-customization" content="883dcd8b29005853-d7cc32e011376955-g4ced92e47c2679ac-13"></meta>
         <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css')?>">

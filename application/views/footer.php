@@ -10,7 +10,7 @@
                 <li><a href="<?php echo base_url();?>">Home</a></li>
                 <li><a href="<?php echo base_url('main/page').'/11';?>">About Us</a></li>
                 <li><a href="<?php echo base_url('main/newsList');?>">News List</a></li>
-                <li><a href="">Contact Us</a></li>
+                <li><a href="<?php echo base_url('main/contact_us');?>">Contact Us</a></li>
                 
                 
                 
@@ -125,6 +125,83 @@ ajax 	: '1'
 return false;
 });
 
+
+$('#submit_contact').click(function() {
+//alert("hiiiiiiiii");
+//alert($('#name').val());
+//alert($('#email').val());
+//alert($('#state').val());
+//alert($('#stateprovince').val());
+//alert($('#country').val());
+//alert($('#message').val());
+var form_data = {
+name            : $('#name').val(),
+email           : $('#email').val(),
+state           : $('#state').val(),
+stateprovince 	: $('#stateprovince').val(),
+country 	: $('#country').val(),
+message 	: $('#message').val(),
+ajax 	: '1'
+};
+		
+		//alert($('#cap_div').text());	
+		if($('#name').val()=='')
+			{
+					//alert("Enter NAME");
+					msg="Name Field must not be blank !";
+					$('.success-message').html(msg);
+					$('.success-message').fadeIn(500).show();
+					return false;
+								
+			}
+                else if($('#email').val()=='')
+			{
+					//alert("Enter NAME");
+					msg="Email Field must not be blank !";
+					$('.success-message').html(msg);
+					$('.success-message').fadeIn(500).show();
+					return false;
+								
+			}        
+               else if(!validateEmail($('#email').val()))
+			{
+                         msg="Please provide a valid email address !";
+			//alert("Please provide a valid email address !");
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
+			return false;
+			}        
+
+                        else
+			{
+				$.ajax({
+				url: "<?php echo site_url('main/contactus_email'); ?>",
+				//url: "main/email_send",
+				type: 'POST',
+				async : false,
+				data: form_data,
+				success: function(msg) {
+				//alert(msg);
+				
+				$('.success-message').html(msg);
+				$('.success-message').fadeIn(500).show();
+				
+				}
+				});
+		
+		
+		}
+return false;
+});
+
+function validateEmail(user_email){
+   var filter = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{1,4}$/;
+    if(filter.test(user_email)){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 
 });

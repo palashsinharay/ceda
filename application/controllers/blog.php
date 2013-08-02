@@ -29,6 +29,7 @@ class Blog extends CI_Controller {
                 $data['allCategoryData'] = $this->Cms->get_product_cat();
                 $data['cmsData'] = $this->Cms->get_page_content_all();
                 $data['allServicesData'] = $this->Cms->get_service_list();
+                $data['siteConfig'] = $this->Cms->site_config_all();
                 
                 $this->load->view('header.php',$data);
                 $this->load->view($page.'.php',$data);
