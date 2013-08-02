@@ -12,10 +12,11 @@ class Cms extends CI_Model {
         public $_service= 'service';
 	public $_resource_center = 'resource_center';
 	public $_categories = 'product_category';
-	public $_lowerSlider = 'lower_slider';
+	public $_config = 'siteconfig';
         public $_user = 'users';
         public $_blogtable = 'blog';
         public $_commenttable = 'comments';
+        public $_contactus = 'contactus';
 	public $result = null;
 
 	function __construct()
@@ -209,6 +210,35 @@ class Cms extends CI_Model {
             unset($s_qry, $info );
             return $i_ret_;
 	}
+        
+       function insert_contact($posted)
+	{
+            $i_ret_=0; ////Returns false
+            if(!empty($posted))
+            {
+                                $s_qry="Insert Into ".$this->_contactus." Set ";
+                                $s_qry.=" name=? ";
+                                $s_qry.=",email=? ";
+                                $s_qry.=",state=? ";
+                                $s_qry.=",province=? ";
+                                $s_qry.=",country=? ";
+                                $s_qry.=",message=? ";
+                                $this->db->query($s_qry,array(
+                                $posted["name"],
+                                $posted["email"],
+                                $posted["state"],
+                                $posted["stateprovince"],
+                                $posted["country"],
+                                $posted["message"],
+             ));
+                //echo $this->db->last_query();
+                //die();
+                $i_ret_=$this->db->insert_id();     
+                
+            }
+            unset($s_qry, $info );
+            return $i_ret_;
+	}
 	
         //function for getting gallery page content
 	
@@ -342,7 +372,16 @@ class Cms extends CI_Model {
             }
 
 		
-        }        
+        } 
+        
+        function site_config_all()
+	{
+                $query = $this->db->get($this->_config);
+		
+		$this->result = $query->result();
+	
+		return $this->result[0];
+	}
         
 
 	}	

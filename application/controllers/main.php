@@ -29,11 +29,12 @@ class Main extends CI_Controller {
                  $data['allCategoryData'] = $this->Cms->get_product_cat();
                  $data['allServicesData'] = $this->Cms->get_service_list();
                  $data['cmsData'] = $this->Cms->get_page_content_all();
+                 $data['siteConfig'] = $this->Cms->site_config_all();
                  
                  //$data['top_menu']=$this->Cms->get_topmenu(); 
                 //$data['product_cat']=$this->Cms->get_product_cat();
 //                echo "<pre>";
-//                print_r($data['allServicesData']);
+//                print_r($data['siteConfig']);
 //		echo "</pre>";
 //		die();
                 
@@ -206,8 +207,8 @@ class Main extends CI_Controller {
 				
                         //$data['contact_us_data']=$this->Cms->get_page_content(19);
 		       
-                        $data='';
-                        $this->_renderViewContact('contact_us',$data);
+                        $data['newsList'] = $this->Cms->get_news_list();
+                        $this->_renderView('contact',$data);
     }
  	
     public function contactus_email()
@@ -218,8 +219,9 @@ class Main extends CI_Controller {
                             $posted=array();
                             $posted["name"]  	= trim($this->input->post("name"));
                             $posted["email"]  	= trim($this->input->post("email"));
-                            $posted["mobile"]  	= trim($this->input->post("mobile"));
-                            $posted["address"]  = trim($this->input->post("address"));
+                            $posted["state"]  	= trim($this->input->post("state"));
+                            $posted["stateprovince"]  = trim($this->input->post("stateprovince"));
+                            $posted["country"]  = trim($this->input->post("country"));
                             $posted["message"]  = trim($this->input->post("message"));
 //                            echo "hello";
 //                            echo "<pre>";
@@ -232,8 +234,9 @@ class Main extends CI_Controller {
                             //$this->form_validation->set_rules('lname', 'lname', 'trim|required|xss_clean');
                             $this->form_validation->set_rules('name', 'name', 'trim|required|xss_clean');
                             $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
-                            $this->form_validation->set_rules('mobile', 'mobile', 'trim|required|xss_clean');
-                            $this->form_validation->set_rules('address', 'address', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('state', 'state', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('stateprovince', 'stateprovince', 'trim|required|xss_clean');
+                            $this->form_validation->set_rules('country', 'country', 'trim|required|xss_clean');
                             $this->form_validation->set_rules('message', 'message', 'trim|required|xss_clean');
                             $this->form_validation->set_message('required', 'Please fill in the fields');
                             if($this->form_validation->run() == FALSE)/////invalid
@@ -244,7 +247,7 @@ class Main extends CI_Controller {
                             else
                             {
                             // ------------------ email send code start ------------------ //
-
+                            $i_newid=$this->Cms->insert_contact($posted);
                             $message='
                             <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
                             "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -254,8 +257,9 @@ class Main extends CI_Controller {
                             <table>
                             <tr><td>Name:</td><td>' .  $posted['name'].'</td></tr>
                             <tr><td>Email:</td><td>' . $posted["email"] . '</td></tr>
-                            <tr><td>Mobile:</td><td>' . $posted["mobile"] . '</td></tr>
-                            <tr><td>Address:</td><td>' . $posted["address"] . '</td></tr>
+                            <tr><td>State:</td><td>' . $posted["state"] . '</td></tr>
+                            <tr><td>Province:</td><td>' . $posted["stateprovince"] . '</td></tr>
+                            <tr><td>Country:</td><td>' . $posted["country"] . '</td></tr>    
                             <tr><td>Message:</td><td>' . nl2br($posted["message"]) . '</td></tr>
                             </table>
                             </body>
@@ -264,7 +268,7 @@ class Main extends CI_Controller {
 
 
                            // $status = $this->email_send($message,'sahani.bunty9@gmail.com',$posted["email"]);
-                            $status = $this->email_send($message,'info@skgroups.org',$posted["email"]);
+                            $status = $this->email_send($message,'sahani.bunty@gmail.com',$posted["email"]);
 
                             if($status == 'success'){
                                echo "Thank you for contacting us"; 
