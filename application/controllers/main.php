@@ -74,29 +74,45 @@ class Main extends CI_Controller {
     }
 
     
-    public function productList($catId)
+    public function productList($catId,$offset = 0)
     {
                 $data['categoryList'] = $this->Cms->get_category_name($catId);
-                $data['productList'] = $this->Cms->get_productList($catId);
+                $data['productList'] = $this->Cms->get_productList($catId,$offset);
                 $data['newsList'] = $this->Cms->get_news_list();
+                $data['pagination_link_pro'] = $this->pagination_link_maker_pro($catId);
 //                echo "<pre>";
-//                print_r($data['newsList']);
+//                print_r($data['pagination_link']);
 //		echo "</pre>";
 //		die();
-	           
+                
                 $this->_renderView('product_list',$data);
         
         
 
     }
-   public function newsList()
+    public function productListpagei($catId,$offset)
     {
-                $data['newsListAll'] = $this->Cms->get_news_list_all();
+                $data['categoryList'] = $this->Cms->get_category_name($catId);
+                $data['productList'] = $this->Cms->get_productListlimit($catId,$offset);
+                $data['newsList'] = $this->Cms->get_news_list();
+//                echo "<pre>";
+//                print_r($data['productList']);
+//		echo "</pre>";
+//		die();
+                $this->_renderView('product_list',$data);
+	          
+
+    }
+   
+    public function newsList($offset=0)
+    {
+                $data['newsListAll'] = $this->Cms->get_news_list_all($offset);
                  $data['newsList'] = $this->Cms->get_news_list();
 //                echo "<pre>";
 //                print_r($data['newsList']);
 //		echo "</pre>";
 //		die();
+                 $data['pagination_link'] = $this->pagination_link_maker_news();
 	           
                 $this->_renderView('news_list',$data);
         
@@ -117,7 +133,7 @@ class Main extends CI_Controller {
        $this->_renderView('news_detail',$data);
     }
     
-      function servicedetail($serviceID)
+    function servicedetail($serviceID)
     {
         $data['newsList'] = $this->Cms->get_news_list();
          $data['serviceDetail'] = $this->Cms->get_service_content($serviceID);
@@ -281,7 +297,7 @@ class Main extends CI_Controller {
             }
             
             
-public function enquiry_email()
+    public function enquiry_email()
     {
                     try
                     {
@@ -403,7 +419,64 @@ public function enquiry_email()
                     show_error($err_obj->getMessage());
     }
 
-    }	
+    }
+    
+    public function pagination_link_maker_pro($param) {
+        
+        $config['base_url'] = 'http://local.ceda.com/main/productList/'.$param;
+        $config['total_rows'] = $this->Cms->rowcount('productList',$param);
+        $config['per_page'] = 1;
+        $config['full_tag_open'] = '<ul>';
+        $config['full_tag_close'] = '</ul>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['next_link'] = 'Next';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = 'Prev';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='active'><a href='#'>";
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+        $this->pagination->initialize($config);
+
+        return $this->pagination->create_links();
+    }
+    public function pagination_link_maker_news() {
+        
+        $config['base_url'] = 'http://local.ceda.com/main/newsList';
+        $config['total_rows'] = $this->Cms->rowcount('newsList');
+        $config['per_page'] = 2;
+        $config['full_tag_open'] = '<ul>';
+        $config['full_tag_close'] = '</ul>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['next_link'] = 'Next';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = 'Prev';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='active'><a href='#'>";
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        //$config['display_pages'] = FALSE; 
+        $this->pagination->initialize($config);
+        //echo $this->Cms->rowcount('newsList');
+        return $this->pagination->create_links();
+    }
 
 }
  

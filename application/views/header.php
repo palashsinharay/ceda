@@ -117,7 +117,7 @@ function googleTranslateElementInit() {
                                       <?php 
                                          $count=-1;
                                          foreach ($allCategoryData as $value):  $count++; 
-                                               $data['productList'] = $this->Cms->get_productList($value->cat_id);
+                                               $data['productList'] = $this->Cms->get_productList($value->cat_id,0);
                                            
                                          ?> 
                                     <?php if( ($count == 0)):?>
@@ -130,7 +130,7 @@ function googleTranslateElementInit() {
                                             
                                         
                                               <a class="" href="<?php echo base_url('main/productList').'/'.$value->cat_id;?>"> <img alt="150x120" src="<?php echo base_url('assets/uploads/files/category/thumb/'.$value->cat_image) ;?>" width="100" height="80"> </a>
-                                          <h4><?php echo $value->cat_name; ?></h4>
+                                          <a class="" href="<?php echo base_url('main/productList').'/'.$value->cat_id;?>"><h5><?php echo $value->cat_name; ?></h5></a>
                                           <ul class="media-list">
                                             <?php foreach ($data['productList'] as $pvalue): ?>
                                                  <li><a href="<?php echo base_url('main/productdetail').'/'.$pvalue->pid;?>"><?php echo $pvalue->name; ?></a></li>

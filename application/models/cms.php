@@ -126,9 +126,9 @@ class Cms extends CI_Model {
 	
 		return $this->result;
 	}
-        function get_news_list_all()
+        function get_news_list_all($offset)
 	{
-                $query = $this->db->get($this->_newstable);
+                $query = $this->db->get($this->_newstable,2,$offset);
 		
 		$this->result = $query->result();
 	
@@ -209,18 +209,43 @@ class Cms extends CI_Model {
             unset($s_qry, $info );
             return $i_ret_;
 	}
+        
+       //function for rowcont
+        function rowcount($param,$where = 0) {
+            
+            switch ($param) {
+                case 'productList' :
+                    
+                    $this->db->like('cat_id', $where);
+                    $this->db->from($this->_product);
+                    return $this->db->count_all_results();
+
+                    break;
+                case 'newsList' :
+                    return $this->db->count_all($this->_newstable);
+
+                    break;
+
+                default:
+                    echo "dieeeee"; die();
+                    break;
+            }
+            
+            
+        }
 	
         //function for getting gallery page content
 	
-        function get_productList($catId)
+        function get_productList($catId,$offset)
 	{
 		
-               $query = $this->db->get_where($this->_product,array('cat_id' => $catId));
+               $query = $this->db->get_where($this->_product,array('cat_id' => $catId),1,$offset);
 		
 		$this->result = $query->result();
 
 		return $this->result;
 	}
+        
 	function get_fetured_product()
 	{
 		$query = $this->db->get_where($this->_product,array('featured' => '1'),3);

@@ -70,7 +70,8 @@
                                 <div class="media-body well span4">
                                        <span class="label">Name :</span>
                                        <h5 class="offset1" style="display:inline;"><?php echo $productDetail->name;?></h5>
-                                       <br>   
+                                       <br>
+                                       <br>
                                        <span class="label">Price :</span>
                                        <h5 class="offset1" style="display:inline;">US $<?php echo $productDetail->price;?></h5>
                                        <br>
@@ -135,4 +136,5 @@
 
                
             </div>
+            
             <hr>

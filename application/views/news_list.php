@@ -42,8 +42,9 @@
        
              
              
-             
-         </div>                        
+            
+         </div>  
+            
          </div>
          </div>
                            
@@ -65,4 +66,7 @@
                              
      
             </div>
+   <div class="pagination">
+       <?php echo $pagination_link;?>
+    </div>
             <hr>

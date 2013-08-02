@@ -10,17 +10,20 @@
         <div class="container well">
             <div class="row">
                 <div class="span8">
+                    <lable class="label pull-left">Featured Product</lable>
+                    <br><br>
                     <div class="row">
+                        
                     <?php foreach ($feturedProduct as $value): ?>    
                         <div class="span7">
                                <div class="media">
-                                <a class="pull-left" href="#">
+                                <a class="pull-left" href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>">
                                     <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$value->image);?>" height="150" width="150">
                                 </a>
                                 <div class="media-body">
-                                <h4 class="media-heading"><?php echo $value->name;?></h4>
+                                <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>"><h4 class="media-heading"><?php echo $value->name;?></h4></a>
                                 <p><?php  echo substr($value->desc,0, 200);?> </p>
-                                <p><a href="<?php echo '#myModal'.$value->pid ;?>" role="button" class="btn" data-toggle="modal">Overview</a></p>
+                                <p><a href="<?php echo '#myModal'.$value->pid ;?>" role="button" class="btn pull-right" data-toggle="modal">Overview</a></p>
                                 </div>
                                 </div>
                             <!-- Modal -->
@@ -34,10 +37,12 @@
                             </div>
                             <div class="modal-footer">
                             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                            <button class="btn btn-primary">Product details</button>
+                            <a class="btn btn-primary" href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>">Product details</a>
                             </div>
                             </div>
+                            <hr>
                         </div>
+                        
                      <?php endforeach;?>   
                     
 
