@@ -20,6 +20,7 @@
             <div class="row">
                 
                 <div class="span8">
+                    <lable class="label-ceda">Blog</lable>
                     <div class="row">
                         
                         
@@ -37,7 +38,7 @@
                         <hr />
                            <div class="media">
                            
-                            <div class="media-body well">
+                            <div class="media-body">
                             
                                           <div class="pull-left" style="margin-left:40px">
                                           <ul class="media-list">
