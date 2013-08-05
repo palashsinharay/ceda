@@ -60,7 +60,7 @@
             body {
 /*                padding-top: 125px;*/
                 padding-bottom: 40px;
-                 background: url("img/gradient.png") repeat-x scroll 0 0 #FCF9F3;
+                 background: url <?php echo base_url('img/gradient.png')?> repeat-x scroll 0 0 #FCF9F3;
             }
         </style>
         <link rel="stylesheet" href="<?php echo base_url('css/bootstrap-responsive.css')?>">
