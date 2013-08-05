@@ -3,7 +3,7 @@
             
             <div class="row">
             
-            <footer class="container well span11" >
+            <footer class="container span12" >
             <!--<p>&copy; Company 2012</p>-->
                 <div class="span3 "><strong>Links</strong><br><br>
                 <ul class="media-list">
