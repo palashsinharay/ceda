@@ -450,6 +450,11 @@ class Main extends CI_Controller {
     }
     
 
+    public function callback() {
+        echo "Purchase successfull ";
+        
+    }
+
 
 }
  
