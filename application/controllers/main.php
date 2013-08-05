@@ -75,12 +75,12 @@ class Main extends CI_Controller {
     }
 
     
-    public function productList($catId,$offset = 0)
+    public function productList($catId)
     {
                 $data['categoryList'] = $this->Cms->get_category_name($catId);
-                $data['productList'] = $this->Cms->get_productList($catId,$offset);
+                $data['productList'] = $this->Cms->get_productList($catId);
                 $data['newsList'] = $this->Cms->get_news_list();
-                $data['pagination_link_pro'] = $this->pagination_link_maker_pro($catId);
+               // $data['pagination_link_pro'] = $this->pagination_link_maker_pro($catId);
 //                echo "<pre>";
 //                print_r($data['pagination_link']);
 //		echo "</pre>";
@@ -91,13 +91,14 @@ class Main extends CI_Controller {
         
 
     }
-    public function productListpagei($catId,$offset)
-    {
+    public function productListpagei($catId,$offset = 0)
+    {           
                 $data['categoryList'] = $this->Cms->get_category_name($catId);
-                $data['productList'] = $this->Cms->get_productListlimit($catId,$offset);
+                $data['productList'] = $this->Cms->get_productListpagei($catId,$offset);
                 $data['newsList'] = $this->Cms->get_news_list();
+                $data['pagination_link_pro'] = $this->pagination_link_maker_pro($catId);
 //                echo "<pre>";
-//                print_r($data['productList']);
+//                print_r($data['pagination_link_pro']);
 //		echo "</pre>";
 //		die();
                 $this->_renderView('product_list',$data);
@@ -180,44 +181,7 @@ class Main extends CI_Controller {
  	    
     }
 
-    public function gallery()
-    {
-		$data['galleryContent'] = $this->Cms->get_gallery_content_all();
-                $this->_renderView('gallery',$data);
-    }
 
-    public function product()
-    {
-		$data['productContent'] = $this->Cms->get_recruitment_content_all();
-                $this->_renderView('product',$data);
-    }	
-   
-    public function recruitment_details($id)
-    {
-		$data['recruitmentContent'] = $this->Cms->get_recruitment_content($id);
-                $this->_renderView('recruitment_details',$data);
-		
-    }
-    
-    public function recruitment_apply($id,$message = null)
-    {
-		$data['recruitmentContent'] = $this->Cms->get_recruitment_content($id);
-//                echo "<pre>";
-//                print_r($data['recruitmentContent']);
-//                echo "</pre>";
-//                die();
-                $data['message'] = $message ;
-                $this->_renderView('recruitment_apply',$data);
-		
-    }	
-
-    //for categories
-    public function categories($catName) {
-        
-        $data['categories_items'] =  $this->Cms->get_page_basedonCatId($catName);
-        $this->_renderView('categories',$data);
-    }
-	
     public function contact_us()
     {
 				
@@ -424,12 +388,14 @@ class Main extends CI_Controller {
     }
 
     }
-    
-    public function pagination_link_maker_pro($param) {
+    //pagination for products
+    public function pagination_link_maker_pro($cat_id) {
         
-        $config['base_url'] = 'http://local.ceda.com/main/productList/'.$param;
-        $config['total_rows'] = $this->Cms->rowcount('productList',$param);
-        $config['per_page'] = 1;
+        $config['base_url'] = 'http://local.ceda.com/main/productListpagei/'.$cat_id;
+        $config['total_rows'] = $this->Cms->count_table('productList',$cat_id);
+        $config['uri_segment'] = 4;
+        //print_r($config['total_rows']);die();
+        $config['per_page'] = 2;
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';
@@ -453,10 +419,11 @@ class Main extends CI_Controller {
 
         return $this->pagination->create_links();
     }
+    
     public function pagination_link_maker_news() {
         
         $config['base_url'] = 'http://local.ceda.com/main/newsList';
-        $config['total_rows'] = $this->Cms->rowcount('newsList');
+        $config['total_rows'] = $this->Cms->count_table('newsList');
         $config['per_page'] = 2;
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
@@ -481,6 +448,8 @@ class Main extends CI_Controller {
         //echo $this->Cms->rowcount('newsList');
         return $this->pagination->create_links();
     }
+    
+
 
 }
  

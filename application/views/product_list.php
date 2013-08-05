@@ -14,7 +14,7 @@
         <div class="container well">
              <div class="media">
                 <div class="span2 pull-left product-image-left-ceda">
-                    <h2><?php echo $categoryList->cat_name;?></h2>
+                    <lable class="label-ceda"><?php echo $categoryList->cat_name;?></lable>
                 </div>
              </div>
             <div class="row">

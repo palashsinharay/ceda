@@ -93,7 +93,12 @@
         </div>     
      
             </div>
+             <div class="pagination">
+       <?php echo $pagination_link_blog;?>
+               
+    </div>
             <hr>
+            
             
 
             

@@ -35,12 +35,13 @@ class Blog extends CI_Controller {
                 $this->load->view($page.'.php',$data);
                 $this->load->view('footer.php',$data);
     }    
-    function index()
+    function index($offset = 0)
     {
         
         
         $data['newsList'] = $this->Cms->get_news_list();
-        $data['blogList'] = $this->Cms->get_blog_list();
+        $data['blogList'] = $this->Cms->get_blog_list($offset);
+        $data['pagination_link_blog'] = $this->pagination_link_maker_blog();
 //        foreach ($data['blogList']as $value)
 //        {
 //            $data['recentcommentList'] = $this->Cms->get_recent_comment_list($value->id,3);
@@ -93,6 +94,34 @@ class Blog extends CI_Controller {
     {
        $data['commnetList'] = $this->Cms->get_comment_list($blogID);
        $this->_renderView('comment_veiw',$data);
+    }
+    public function pagination_link_maker_blog() {
+        
+        $config['base_url'] = 'http://local.ceda.com/blog/index';
+        $config['total_rows'] = $this->Cms->count_table('blog');
+        $config['per_page'] = 2;
+        $config['full_tag_open'] = '<ul>';
+        $config['full_tag_close'] = '</ul>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['next_link'] = 'Next';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = 'Prev';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='active'><a href='#'>";
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        //$config['display_pages'] = FALSE; 
+        $this->pagination->initialize($config);
+        //echo $this->Cms->rowcount('newsList');
+        return $this->pagination->create_links();
     }
 
 }

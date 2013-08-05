@@ -52,7 +52,6 @@ class Cms extends CI_Model {
 		return $this->result[0];
         }
 
-        
         //function for getting cms page content
 	function get_login($username)
 	{
@@ -92,32 +91,7 @@ class Cms extends CI_Model {
 
 		return $this->result;
 	}	
-       
-        
-        //function to get featured menu list
-        function get_featured_menu() {
-                $this->db->select('*');
-                $this->db->from($this->_table);
-                $this->db->join('featured_menu', 'featured_menu.id ='.$this->_table.'.id');
-                $this->db->where('featured_menu.status', 1); 
-                $query = $this->db->get();
-            	
-                $this->result = $query->result();
-		
-                return $this->result;
-        }
-        
-        //function for getting gallery page content
-	function get_gallery_content_all()
-	{
-		$query = $this->db->get_where($this->_meduiatable,array());
-		//echo $this->db->last_query();
-		//die();
-		$this->result = $query->result();
-
-		return $this->result;
-	}
-	
+     
         //function for getting gallery page content
 	function get_news_list($limit=2)
 	{
@@ -145,29 +119,25 @@ class Cms extends CI_Model {
 		
 		return $this->result[0];
 	}
-        
-        
- 
-    
-        
-        function get_blog_list($limit=10)
+      
+        function get_blog_list($offset)
 	{
-                $query = $this->db->order_by('timestamp', 'DESC')->get($this->_blogtable, $limit);
+                $query = $this->db->order_by('timestamp', 'DESC')->get($this->_blogtable,2,$offset);
 		
 		$this->result = $query->result();
 	
 		return $this->result;
 	}
-        
- 
-        
-        function get_blogDetail($blogID) {
+     
+        function get_blogDetail($blogID) 
+        {
                 $query = $this->db->get_where($this->_blogtable,array('blog_id' => $blogID));
 		
 		$this->result = $query->result();
 
 		return $this->result[0];
         }        
+        
         function get_all_comment_list($blogID)
 	{
                
@@ -177,6 +147,7 @@ class Cms extends CI_Model {
 	
 		return $this->result;
 	}
+        
         function get_recent_comment_list($id,$limit=3)
 	{
                 $query = $this->db->order_by('timestamp', 'DESC')->get_where($this->_commenttable,array('blog_id =' => $id,'status'=>'1'),$limit);
@@ -210,33 +181,8 @@ class Cms extends CI_Model {
             unset($s_qry, $info );
             return $i_ret_;
 	}
-        
-
-       //function for rowcont
-        function rowcount($param,$where = 0) {
-            
-            switch ($param) {
-                case 'productList' :
-                    
-                    $this->db->like('cat_id', $where);
-                    $this->db->from($this->_product);
-                    return $this->db->count_all_results();
-
-                    break;
-                case 'newsList' :
-                    return $this->db->count_all($this->_newstable);
-
-                    break;
-
-                default:
-                    echo "dieeeee"; die();
-                    break;
-            }
-            
-            
-        }
-
-       function insert_contact($posted)
+    
+        function insert_contact($posted)
 	{
             $i_ret_=0; ////Returns false
             if(!empty($posted))
@@ -265,15 +211,49 @@ class Cms extends CI_Model {
             return $i_ret_;
 	}
 
-	
+	 //function for rowcont
+        function count_table($param,$where = 0) {
+            
+            switch ($param) {
+                case 'productList' :
+                    $this->db->where(array('cat_id' => $where,'status' => '1'));                  
+                    $this->db->from($this->_product);
+                    return $this->db->count_all_results();
+                    break;
+                
+                case 'newsList' :
+                    return $this->db->count_all($this->_newstable);
+                    break;
+                
+                case 'blog' :
+                    return $this->db->count_all($this->_blogtable);
+                    break;
+
+                default:
+                    echo "dieeeee"; die();
+                    break;
+            }
+            
+            
+        }
         //function for getting gallery page content
 	
-        function get_productList($catId,$offset)
+        function get_productList($catId)
+	{
+		// limit 4 for header link
+               $query = $this->db->get_where($this->_product,array('cat_id' => $catId,'status' => '1'),4);
+               
+            	$this->result = $query->result();
+
+		return $this->result;
+	}
+         function get_productListpagei($catId,$offest = 0)
 	{
 		
-               $query = $this->db->get_where($this->_product,array('cat_id' => $catId),1,$offset);
-		
-		$this->result = $query->result();
+               $query = $this->db->get_where($this->_product,array('cat_id' => $catId,'status' => '1'),2,$offest);
+//               		echo $this->db->last_query();
+//                die();
+            	$this->result = $query->result();
 
 		return $this->result;
 	}

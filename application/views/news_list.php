@@ -14,8 +14,8 @@
         <div class="span8">
         <div class="row">                                          
         <div class="span8">
-        
-              <h2>News list</h2>
+        <lable class="label-ceda">News list</lable>
+              
                <hr />
               <?php foreach ($newsListAll as $value): ?>              
              
