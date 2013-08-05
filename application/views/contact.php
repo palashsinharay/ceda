@@ -13,14 +13,9 @@
                     <div class="span8">
                     <div class="media">
                       
-                 
-                       <table cellspacing="2" cellpadding="2" border="0">
-                  <tbody><tr>
-                     <td align="right" colspan="2">
-                         <h2> Contact Us </h2>
-                     </td>
-                    
-                  </tr>
+                   <lable class="label-ceda"> Contact Us </lable>
+                  <table cellspacing="2" cellpadding="2" border="0">
+                  <tbody>
                   <tr>
                      <td align="right">
 Name*
