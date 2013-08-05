@@ -1,6 +1,6 @@
 <?php
 //echo "<pre>";
-//print_r($newsListAll);
+//print_r($productList);
 //echo "</pre>";
 //
 //echo "<pre>";
@@ -8,18 +8,25 @@
 //echo "</pre>";
 //
 //die();
-?>    
-<div class="container well">
-        <div class="row">
-        <div class="span8">
-        <div class="row">                                          
-        <div class="span8">
-        <lable class="label-ceda">News list</lable>
-              
-               <hr />
-              <?php foreach ($newsListAll as $value): ?>              
-             
-             <div class="span8">
+?>
+        
+        <!-- Example row of columns -->
+        <div class="container well">
+             <div class="media">
+                <div class="span2 pull-left product-image-left-ceda">
+                    <lable class="label-ceda">News</lable>
+                </div>
+             </div>
+            <hr />
+            <div class="row">
+                
+                <div class="span8">
+                    <div class="row">
+                        
+                        
+                        
+                         <?php foreach ($newsListAll as $value): ?>  
+                         <div class="span8">
                     <div class="row">
                     <div class="span8">
                     <div class="media">
@@ -36,20 +43,14 @@
                     </div>  
                     </div> 
                     </div>
-             </div> 
-             
-           <?php endforeach;?>         
-       
-             
-             
-            
-         </div>  
-            
-         </div>
-         </div>
-                           
+             </div>                     
+                       
+                       <?php endforeach;?>   
+                       
+                    </div>
+                </div>
                 
-              <div class="span3 well">
+                <div class="span3 well">
                     <h4>Support</h4>
                     <img style="margin-bottom:5px;" src="<?php echo base_url('img/support.jpg')?>" alt="">
                     <address>
@@ -63,10 +64,14 @@
                          <p>Credit Card, PayPal, Bank Transfer, Cash On Delivery</p>
                </div>
                       
-                             
      
             </div>
-   <div class="pagination">
+            <div class="pagination">
        <?php echo $pagination_link;?>
+               
     </div>
             <hr>
+            
+
+            
+  

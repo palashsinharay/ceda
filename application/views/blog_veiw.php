@@ -1,20 +1,4 @@
-<?php
-//echo "<pre>";
-//print_r($productList);
-//echo "</pre>";
-//
-//echo "<pre>";
-//print_r($newsList);
-//echo "</pre>";
-//
-//die();
-//echo "<pre>";
-//print_r($recentcommentList);
-//echo "</pre>";
-
-?>
-        
-        <!-- Example row of columns -->
+       <!-- Example row of columns -->
         <div class="container well">
             
             <div class="row">
@@ -100,7 +84,3 @@
     </div>
             <hr>
             
-            
-
-            
-  
