@@ -77,7 +77,7 @@
                 
                 
                 
-                <div class="span3 well">
+                <div class="span-ceda well">
                     <h4>Support</h4>
                     <img style="margin-bottom:5px;" src="img/support.jpg" alt="">
                     <address>

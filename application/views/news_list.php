@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 
-                <div class="span3 well">
+                <div class="span-ceda well">
                     <h4>Support</h4>
                     <img style="margin-bottom:5px;" src="<?php echo base_url('img/support.jpg')?>" alt="">
                     <address>
