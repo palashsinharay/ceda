@@ -68,6 +68,19 @@
                                
                                 </div>
                                 <div class="media-body well span4">
+                                    
+
+                                    
+                                    
+<form name="_xclick" action="https://www.sandbox.paypal.com/in/cgi-bin/webscr" method="post">
+<!--<form name="_xclick" action="https://www.paypal.com/in/cgi-bin/webscr" method="post">-->
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="sahani.bunty_buss@gmail.com">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="item_name" value="<?php echo $productDetail->name;?>">
+<input type="hidden" name="amount" value="<?php echo $productDetail->price ?>">
+                                    
+                                    
                                        <span class="label">Name :</span>
                                        <h5 class="offset1" style="display:inline;"><?php echo $productDetail->name;?></h5>
                                        <br>
@@ -85,7 +98,9 @@
                                        <br><br>
                                        <span class="badge badge-inverse">Stock:  <?php echo $productDetail->stock;?></span>
                                        <br><br>
-                                       <button class="btn btn-inverse pull-right">Add To Cart</button>
+                                       <input type="image" class="btn btn-inverse pull-right" name="submit" value="Buy Now"/>
+<!--<input type="image" src="http://www.paypal.com/en_GB/i/btn/x-click-but01.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">-->
+</form>                                    
                                        
                                 </div>
                                 

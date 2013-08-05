@@ -481,6 +481,11 @@ class Main extends CI_Controller {
         //echo $this->Cms->rowcount('newsList');
         return $this->pagination->create_links();
     }
+    
+    public function callback() {
+        echo "Purchase successfull ";
+        
+    }
 
 }
  
