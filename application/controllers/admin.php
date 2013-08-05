@@ -431,9 +431,19 @@ function  comments() {
     $crud->fields('blog_id','comment_text','author','status');
     $crud->required_fields('blog_id','comment_text','author','status');
     $crud->set_relation('blog_id','blog','title');
+
+    
+
     $output = $crud->render();
+    $output->UnapprovedComment = $this->Cms->get_unapproved_comment_total();
+//    echo "<pre>";
+//    print_r($output);
+//    echo "<pre>";
+//        //var_dump($output);
+   
     $this->_example_output($output);
 } 
+
 
 
 }

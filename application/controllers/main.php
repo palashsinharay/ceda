@@ -108,7 +108,7 @@ class Main extends CI_Controller {
    
     public function newsList($offset=0)
     {
-                $data['newsListAll'] = $this->Cms->get_news_list_all($offset);
+                 $data['newsListAll'] = $this->Cms->get_news_list_all($offset);
                  $data['newsList'] = $this->Cms->get_news_list();
 //                echo "<pre>";
 //                print_r($data['newsList']);

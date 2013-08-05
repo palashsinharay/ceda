@@ -390,6 +390,14 @@ class Cms extends CI_Model {
 		return $this->result[0];
 	}
         
+        function get_unapproved_comment_total()
+        {
+                    $this->db->where(array('status' => '0'));                  
+                    $this->db->from($this->_commenttable);
+                   
+                    return $this->db->count_all_results();
+        }
+        
 
 	}	
 
