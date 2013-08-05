@@ -10,7 +10,7 @@
         <div class="container well">
             <div class="row">
                 <div class="span8">
-                    <lable class="label pull-left">Featured Product</lable>
+                    <lable class="label-ceda pull-left">Featured Product</lable>
                     <br><br>
                     <div class="row">
                         
