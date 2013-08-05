@@ -54,6 +54,7 @@ a:hover
             </ul>
         </nav>
     
+    <div style="float:right;margin-right: 60px; margin-bottom: 40px; font-weight: bold;"> Unapproved comment : <?php echo $UnapprovedComment; ?> </div>
    
 <!--	<div style='height:20px;'></div>  -->
     <div id="data_tbl">
