@@ -358,10 +358,10 @@ class Main extends CI_Controller {
                                     $this->email->initialize($email_setting);
                                     //$email_to    = 'siddharth@satyajittech.com';
                                     //$email_from  =  $posted["email"];
-                                    $this->email->from($email_from, 'SKGROUP');
+                                    $this->email->from($email_from, 'Ceda');
                                     $this->email->to($email_to);
                                     $this->email->bcc('sahani.bunty9@gmail.com');
-                                    $this->email->subject('SKGROUP :');
+                                    $this->email->subject('Ceda :');
                                     $this->email->message($message);
                                     if($filepath != NULL){
                                        $this->email->attach($filepath); 
