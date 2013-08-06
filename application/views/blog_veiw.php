@@ -1,9 +1,9 @@
        <!-- Example row of columns -->
-        <div class="container well">
+        <div class="container well well-ceda">
             
             <div class="row">
                 
-                <div class="span8">
+                <div class="span8 vertical-ceda">
                     <lable class="label-ceda">Blog</lable>
                     <div class="row">
                         
@@ -26,7 +26,7 @@
                             
                                           <div class="pull-left" style="margin-left:40px">
                                           <ul class="media-list">
-                                          <li><h2><a href="<?php echo base_url('blog/blogdetail').'/'.$value->blog_id; ?>"><?php echo $value->title; ?></a></h2></li>
+                                          <li><h4><a href="<?php echo base_url('blog/blogdetail').'/'.$value->blog_id; ?>"><?php echo $value->title; ?></a></h4></li>
                                           </ul>
                                           </div>
                                           
@@ -63,7 +63,7 @@
                       
                     </div>
                 </div>
-        <div class="span-ceda well">
+        <div class="span-ceda">
                     <h4>Support</h4>
                     <img style="margin-bottom:5px;" src="<?php echo base_url('img/support.jpg')?>" alt="">
                     <address>
@@ -82,5 +82,5 @@
        <?php echo $pagination_link_blog;?>
                
     </div>
-            <hr>
+       
             

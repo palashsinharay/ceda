@@ -1,34 +1,29 @@
-            
-
-            
-            <div class="row">
-            
+  
+        </div>
+        <div class="container-fluid" style="background-color: black; color: white">
+            <br>
             <footer class="container span12" >
             <!--<p>&copy; Company 2012</p>-->
-                <div class="span3 "><strong>Links</strong><br><br>
-                <ul class="media-list">
-                <li><a href="<?php echo base_url();?>">Home</a></li>
-                <li><a href="<?php echo base_url('main/page').'/11';?>">About Us</a></li>
-                <li><a href="<?php echo base_url('main/newsList');?>">News List</a></li>
-                <li><a href="<?php echo base_url('main/contact_us');?>">Contact Us</a></li>
+                <div class="span4 "><strong>Links</strong><br><br>
                 
-                
-                
-                
-                </ul>
-                
-                
-                
+                    <ul class="media-list">
+                    <li><a href="<?php echo base_url();?>">Home</a></li>
+                    <li><a href="<?php echo base_url('main/page').'/11';?>">About Us</a></li>
+                    <li><a href="<?php echo base_url('main/newsList');?>">News List</a></li>
+                    <li><a href="<?php echo base_url('main/contact_us');?>">Contact Us</a></li>
+                    </ul>
+            
                 </div>
-                <div class="span4 "><strong>Follow Us:</strong><br><br><div class="btn pull-left">
+                <div class="span5 "><strong>Follow Us:</strong><br><br>
+                    <div class="btn pull-left">
                             <button type="button" class="btn"><i class="icon-facebook icon-2x"></i></button> 
                             <button type="button" class="btn"><i class="icon-twitter icon-2x"></i></button> 
                             <button type="button" class="btn"><i class="icon-google-plus icon-2x"></i></button> 
                             <button type="button" class="btn"><i class="icon-pinterest icon-2x"></i></button>
-   </div>
-   </div>
+                    </div>
+                </div>
    
-                <div class="span3 pull-right">
+                <div class="span2 pull-right">
                         <address>
                         <strong>Contact Us:</strong><br><br>
                         795 Folsom Ave, Suite 600<br>
@@ -39,8 +34,7 @@
                 </div>
         	</footer>
         	
-        	</div>   
-        </div>
+            </div>
                 
             
             

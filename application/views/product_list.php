@@ -11,21 +11,22 @@
 ?>
         
         <!-- Example row of columns -->
-        <div class="container well">
+        <div class="container well well-ceda">
              <div class="media">
                 <div class="span2 pull-left product-image-left-ceda">
                     <lable class="label-ceda"><?php echo $categoryList->cat_name;?></lable>
                 </div>
+                 <br><br>
              </div>
             <div class="row">
                 
-                <div class="span8">
+                <div class="span8 vertical-ceda">
                     <div class="row">
                   
                         <?php foreach ($productList as $value): ?>  
                         <div class="span8">
                         
-                        <hr />
+                       
                            <div class="media">
                            <div class="span2 pull-left product-image-left-ceda">
                         
@@ -34,7 +35,7 @@
                                  <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$value->image);?>">
                             </a><br />
                             </div>
-                            <div class="media-body well">
+                            <div class="media-body">
                             
                                           <div class="pull-left" style="margin-left:40px">
                                           <strong>Product name</strong>
@@ -82,6 +83,7 @@
                                           </div>
                                 </div>
                                 </div> 
+                             <hr>
                         </div>                        
                        
                        <?php endforeach;?>   
@@ -89,7 +91,7 @@
                     </div>
                 </div>
                 
-                <div class="span-ceda well">
+                <div class="span-ceda">
                     <h4>Support</h4>
                     <img style="margin-bottom:5px;" src="<?php echo base_url('img/support.jpg')?>" alt="">
                     <address>
@@ -105,11 +107,11 @@
                       
      
             </div>
-            <div class="pagination">
-       <?php echo $pagination_link_pro;?>
-               
-    </div>
-            <hr>
+        <div class="pagination">
+           <?php echo $pagination_link_pro;?>
+
+        </div>
+         
             
 
             
