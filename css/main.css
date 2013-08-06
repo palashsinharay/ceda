@@ -74,6 +74,14 @@
     padding-right:95px; 
     border-right: 1px solid #ccc;
 }
+/*.footer-linkceda {
+    color: #999999;
+}*/
+/*.footer-linkceda a:hover{
+    color: white;
+}*/
+.footer-linkceda a {color:#999999; text-decoration:none; padding:2px; cursor:pointer;}
+.footer-linkceda a:hover {color:#fff; text-decoration:none;}  
 
 
 
