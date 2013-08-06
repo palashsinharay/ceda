@@ -454,6 +454,22 @@ class Main extends CI_Controller {
         echo "Purchase successfull ";
         
     }
+    
+    public function searchAll() {
+        $data['newsList'] = $this->Cms->get_news_list();
+        
+        $search_keyword  	= trim($this->input->post("search_keyword"));
+        $data['searchList'] = $this->Cms->get_search_list($search_keyword);
+       
+//        echo "<pre>";
+//        print_r($data['searchBlogList']);
+//        echo "</pre>" ;
+//        die();
+        
+         $this->_renderView('search_result',$data);
+    
+    }
+    
 
 
 }

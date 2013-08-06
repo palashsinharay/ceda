@@ -87,7 +87,7 @@
                         <a class="brand" href="#"><img src="<?php echo base_url('img/ceda.png')?>" alt="logo"></a>
                     </div>    
                     <div class="span6 text-center header-text">LEADING PROGRAMMING AND MEASUREMENT SOLUTIONS</div>
-                    <div class="span3 pull-right">
+                    <div class="span2 pull-right">
                             <div id="google_translate_element" ></div><script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
@@ -192,8 +192,9 @@ function googleTranslateElementInit() {
                           </ul>
                           </div>
                           <div class="span3 pull-right" >
-                     <form class="navbar-search">
-                     <input type="text" class="search-query" placeholder="Search">
+                     <form class="navbar-search" action="<?php echo base_url('main/searchAll'); ?>" method="post">
+                     <input type="text" name="search_keyword" id="search_keyword" class="search-query" placeholder="Search">
+<!--                     <button type="submit" class="btn btn-submit" id="submit_search">Search</button>-->
                      </form>                     
                           </div>
                           </div>

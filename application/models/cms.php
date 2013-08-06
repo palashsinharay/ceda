@@ -298,70 +298,10 @@ class Cms extends CI_Model {
                 return $this->result[0];
 
 	}
-        function get_tender_list()
-        {
-            
-            $query = $this->db->get_where($this->_tender,array());
-	
-            $this->result = $query->result();
-
-            return $this->result;
-        }
+       
 	
         //function for getting gallery page content
-	function get_resource_center_list_all($limit,$type)
-	{
-		$query = $this->db->where('type', $type);
-		$query = $this->db->order_by("date", "desc"); 
-		$query = $this->db->get($this->_resource_center, $limit);
 		
-		$this->result = $query->result();
-
-		return $this->result;
-	}
-        
-        function get_page_basedonCatId($catName) 
-        {
- 		
-		$query = $this->db->where('category_name', $catName);
-		//$query = $this->db->order_by("date", "desc"); 
-		$query = $this->db->get($this->_categories);
-		
-		$this->result = $query->result();       
-		$cat_id=$this->result[0]->categories_id;
-	
-                //get list of all page based on cat_id 
-		$query = $this->db->where('categories_id', $cat_id);
-		//$query = $this->db->order_by("date", "desc"); 
-		$query = $this->db->get($this->_table);
-		
-		$this->result = $query->result();
-	
-		return $this->result;
-
-		   
-        }
-		
-        public function get_lowerSlider_content()
-        {
-
-        $query = $this->db->get($this->_lowerSlider);
-
-        $this->result = $query->result();
-
-        foreach($this->result as $values){
-         $object_cms = $this->get_page_content($values->id);
-         $object_cms->image = $values->image;
-         $object_cms->short_title = $values->short_title;
-         $data[] = $object_cms;
-   
-        }
-        $this->result = $data;
-
-        return $this->result;
-
-
-        }
         function get_category_image()
         {
                 //$query = $this->db->get_where($this->_categories,array ('categories_id' => $catID));
@@ -398,8 +338,36 @@ class Cms extends CI_Model {
                     return $this->db->count_all_results();
         }
         
+       function get_search_list($search_keyword)
+	{
+               
+        $sql = "SELECT * FROM blog WHERE MATCH (`desc`) AGAINST (? IN BOOLEAN MODE )";  
+        $query = $this->db->query($sql, array($search_keyword) );
+        $result['blog'] = $query->result();
+        
+        $sql1 = "SELECT * FROM cmspage WHERE MATCH (`content`) AGAINST (? IN BOOLEAN MODE )";  
+        $query = $this->db->query($sql1, array($search_keyword) );
+        $result['cms'] = $query->result();
+        
+        $sql2 = "SELECT * FROM product WHERE MATCH (`desc`) AGAINST (? IN BOOLEAN MODE )";  
+        $query = $this->db->query($sql2, array($search_keyword) );
+        $result['product'] = $query->result();
 
-	}	
+        $sql3 = "SELECT * FROM service WHERE MATCH (`s_desc`) AGAINST (? IN BOOLEAN MODE )";  
+        $query = $this->db->query($sql3, array($search_keyword) );
+        //echo $this->db->last_query();
+        $result['service'] = $query->result();
+
+        $sql3 = "SELECT * FROM news WHERE MATCH (`description`) AGAINST (? IN BOOLEAN MODE )";  
+        $query = $this->db->query($sql3, array($search_keyword) );
+        //echo $this->db->last_query();
+        $result['news'] = $query->result();
+        
+        return $result;
+	}
+        
+
+}	
 
 
 		

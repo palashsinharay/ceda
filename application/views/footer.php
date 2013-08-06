@@ -204,6 +204,52 @@ function validateEmail(user_email){
 }
 
 
+
+
+//$('#submit_search').click(function() {
+//
+////alert("hii");
+//var form_data = {
+//search_keyword 	: $('#search_keyword').val(),
+//ajax 	: '1'
+//};
+//		
+//		//alert($('#cap_div').text());	
+//		if($('#search_keyword').val()=='')
+//			{
+//					//alert("Enter NAME");
+//					msg="Please enter a word to search !";
+//                                        alert(msg);
+//					//$('.success-message').html(msg);
+//					//$('.success-message').fadeIn(500).show();
+//					return false;
+//								
+//			}
+//			else
+//			{
+//				$.ajax({
+//				url: "<?php echo site_url('main/searchAll'); ?>",
+//				//url: "main/email_send",
+//				type: 'POST',
+//				async : false,
+//				data: form_data,
+//				success: function(msg) {
+//				//alert(msg);
+//				
+//				
+//				
+//				}
+//				});
+//		
+//		
+//		}
+//return false;
+//});
+
+
+
+
+
 });
 </script>
 </body>
