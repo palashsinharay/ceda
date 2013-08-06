@@ -58,7 +58,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css')?>">
         <style>
             body {
-                padding-top: 125px;
+                padding-top: 112px;
 /*                padding-bottom: 40px;*/
                  background: url <?php echo base_url('img/gradient.png')?> repeat-x scroll 0 0 #FCF9F3;
             }

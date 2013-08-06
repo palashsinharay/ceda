@@ -11,7 +11,9 @@
             <div class="row">
                 <div class="span8 vertical-ceda">
                     <lable class="label-ceda pull-left">Featured Product</lable>
-                    <br><br>
+                    <br>
+                    <br>
+                    
                     <div class="row">
                         
                     <?php foreach ($feturedProduct as $value): ?>    
