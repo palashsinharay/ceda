@@ -15,11 +15,11 @@
 ?>
         
         <!-- Example row of columns -->
-        <div class="container well">
+        <div class="container well well-ceda">
             
             <div class="row">
                 
-                <div class="span8">
+                <div class="span8 vertical-ceda">
                     <div class="row">
                         
                         
@@ -67,7 +67,7 @@
            
      
             </div>
-            <hr>
+            
             
 
             

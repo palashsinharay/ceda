@@ -1,9 +1,9 @@
 
 
 <!-- Example row of columns -->
-        <div class="container well">
+        <div class="container well well-ceda">
             <div class="row">
-                <div class="span8">
+                <div class="span8 vertical-ceda">
                     <div class="row">
                     <div class="span8">
                     <div class="media">
@@ -13,7 +13,7 @@
                    $date_arr=explode("-",$datetime_arr[0]);
                    
                    ?> 
-                    <h2><?php echo $blogDetail->title; ?></h2>
+                    <h4><?php echo $blogDetail->title; ?></h4>
                     <p>Posted on: <strong><?php echo $date_arr[2]."-".$date_arr[1]."-".$date_arr[0]; ?></strong></p>
                     <p class="media"><?php echo $blogDetail->desc; ?></p>
                     <p class="pull-right"><strong><?php echo $blogDetail->author; ?></strong></p>
@@ -77,7 +77,7 @@
                 
                 
                 
-                <div class="span-ceda well">
+                <div class="span-ceda">
                     <h4>Support</h4>
                     <img style="margin-bottom:5px;" src="img/support.jpg" alt="">
                     <address>
@@ -92,7 +92,7 @@
                </div>
                
             </div>
-            <hr>
+            
             
 
             

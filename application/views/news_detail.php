@@ -5,17 +5,14 @@
 
 ?>
         <!-- Example row of columns -->
-        <div class="container well">
+        <div class="container well well-ceda">
             <div class="row">
-                <div class="span8">
+                <div class="span8 vertical-ceda">
                     <div class="row">
                     <div class="span8">
                     <div class="media">
-                    
-                    
-                    <h2>News</h2>
-                    <hr/>
-                    <h4><a href="#"><?php echo $newsDetail->title;?></a></h4>
+                   
+                    <h4><?php echo $newsDetail->title;?></h4>
                     <h5>Posted on: <?php echo $newsDetail->date;?></h5>
                     <a class="pull-left" href="#">
                     <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$newsDetail->image) ;?>" width="285" height="190" >
@@ -58,7 +55,7 @@
                 
                 
                 
-                <div class="span-ceda well">
+                <div class="span-ceda">
                     <h4>Support</h4>
                     <img style="margin-bottom:5px;" src="<?php echo base_url('img/support.jpg')?>" alt="">
                     <address>
@@ -73,5 +70,5 @@
                </div>
                
             </div>
-            <hr>
+            
  

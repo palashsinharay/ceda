@@ -58,8 +58,8 @@
         <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css')?>">
         <style>
             body {
-/*                padding-top: 125px;*/
-                padding-bottom: 40px;
+                padding-top: 125px;
+/*                padding-bottom: 40px;*/
                  background: url <?php echo base_url('img/gradient.png')?> repeat-x scroll 0 0 #FCF9F3;
             }
         </style>
@@ -79,7 +79,7 @@
 
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
 
-        <div class="navbar navbar-inverse navbar-static-top">
+        <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
                     <div class="row">
@@ -214,7 +214,7 @@ function googleTranslateElementInit() {
         
         <div class="container well well-ceda">
             <div class="row">
-                <div class="span8">
+                <div class="span10">
                 <div id="myCarousel" class="carousel slide">
                 <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -232,12 +232,12 @@ function googleTranslateElementInit() {
                 <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
                 </div>
                 </div>
-                <div class="span4">
+                <div class="span2">
                        <lable class="label">News updates</lable>
                     <ul  class="media-list">
                         <?php foreach ($newsList as $value): ?>  
                         <li><h5><a href="<?php echo base_url('main/newsdetail').'/'.$value->id;?>"><?php echo $value->title;?></a></h5>
-                        <?php echo substr($value->description,0,150);?>
+                        <?php echo substr($value->description,0,50);?>
                     </li>
                     <?php endforeach;?>
                 <span class="pull-right"><p><a href="<?php echo base_url('main/newsList');?>">All News</a></p></span>                 

@@ -7,9 +7,9 @@
 
       
         <!-- Example row of columns -->
-        <div class="container well">
+        <div class="container well well-ceda">
             <div class="row">
-                <div class="span8">
+                <div class="span8 vertical-ceda">
                     <lable class="label-ceda pull-left">Featured Product</lable>
                     <br><br>
                     <div class="row">
@@ -51,7 +51,7 @@
                    
                 </div>
                 
-                <div class="span-ceda well">
+                <div class="span-ceda pull-right" >
 
                     <h4>Support</h4>
                     <img style="margin-bottom:5px;" src="<?php echo base_url('img/support.jpg')?>" alt="">
@@ -69,5 +69,5 @@
                </div>
                
             </div>
-            <hr>
+            
 
