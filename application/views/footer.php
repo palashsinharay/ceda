@@ -1,6 +1,6 @@
   
         </div>
-        <div class="container-fluid" style="background-color: black; color: white">
+        <div class="container-fluid" style="background-color: #1d1d1d; color: white">
             <br>
             <footer class="container span12" >
             <!--<p>&copy; Company 2012</p>-->

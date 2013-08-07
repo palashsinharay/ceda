@@ -86,7 +86,7 @@
                     <div class="span3">
                         <a class="brand" href="#"><img src="<?php echo base_url('img/ceda.png')?>" alt="logo"></a>
                     </div>    
-                    <div class="span6 text-center header-text">LEADING PROGRAMMING AND MEASUREMENT SOLUTIONS</div>
+                    <div class="span6 text-center header-text">RF AND EMC ENGINEERING SOLUTIONS</div>
                     <div class="span2 pull-right">
                             <div id="google_translate_element" ></div><script type="text/javascript">
 function googleTranslateElementInit() {
@@ -215,7 +215,7 @@ function googleTranslateElementInit() {
         
         <div class="container well well-ceda">
             <div class="row">
-                <div class="span8">
+                <div class="span10">
                 <div id="myCarousel" class="carousel slide">
                 <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -233,7 +233,7 @@ function googleTranslateElementInit() {
                 <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
                 </div>
                 </div>
-                <div class="span4">
+                <div class="span2">
                        <lable class="label">News updates</lable>
                     <ul  class="media-list">
                         <?php foreach ($newsList as $value): ?>  
