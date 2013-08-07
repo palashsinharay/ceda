@@ -218,21 +218,14 @@ function googleTranslateElementInit() {
             <div class="row">
                 <div class="span10">
                 <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
-            <div data-thumb="<?php echo base_url('img/slides/thumbs/bridge.jpg');?>" data-src="<?php echo base_url('img/slides/bridge.jpg');?>">
+            <?php foreach ($allSliderData as $value): ?>  
+           <div data-thumb="<?php echo base_url('img/slides/thumbs/bridge.jpg');?>" data-src="<?php echo base_url('assets/uploads/files/'.$value->image);?>">
                 <div class="camera_caption fadeFromBottom">
-                    Camera is a responsive/adaptive slideshow. <em>Try to resize the browser window</em>
+                   <?php echo $value->image_caption; ?>
                 </div>
             </div>
-            <div data-thumb="<?php echo base_url('img/slides/thumbs/leaf.jpg');?>" data-src="<?php echo base_url('img/slides/leaf.jpg');?>">
-                <div class="camera_caption fadeFromBottom">
-                    It uses a light version of jQuery mobile, <em>navigate the slides by swiping with your fingers</em>
-                </div>
-            </div>
-            <div data-thumb="<?php echo base_url('img/slides/thumbs/road.jpg');?>" data-src="<?php echo base_url('img/slides/road.jpg');?>">
-                <div class="camera_caption fadeFromBottom">
-                    <em>It's completely free</em> (even if a donation is appreciated)
-                </div>
-            </div>
+            <?php endforeach; ?>        
+
 <!--            <div data-thumb="../images/slides/thumbs/sea.jpg" data-src="../images/slides/sea.jpg">
                 <div class="camera_caption fadeFromBottom">
                     Camera slideshow provides many options <em>to customize your project</em> as more as possible

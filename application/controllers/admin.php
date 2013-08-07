@@ -484,13 +484,14 @@ function  comments() {
     $crud->set_theme('datatables');
     $crud->set_table('upperslider')
         ->set_subject('Upper Slider')
-        ->columns('image','status')
+        ->columns('image','image_caption','status')
         ->display_as('image','Image')
-        ->display_as('status','Status');
+        ->display_as('status','Status')
+        ->display_as('image_caption','Caption');
 
 
     //below code is for edit and add
-    $crud->fields('image','status');
+    $crud->fields('image','image_caption','status');
     //$crud->required_fields('title','upper_image','address','card_image1', 'card_image2','credit_card_info_block','lower_image','lower_image2');
 
     //below code is for file upload
