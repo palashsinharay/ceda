@@ -30,11 +30,12 @@ class Main extends CI_Controller {
                  $data['allServicesData'] = $this->Cms->get_service_list();
                  $data['cmsData'] = $this->Cms->get_page_content_all();
                  $data['siteConfig'] = $this->Cms->site_config_all();
+                 $data['rightPanelData'] = $this->Cms->get_right_panel_content();
                  
                  //$data['top_menu']=$this->Cms->get_topmenu(); 
                 //$data['product_cat']=$this->Cms->get_product_cat();
 //                echo "<pre>";
-//                print_r($data['siteConfig']);
+//                print_r($data['rightPanelData']);
 //		echo "</pre>";
 //		die();
                 

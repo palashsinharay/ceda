@@ -340,7 +340,7 @@ if ( ! $this->image_lib->resize())
     $this->_example_output($output);
 }
 
-     function  news() {
+    function  news() {
     $crud = new grocery_CRUD();
 
     //below code is for datagrid view
@@ -444,6 +444,38 @@ function  comments() {
     $this->_example_output($output);
 } 
 
+    function  right_panel() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('rightpanel')
+        ->set_subject('Right Panel')
+        ->columns('title','upper_image','address','card_image1', 'card_image2','credit_card_info_block','lower_image','lower_image2')
+        ->display_as('title','Title')
+        ->display_as('upper_image','Upper Image')
+        ->display_as('address','Address Info')       
+        ->display_as('card_image1','Credit Card Image 1')
+        ->display_as('card_image2','Credit Card Image 2')    
+        ->display_as('credit_card_info_block','Credit Card Info Block')
+        ->display_as('lower_image','Lower Image')
+        ->display_as('lower_image2','Lower Image2');
+
+
+    //below code is for edit and add
+    $crud->fields('title','upper_image','address','card_image1', 'card_image2','credit_card_info_block','lower_image','lower_image2');
+    //$crud->required_fields('title','upper_image','address','card_image1', 'card_image2','credit_card_info_block','lower_image','lower_image2');
+
+    //below code is for file upload
+    $crud->set_field_upload('upper_image','assets/uploads/files');
+    $crud->set_field_upload('card_image1','assets/uploads/files');
+    $crud->set_field_upload('card_image2','assets/uploads/files');
+    $crud->set_field_upload('lower_image','assets/uploads/files');
+    $crud->set_field_upload('lower_image2','assets/uploads/files');
+
+    $output = $crud->render();
+    $this->_example_output($output);
+}  
 
 
 }

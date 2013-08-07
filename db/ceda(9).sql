@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 06, 2013 at 01:39 PM
+-- Generation Time: Aug 07, 2013 at 08:57 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -304,6 +304,33 @@ CREATE TABLE IF NOT EXISTS `product_image` (
 -- Dumping data for table `product_image`
 --
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rightpanel`
+--
+
+DROP TABLE IF EXISTS `rightpanel`;
+CREATE TABLE IF NOT EXISTS `rightpanel` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `upper_image` varchar(255) NOT NULL,
+  `address` text NOT NULL,
+  `card_image1` varchar(255) NOT NULL,
+  `card_image2` varchar(255) NOT NULL,
+  `credit_card_info_block` text NOT NULL,
+  `lower_image` varchar(255) NOT NULL,
+  `lower_image2` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `rightpanel`
+--
+
+INSERT INTO `rightpanel` (`id`, `title`, `upper_image`, `address`, `card_image1`, `card_image2`, `credit_card_info_block`, `lower_image`, `lower_image2`) VALUES
+(1, 'Support', 'a3393-support.jpg', '<p>\r\n	<strong>Ceda, Inc.</strong><br />\r\n	795 Folsom Ave, Suite 600<br />\r\n	San Francisco, CA 94107<br />\r\n	<abbr title="Phone">USA Toll-free:</abbr> +1-888-268-6154 <abbr title="email">Email:</abbr>support@ceda.in</p>\r\n', '03e50-cc_payment.png', '7e133-Paypal-Logo.png', '<p>\r\n	Credit Card, PayPal, Bank Transfer, Cash On Delivery</p>\r\n', '6e3f5-support.jpg', 'dc5a3-support.jpg');
 
 -- --------------------------------------------------------
 

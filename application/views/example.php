@@ -49,6 +49,7 @@ a:hover
                 <li id="services"><a href='<?php echo base_url('admin/blog')?>'>Blog</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/comments')?>'>Comments</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/siteconfig')?>'>Site Config</a></li>
+                <li id="services"><a href='<?php echo base_url('admin/right_panel')?>'>Right Panel</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/logout')?>'>logout</a></li>
                 
             </ul>

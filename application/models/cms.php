@@ -15,8 +15,9 @@ class Cms extends CI_Model {
 	public $_config = 'siteconfig';
         public $_user = 'users';
         public $_blogtable = 'blog';
-        public $_commenttable = 'comments';
+        public $_commenttable = 'comments'; 
         public $_contactus = 'contactus';
+        public $_rightpanel = 'rightpanel';
 	public $result = null;
 
 	function __construct()
@@ -365,6 +366,15 @@ class Cms extends CI_Model {
         
         return $result;
 	}
+        
+        function get_right_panel_content() 
+        {
+                $query = $this->db->get_where($this->_rightpanel);
+		
+		$this->result = $query->result();
+
+		return $this->result[0];
+        }
         
 
 }	
