@@ -4,30 +4,25 @@
             <br>
             <footer class="container span12" >
             <!--<p>&copy; Company 2012</p>-->
-                <div class="span4 "><strong>Links</strong><br><br>
+                <div class="span4 footer-linkceda"><strong>Links</strong><br>
                 
-                    <ul class="media-list">
-                    <li><a href="<?php echo base_url();?>">Home</a></li>
-                    <li><a href="<?php echo base_url('main/page').'/11';?>">About Us</a></li>
-                    <li><a href="<?php echo base_url('main/newsList');?>">News List</a></li>
-                    <li><a href="<?php echo base_url('main/contact_us');?>">Contact Us</a></li>
-                    </ul>
-            
+                    <a  href="<?php echo base_url();?>">Home</a>
+                   | <a  href="<?php echo base_url('main/page').'/11';?>">About Us</a>
+                   | <a  href="<?php echo base_url('main/newsList');?>">News List</a>
+                   | <a  href="<?php echo base_url('main/contact_us');?>">Contact Us</a>
+                               
                 </div>
-                <div class="span5 "><strong>Follow Us:</strong><br><br>
-                    <div class="btn pull-left">
-                            <button type="button" class="btn"><i class="icon-facebook icon-2x"></i></button> 
-                            <button type="button" class="btn"><i class="icon-twitter icon-2x"></i></button> 
-                            <button type="button" class="btn"><i class="icon-google-plus icon-2x"></i></button> 
-                            <button type="button" class="btn"><i class="icon-pinterest icon-2x"></i></button>
-                    </div>
+                <div class="span3 "><strong>Follow Us:</strong><br>
+                            <button type="button" class="btn"><i class="icon-facebook "></i></button> 
+                            <button type="button" class="btn"><i class="icon-twitter "></i></button> 
+                            <button type="button" class="btn"><i class="icon-google-plus "></i></button> 
+                            <button type="button" class="btn"><i class="icon-pinterest "></i></button>
                 </div>
    
-                <div class="span2 pull-right">
+                <div class="span4 pull-right">
                         <address>
-                        <strong>Contact Us:</strong><br><br>
-                        795 Folsom Ave, Suite 600<br>
-                        San Francisco, CA 94107<br>
+                        <strong>Contact Us:</strong><br>
+                        <abbr title="Phone">P:</abbr> (123) 456-7890
                         <abbr title="Phone">P:</abbr> (123) 456-7890
                         </address>
                        
