@@ -15,7 +15,7 @@
 //echo "</pre>";
 
 //echo "<pre>";
-//print_r($siteConfig);
+//print_r($allSliderData);
 //echo "</pre>";
 
 //die();

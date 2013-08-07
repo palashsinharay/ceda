@@ -31,6 +31,7 @@ class Blog extends CI_Controller {
                 $data['allServicesData'] = $this->Cms->get_service_list();
                 $data['siteConfig'] = $this->Cms->site_config_all();
                 $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                $data['allSliderData'] = $this->Cms->get_slider();
                 
                 $this->load->view('header.php',$data);
                 $this->load->view($page.'.php',$data);

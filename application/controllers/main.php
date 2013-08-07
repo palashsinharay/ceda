@@ -31,11 +31,12 @@ class Main extends CI_Controller {
                  $data['cmsData'] = $this->Cms->get_page_content_all();
                  $data['siteConfig'] = $this->Cms->site_config_all();
                  $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                 $data['allSliderData'] = $this->Cms->get_slider();
                  
                  //$data['top_menu']=$this->Cms->get_topmenu(); 
                 //$data['product_cat']=$this->Cms->get_product_cat();
 //                echo "<pre>";
-//                print_r($data['rightPanelData']);
+//                print_r($data['allSliderData']);
 //		echo "</pre>";
 //		die();
                 

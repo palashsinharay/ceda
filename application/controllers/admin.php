@@ -477,6 +477,28 @@ function  comments() {
     $this->_example_output($output);
 }  
 
+    function  upperslider() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('upperslider')
+        ->set_subject('Upper Slider')
+        ->columns('image','status')
+        ->display_as('image','Image')
+        ->display_as('status','Status');
+
+
+    //below code is for edit and add
+    $crud->fields('image','status');
+    //$crud->required_fields('title','upper_image','address','card_image1', 'card_image2','credit_card_info_block','lower_image','lower_image2');
+
+    //below code is for file upload
+    $crud->set_field_upload('image','assets/uploads/files');
+    
+    $output = $crud->render();
+    $this->_example_output($output);
+}  
 
 }
  

@@ -16,8 +16,9 @@ class Cms extends CI_Model {
         public $_user = 'users';
         public $_blogtable = 'blog';
         public $_commenttable = 'comments'; 
-        public $_contactus = 'contactus';
+        public $_contactus = 'contactus'; 
         public $_rightpanel = 'rightpanel';
+        public $_upperslider = 'upperslider';
 	public $result = null;
 
 	function __construct()
@@ -376,6 +377,12 @@ class Cms extends CI_Model {
 		return $this->result[0];
         }
         
+         function get_slider()
+	{
+	       $query = $this->db->get_where($this->_upperslider,array('status' => '1'));
+               $this->result = $query->result();
+               return $this->result;
+	}
 
 }	
 
