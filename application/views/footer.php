@@ -91,7 +91,7 @@ ajax 	: '1'
 		if($('#comment').val()=='')
 			{
 					//alert("Enter NAME");
-					msg="Comemnt Field must not be blank !";
+					msg="Comment Field must not be blank !";
 					$('.success-message').html(msg);
 					$('.success-message').fadeIn(500).show();
 					return false;
