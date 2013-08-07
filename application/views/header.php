@@ -194,7 +194,7 @@ function googleTranslateElementInit() {
                           </div>
                           <div class="span3 pull-right" >
                      <form class="navbar-search" action="<?php echo base_url('main/searchAll'); ?>" method="post">
-                     <input type="text" name="search_keyword" id="search_keyword" class="search-query" placeholder="Search">
+                     <input style="width:237px;" type="text" name="search_keyword" id="search_keyword" class="search-query" placeholder="Search">
 <!--                     <button type="submit" class="btn btn-submit" id="submit_search">Search</button>-->
                      </form>                     
                           </div>
@@ -226,21 +226,6 @@ function googleTranslateElementInit() {
             </div>
             <?php endforeach; ?>        
 
-<!--            <div data-thumb="../images/slides/thumbs/sea.jpg" data-src="../images/slides/sea.jpg">
-                <div class="camera_caption fadeFromBottom">
-                    Camera slideshow provides many options <em>to customize your project</em> as more as possible
-                </div>
-            </div>
-            <div data-thumb="../images/slides/thumbs/shelter.jpg" data-src="../images/slides/shelter.jpg">
-                <div class="camera_caption fadeFromBottom">
-                    It supports captions, HTML elements and videos and <em>it's validated in HTML5</em> (<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fwww.pixedelic.com%2Fplugins%2Fcamera%2F&amp;charset=%28detect+automatically%29&amp;doctype=Inline&amp;group=0&amp;user-agent=W3C_Validator%2F1.2" target="_blank">have a look</a>)
-                </div>
-            </div>
-            <div data-thumb="../images/slides/thumbs/tree.jpg" data-src="../images/slides/tree.jpg">
-                <div class="camera_caption fadeFromBottom">
-                    Different color skins and layouts available, <em>fullscreen ready too</em>
-                </div>
-            </div>-->
         </div><!-- #camera_wrap_1 -->
                 </div>
                 <div class="span2">
