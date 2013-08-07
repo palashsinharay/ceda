@@ -1,6 +1,6 @@
   
         </div>
-        <div class="container-fluid" style="background-color: black; color: white">
+        <div class="container-fluid" style="background-color: #1d1d1d; color: white">
             <br>
             <footer class="container span12" >
             <!--<p>&copy; Company 2012</p>-->
@@ -40,7 +40,8 @@
         <script src="<?php echo base_url('js/vendor/bootstrap.min.js')?>"></script>
 
         <script src="<?php echo base_url('js/main.js')?>"></script>
- <script src="<?php echo base_url('js/bootstrap-magnify.min.js')?>"></script>
+        <script src="<?php echo base_url('js/bootstrap-magnify.min.js')?>"></script>
+        
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -48,7 +49,7 @@
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
    <script>
-            
+           
     $(function () {
     $('#myTab a:first').tab('show');
 //    $('.cont img#1b').hide(); 
@@ -196,54 +197,26 @@ function validateEmail(user_email){
     }
 }
 
-
-
-
-//$('#submit_search').click(function() {
-//
-////alert("hii");
-//var form_data = {
-//search_keyword 	: $('#search_keyword').val(),
-//ajax 	: '1'
-//};
-//		
-//		//alert($('#cap_div').text());	
-//		if($('#search_keyword').val()=='')
-//			{
-//					//alert("Enter NAME");
-//					msg="Please enter a word to search !";
-//                                        alert(msg);
-//					//$('.success-message').html(msg);
-//					//$('.success-message').fadeIn(500).show();
-//					return false;
-//								
-//			}
-//			else
-//			{
-//				$.ajax({
-//				url: "<?php echo site_url('main/searchAll'); ?>",
-//				//url: "main/email_send",
-//				type: 'POST',
-//				async : false,
-//				data: form_data,
-//				success: function(msg) {
-//				//alert(msg);
-//				
-//				
-//				
-//				}
-//				});
-//		
-//		
-//		}
-//return false;
-//});
-
-
-
-
-
 });
 </script>
+<!--for slider-->
+        <script src="<?php echo base_url('js/jquery.camera.min.js')?>"></script>
+        <script src="<?php echo base_url('js/jquery.mobile.customized.min.js')?>"></script>
+        <script src="<?php echo base_url('js/jquery.easing.1.3.js')?>"></script>
+        <script src="<?php echo base_url('js/camera.min.js')?>"></script>
+<script>
+		jQuery.noConflict();
+                jQuery(document).ready(function() {
+                jQuery(function(){
+			
+			jQuery('#camera_wrap_1').camera({
+				thumbnails: false,
+                                height: '250px',
+                                pagination: false
+			});
+
+			
+		});});
+	</script>
 </body>
 </html>
