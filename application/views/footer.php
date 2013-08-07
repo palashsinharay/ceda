@@ -69,6 +69,10 @@
     e.preventDefault();
     $(this).tab('show');
     })
+    
+    $(document).on('hover', '.yamm .dropdown-menu', function(e) {
+    alert('sdfsd');
+    })
     </script>   
 <script type="text/javascript">
 $(document).ready(function() {
