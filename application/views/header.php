@@ -238,7 +238,7 @@ function googleTranslateElementInit() {
                     <ul  class="media-list">
                         <?php foreach ($newsList as $value): ?>  
                         <li><h5><a href="<?php echo base_url('main/newsdetail').'/'.$value->id;?>"><?php echo $value->title;?></a></h5>
-                        <?php echo substr($value->description,0,150);?>
+                        <?php echo substr($value->description,0,85);?>
                     </li>
                     <?php endforeach;?>
                 <span class="pull-right"><p><a href="<?php echo base_url('main/newsList');?>">All News</a></p></span>                 
