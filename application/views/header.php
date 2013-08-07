@@ -70,6 +70,7 @@
       
         <link rel="stylesheet" href="<?php echo base_url('css/main.css')?>">
         <link rel="stylesheet" href="<?php echo base_url('css/bootstrap-magnify.min.css')?>">
+        <link rel="stylesheet" href="<?php echo base_url('css/camera.css')?>">
         <script src="<?php echo base_url('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js')?>"></script>
     </head>
     <body>
@@ -216,29 +217,45 @@ function googleTranslateElementInit() {
         <div class="container well well-ceda">
             <div class="row">
                 <div class="span10">
-                <div id="myCarousel" class="carousel slide">
-                <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-                <!-- Carousel items -->
-                <div class="carousel-inner">
-                    <div class="active item"><img src="<?php echo base_url('img/1101281484C89ekB.jpg')?>"></div>
-                    <div class="item"><img src="<?php echo base_url('img/img_1.jpg')?>"></div>
-                    <div class="item"><img src="<?php echo base_url('img/img_2.jpg')?>"></div>
+                <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+            <div data-thumb="<?php echo base_url('img/slides/thumbs/bridge.jpg');?>" data-src="<?php echo base_url('img/slides/bridge.jpg');?>">
+                <div class="camera_caption fadeFromBottom">
+                    Camera is a responsive/adaptive slideshow. <em>Try to resize the browser window</em>
                 </div>
-                <!-- Carousel nav -->
-                <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+            </div>
+            <div data-thumb="<?php echo base_url('img/slides/thumbs/leaf.jpg');?>" data-src="<?php echo base_url('img/slides/leaf.jpg');?>">
+                <div class="camera_caption fadeFromBottom">
+                    It uses a light version of jQuery mobile, <em>navigate the slides by swiping with your fingers</em>
                 </div>
+            </div>
+            <div data-thumb="<?php echo base_url('img/slides/thumbs/road.jpg');?>" data-src="<?php echo base_url('img/slides/road.jpg');?>">
+                <div class="camera_caption fadeFromBottom">
+                    <em>It's completely free</em> (even if a donation is appreciated)
+                </div>
+            </div>
+<!--            <div data-thumb="../images/slides/thumbs/sea.jpg" data-src="../images/slides/sea.jpg">
+                <div class="camera_caption fadeFromBottom">
+                    Camera slideshow provides many options <em>to customize your project</em> as more as possible
+                </div>
+            </div>
+            <div data-thumb="../images/slides/thumbs/shelter.jpg" data-src="../images/slides/shelter.jpg">
+                <div class="camera_caption fadeFromBottom">
+                    It supports captions, HTML elements and videos and <em>it's validated in HTML5</em> (<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fwww.pixedelic.com%2Fplugins%2Fcamera%2F&amp;charset=%28detect+automatically%29&amp;doctype=Inline&amp;group=0&amp;user-agent=W3C_Validator%2F1.2" target="_blank">have a look</a>)
+                </div>
+            </div>
+            <div data-thumb="../images/slides/thumbs/tree.jpg" data-src="../images/slides/tree.jpg">
+                <div class="camera_caption fadeFromBottom">
+                    Different color skins and layouts available, <em>fullscreen ready too</em>
+                </div>
+            </div>-->
+        </div><!-- #camera_wrap_1 -->
                 </div>
                 <div class="span2">
                        <lable class="label">News updates</lable>
                     <ul  class="media-list">
                         <?php foreach ($newsList as $value): ?>  
                         <li><h5><a href="<?php echo base_url('main/newsdetail').'/'.$value->id;?>"><?php echo $value->title;?></a></h5>
-                        <?php echo substr($value->description,0,85);?>
+                        <?php echo substr($value->description,0,90);?>
                     </li>
                     <?php endforeach;?>
                 <span class="pull-right"><p><a href="<?php echo base_url('main/newsList');?>">All News</a></p></span>                 
