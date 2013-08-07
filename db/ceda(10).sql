@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 07, 2013 at 08:57 AM
+-- Generation Time: Aug 07, 2013 at 10:32 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -384,6 +384,30 @@ CREATE TABLE IF NOT EXISTS `siteconfig` (
 
 INSERT INTO `siteconfig` (`id`, `sitename`, `admin_phone`, `admin_email`, `admin_address`, `metadesc`, `metakey`) VALUES
 (2, 'Ceda', '4343434', 'admin@admin.com', 'Deep in the Hell ', '<p>\r\n	Test meta</p>\r\n', '<p>\r\n	Test meta,Test meta ,Test meta,Test meta ,Test meta,Test meta</p>\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `upperslider`
+--
+
+DROP TABLE IF EXISTS `upperslider`;
+CREATE TABLE IF NOT EXISTS `upperslider` (
+  `image_id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) NOT NULL,
+  `status` enum('1','0') NOT NULL,
+  `image_caption` text NOT NULL,
+  PRIMARY KEY (`image_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `upperslider`
+--
+
+INSERT INTO `upperslider` (`image_id`, `image`, `status`, `image_caption`) VALUES
+(1, '0b2d4-img_2.jpg', '1', '<p>\r\n	This is Image 1</p>\r\n'),
+(2, 'a156a-img_1.jpg', '1', '<p>\r\n	This is Image 2</p>\r\n'),
+(3, '9bd05-1101281484C89ekB.jpg', '1', '<p>\r\n	This is Image 3</p>\r\n');
 
 -- --------------------------------------------------------
 
