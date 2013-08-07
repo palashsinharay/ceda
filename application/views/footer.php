@@ -212,7 +212,17 @@ function validateEmail(user_email){
 			jQuery('#camera_wrap_1').camera({
 				thumbnails: false,
                                 height: '250px',
-                                pagination: false
+                                pagination: false,
+                                autoAdvance: true,
+                                mobileAutoAdvance: true,
+                                fx: 'random',
+                                mobileEasing: '',
+                                mobileFx: '',
+                                hover: false,
+                                navigation: true,
+                                navigationHover: true,
+                                mobileNavHover: false,
+                                playPause: false
 			});
 
 			
