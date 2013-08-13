@@ -25,67 +25,27 @@
                   
                         <?php foreach ($productList as $value): ?>  
                         <div class="span8">
-                        
-                       
-                           <div class="media">
-                           <div class="span2 pull-left product-image-left-ceda">
-                        
-                            <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>">
-                                 <h4 class="media-heading"><?php echo $value->name; ?></h4>
+                            <div class="span2">
+                                <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>">
                                  <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$value->image);?>">
-                            </a><br />
+                               </a>
                             </div>
-                            <div class="media-body">
-                            
-                                          <div class="pull-left" style="margin-left:40px">
-                                          <strong>Product name</strong>
-                                          <br/>
-                                          <br/>
-                                          <ul class="media-list">
-                                          <li><?php echo $value->name; ?></li>
-                                          </ul>
-                                          </div>
-                                          
-                                          <div class="pull-left" style="margin-left:40px">
-                                          <strong>Price</strong>
-                                          <br/>
-                                          <br/>
-                                          <ul class="media-list">
-                                          <li><?php echo $value->price; ?>/-</li>
-                                          </ul>
-                                          </div>
-                                          
-                                          <div class="pull-left" style="margin-left:50px">
-                                          <strong>Download Catalog</strong>
-                                          <br/>
-                                          <br/>
-                                          <ul class="media-list">
-                                          <li><a href="<?php echo base_url('assets/uploads/files/'.$value->cataloge) ;?>" target="_blank" ><img src="<?php echo base_url('img/pdf_icon.png')?>"/></a></li>
-                                          </ul>
-                                          </div>
-                                          
-                                          
-                                          
-                                          <div class="clearfix"></div>
-                                          <div class="span5" style="margin-left:40px">
-                                          <h5>details</h5>
-                                          <p><?php echo $value->desc; ?></p>
-                                          </div>
-                                          <?php if($value->review!=''): ?>
-                                          <div class="clearfix"></div>
-                                          <div class="span5" style="margin-left:40px">
-                                          <h5>review</h5>
-                                          <p><?php echo $value->review; ?></p>
-                                          </div>
-                                          <?php endif; ?>
-                                          <div class="span5" style="margin-left:40px">
-                                          <button class="btn btn-inverse pull-left">buy</button>
-                                          </div>
-                                </div>
-                                </div> 
-                             <hr>
+                            <div class="span3">
+                                <h4 class="media-heading"><?php echo $value->name; ?></h4>
+                                <p><?php echo substr($value->desc,0, 200); ?></p>
+                                <a href="<?php echo base_url('assets/uploads/files/'.$value->cataloge) ;?>" target="_blank" ><img src="<?php echo base_url('img/ProductDatasheet_e.gif')?>"/></a>
+                                <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>" target="_blank" ><img src="<?php echo base_url('img/ProductDetails_e.gif')?>"/></a>
+                            </div>
+                            <div class="span2 pull-right">
+                                <h4><?php echo $value->price; ?> USD</h4>
+                                <span class="badge badge-inverse">Stock:  <?php echo $value->stock;?></span>
+                               <br/>
+                                <p> Without VAT, Plus Shipping Costs </p>
+                            </div>
+
                         </div>                        
-                       
+                      <div class="clearfix"></div>
+                        <hr>
                        <?php endforeach;?>   
                        
                     </div>
