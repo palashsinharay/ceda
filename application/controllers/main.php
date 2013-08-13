@@ -21,7 +21,7 @@ class Main extends CI_Controller {
 		//$config['mailtype'] = 'html';
 		//$this->email->initialize($this->config);
 
-		$this->load->model('Cms');
+	$this->load->model('Cms');
  
     }
     public function _renderView($page,$data) {
@@ -471,6 +471,46 @@ class Main extends CI_Controller {
          $this->_renderView('search_result',$data);
     
     }
+public function payment()
+    {
+                    try
+                    {
+                            
+                            $posted                         = array();
+                            $posted["name"]                 = trim($this->input->post("name"));
+                            $posted["email"]                = trim($this->input->post("email"));
+                            $posted["phone"]                = trim($this->input->post("phone"));
+                            $posted["shipping_address"]     = trim($this->input->post("shipping_address"));
+                            $posted["business"]             = trim($this->input->post("business"));
+                            $posted["currency_code"]        = trim($this->input->post("currency_code"));
+                            $posted["item_name"]            = trim($this->input->post("item_name"));
+                            $posted["amount"]               = trim($this->input->post("amount"));
+                            $posted["name"]                 = trim($this->input->post("name"));
+                            $posted["email"]                = trim($this->input->post("email"));
+                            
+//            echo "<pre>";
+//            print_r($posted);
+//            echo "</pre>";
+//            die();
+                            $i_newid=$this->Cms->insert_payment_data($posted);
+                            echo $i_newid;
+//                            if($i_newid != 0)
+//                            {
+//                               echo $i_newid; 
+//                            } 
+//                            else 
+//                            {
+//                               echo '0'; 
+//                            }
+
+                           		
+                        //echo '1';
+                    }
+                    catch(Exception $err_obj)
+                    {
+                                    show_error($err_obj->getMessage());
+                    }
+            }    
     
 
 

@@ -19,6 +19,7 @@ class Cms extends CI_Model {
         public $_contactus = 'contactus'; 
         public $_rightpanel = 'rightpanel';
         public $_upperslider = 'upperslider';
+        public $_paypal_log = 'paypal_log';
 	public $result = null;
 
 	function __construct()
@@ -383,7 +384,58 @@ class Cms extends CI_Model {
                $this->result = $query->result();
                return $this->result;
 	}
+      
+        function insert_payment_data($posted)
+	{
+            $i_ret_=0; ////Returns false
+            
+//            echo "<pre>";
+//            print_r($posted);
+//            echo "</pre>";
+           // die();
+            if(!empty($posted))
+            {
+                                $s_qry="Insert Into ".$this->_paypal_log." Set ";
+                                $s_qry.="name=? ";
+                                $s_qry.=",email=? ";
+                                $s_qry.=",phone=? ";
+                                $s_qry.=",shipping_address=? ";
+                                $s_qry.=",business=? ";
+                                $s_qry.=",item_name=? ";
+                                $s_qry.=",amount=? ";
+                                $s_qry.=",currency_code=? ";
+                                $this->db->query($s_qry,array(
+                                $posted["name"],
+                                $posted["email"],
+                                $posted["phone"],
+                                $posted["shipping_address"],
+                                $posted["business"],
+                                $posted["item_name"],
+                                $posted["amount"],
+                                $posted["currency_code"],
+                                
+             ));
+                //echo $this->db->last_query();
+                //die();
+                $i_ret_=$this->db->insert_id();     
+                
+            }
+            unset($s_qry, $info );
+            return $i_ret_;
+	}
 
+//        function update_payment_status()
+//	{
+//        $query = 'update '.$this->_paypal_log.' set status = 1 ORDER BY id DESC LIMIT 1';
+//        $result = $this->db->$query;
+//        $count = $result->affected_rows(); //should return the number of rows affected by the last query
+//        return $count;           
+//	}
+//        
+        
+
+        
+        
 }	
 
 

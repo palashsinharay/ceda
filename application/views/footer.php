@@ -198,6 +198,8 @@ function validateEmail(user_email){
 }
 
 });
+
+
 </script>
 <!--for slider-->
         <script src="<?php echo base_url('js/jquery.camera.min.js')?>"></script>
@@ -228,5 +230,88 @@ function validateEmail(user_email){
 			
 		});});
 	</script>
+        
+ <script type="text/javascript">
+        
+ // function send_to_paypal(){
+ $('#paypal_button').click(function() {
+ 
+ if($('#name').val()=='')
+			{
+					//alert("Enter NAME");
+					msg="Name must not be blank !";
+					$('.success-message').html(msg);
+					$('.success-message').fadeIn(500).show();
+					return false;
+								
+			}
+                else if($('#email').val()=='')
+			{
+					//alert("Enter NAME");
+					msg="Email must not be blank !";
+					$('.success-message').html(msg);
+					$('.success-message').fadeIn(500).show();
+					return false;
+								
+			}
+                else if(!validateEmail($('#email').val()))
+			{
+                         msg="Please provide a valid email address !";
+			//alert("Please provide a valid email address !");
+			$('.success-message').html(msg);
+			$('.success-message').fadeIn(500).show();
+			return false;
+			}                          
+              else if($('#phone').val()=='')
+			{
+					//alert("Enter NAME");
+					msg="Mobile  must not be blank !";
+					$('.success-message').html(msg);
+					$('.success-message').fadeIn(500).show();
+					return false;
+								
+			} 
+                        
+              else if($('#shipping_address').val()=='')
+			{
+					//alert("Enter NAME");
+					msg="Shipping Address must not be blank !";
+					$('.success-message').html(msg);
+					$('.success-message').fadeIn(500).show();
+					return false;
+								
+			}           
+                        else
+                            {
+                                
+                                       $.ajax({
+    url: "<?php echo site_url('main/payment'); ?>",
+    type: 'POST',
+    data: $('#_xclick').serialize(),
+    success: function(msg) {
+        $('#custom').val(msg);
+        $('#_xclick').submit();
+        return true;
+    }
+  });
+                                
+                            }
+ 
+ 
+return false;
+});
+ 
+function validateEmail(user_email){
+   var filter = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{1,4}$/;
+    if(filter.test(user_email)){
+        return true;
+    }else{
+        return false;
+    }
+} 
+ </script> 
+        
+        
+        
 </body>
 </html>

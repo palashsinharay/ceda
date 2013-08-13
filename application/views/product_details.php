@@ -69,16 +69,10 @@
                                 </div>
                                 <div class="media-body well span4 pull-right">
                                     
+                 
+                                  
+<!--<form name="_xclick" id="_xclick" action="https://www.sandbox.paypal.com/in/cgi-bin/webscr" method="POST" onsubmit="send_to_paypal();return false;">-->
 
-                                    
-                                    
-<form name="_xclick" action="https://www.sandbox.paypal.com/in/cgi-bin/webscr" method="post">
-<!--<form name="_xclick" action="https://www.paypal.com/in/cgi-bin/webscr" method="post">-->
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="sahani.bunty_buss@gmail.com">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="item_name" value="<?php echo $productDetail->name;?>">
-<input type="hidden" name="amount" value="<?php echo $productDetail->price ?>">
                                     
                                     
                                        <span class="label">Name :</span>
@@ -98,11 +92,14 @@
                                        <br><br>
                                        <span class="badge badge-inverse">Stock:  <?php echo $productDetail->stock;?></span>
                                        <br><br>
-                                       <input type="image" class="btn btn-inverse pull-right" name="submit" value="Buy Now"/>
-<!--<input type="image" src="http://www.paypal.com/en_GB/i/btn/x-click-but01.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">-->
-</form>                                    
                                        
+       
+ <p><a href="#myModal" role="button" class="btn" data-toggle="modal">Buy</a></p>
+                                    
+                                    
                                 </div>
+                            
+
                                 
                                
                                
@@ -110,6 +107,100 @@
                         </div>
                                               
                     </div>
+             <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 id="myModalLabel">Buy Form</h3>
+                            </div>
+                            <div class="modal-body">
+<div class="control-group">
+<div class="success-message" style="display:none; color:#FF0000; font-size:14px; font-weight:600; margin-left: 0px; margin-top: 2px;"></div>    
+<form name="_xclick" id="_xclick" action="https://www.sandbox.paypal.com/in/cgi-bin/webscr" method="POST" >
+<!--<form name="_xclick" action="https://www.paypal.com/in/cgi-bin/webscr" method="post">-->
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="sahani.bunty_buss@gmail.com">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="item_name" value="<?php echo $productDetail->name;?>">
+<input type="hidden" name="amount" value="<?php echo $productDetail->price ?>">
+<input type="hidden" name="return" value="<?php echo site_url( 'shop/success' )?>">
+<input type="hidden" name="cancel_return" value="<?php echo site_url( 'shop/cancel' )?>">
+<input type="hidden" name="notify_url" value="<?php echo site_url( 'shop/ipn' )?>">
+<input type="hidden" name="custom" id="custom" value="">
+
+<!--<ul>
+    <li>Name : <input type="text" name="name" id="name" value=""/></li>
+    <li>Email : <input type="text" name="email" id="email" value=""/></li>
+    <li>Mobile : <input type="text" name="phone" id="phone" value=""/></li>
+    <li>Shipping Address : <input type="text" name="shipping_address" id="shipping_address" value=""/></li>
+    <li style="float:left;"><input type="image" id="paypal_button" class="btn btn-inverse pull-right" name="submit" value="Buy Now" /></li>
+</ul>-->
+
+<div class="control-group">
+<label for="Name" class="control-label">	
+Name :
+</label>
+<div class="controls">
+<input type="text" name="name" id="name" value=""/>
+<span class="help-inline"> </span>
+</div>
+</div>
+
+<div class="control-group">
+<label for="Email" class="control-label">	
+Email :
+</label>
+<div class="controls">
+<input type="text" name="email" id="email" value=""/>
+<span class="help-inline"> </span>
+</div>
+</div>
+
+<div class="control-group">
+<label for=">Mobile" class="control-label">	
+Mobile :
+</label>
+<div class="controls">
+<input type="text" name="phone" id="phone" value=""/>
+<span class="help-inline"> </span>
+</div>
+</div>
+
+<div class="control-group">
+<label for="Shipping Address" class="control-label">	
+Shipping Address :
+</label>
+<div class="controls">
+    <textarea rows="4" cols="50" name="shipping_address" id="shipping_address">
+
+    </textarea>
+
+<span class="help-inline"> </span>
+</div>
+</div>
+
+<div class="control-group">
+<label for="button" class="control-label pull-left">	
+<input type="image" id="paypal_button" class="btn btn-inverse pull-right" name="submit" value="Buy Now" />
+</label>
+</div>
+
+
+
+
+</div>
+
+
+<!--<input type="image" src="http://www.paypal.com/en_GB/i/btn/x-click-but01.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">-->
+
+</form> 
+<br/>    
+
+                                
+                            </div>
+                            <div class="modal-footer">
+                               <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                            </div>
+             </div>  
                     
                    <div class="media well-small">
                                 <ul class="nav nav-tabs" id="myTab">
