@@ -424,15 +424,27 @@ class Cms extends CI_Model {
             return $i_ret_;
 	}
 
-//        function update_payment_status()
-//	{
-//        $query = 'update '.$this->_paypal_log.' set status = 1 ORDER BY id DESC LIMIT 1';
-//        $result = $this->db->$query;
-//        $count = $result->affected_rows(); //should return the number of rows affected by the last query
-//        return $count;           
-//	}
-//        
+        function update_payment_status($custom)
+	{
+            $data = array(
+               'status' => '1'
+            );
+        $this->db->where('id', $custom);
+        $result=$this->db->update($this->_paypal_log, $data); 
+        $count = $this->db->affected_rows(); //should return the number of rows affected by the last query
+        return $count;           
+	}
         
+        
+      function get_userDetail($id) {
+                
+          
+               $query = $this->db->get_where($this->_paypal_log,array('id' => $id));
+		
+		$this->result = $query->result();
+
+		return $this->result[0];
+        }
 
         
         
