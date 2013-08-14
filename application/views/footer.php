@@ -312,7 +312,17 @@ function validateEmail(user_email){
 } 
  </script> 
         
-   
-        
+<script>
+
+<?php echo strip_tags(htmlspecialchars_decode($siteConfig->google_analytics)); ?>
+</script>   
+ 
+<?php 
+
+//echo trim($siteConfig->google_analytics);
+
+?>
+
+
 </body>
 </html>

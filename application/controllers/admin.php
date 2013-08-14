@@ -373,7 +373,8 @@ if ( ! $this->image_lib->resize())
     $crud->set_theme('datatables');
     $crud->set_table('siteconfig')
         ->set_subject('Site Config')
-        ->columns('sitename','admin_phone','admin_email','admin_address','metadesc','metakey')
+        ->columns('google_analytics','sitename','admin_phone','admin_email','admin_address','metadesc','metakey')
+        ->display_as('google_analytics','Google Analytics')
         ->display_as('sitename','Site Name')
         ->display_as('admin_phone','Admin Phone')
         ->display_as('admin_email','Admin Email')       
@@ -383,8 +384,8 @@ if ( ! $this->image_lib->resize())
 
 
     //below code is for edit and add
-    $crud->fields('sitename','admin_phone','admin_email','admin_address','metadesc','metakey');
-    $crud->required_fields('sitename','admin_phone','admin_email','admin_address');
+    $crud->fields('google_analytics','sitename','admin_phone','admin_email','admin_address','metadesc','metakey');
+    $crud->required_fields('google_analytics','sitename','admin_phone','admin_email','admin_address');
     $output = $crud->render();
     $this->_example_output($output);
 } 
