@@ -14,7 +14,7 @@
         <div class="container well well-ceda">
              <div class="media">
                 <div class="span2 pull-left product-image-left-ceda">
-                    <lable class="label-ceda">News</lable>
+                    <img src="<?php echo base_url('img/news.png');?>" />
                 </div>
              </div>
             <br>

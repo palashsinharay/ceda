@@ -40,7 +40,7 @@
         <script src="<?php echo base_url('js/vendor/bootstrap.min.js')?>"></script>
 
         <script src="<?php echo base_url('js/main.js')?>"></script>
-        <script src="<?php echo base_url('js/bootstrap-magnify.min.js')?>"></script>
+        <script src="<?php echo base_url('js/bootstrap-magnify.js')?>"></script>
         
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -206,6 +206,7 @@ function validateEmail(user_email){
         <script src="<?php echo base_url('js/jquery.mobile.customized.min.js')?>"></script>
         <script src="<?php echo base_url('js/jquery.easing.1.3.js')?>"></script>
         <script src="<?php echo base_url('js/camera.min.js')?>"></script>
+        
 <script>
 		jQuery.noConflict();
                 jQuery(document).ready(function() {
@@ -311,7 +312,7 @@ function validateEmail(user_email){
 } 
  </script> 
         
-        
+   
         
 </body>
 </html>
