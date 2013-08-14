@@ -501,6 +501,32 @@ function  comments() {
     $this->_example_output($output);
 }  
 
+
+    function  product_sell() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('paypal_log')
+        ->set_subject('Product Sell Report')
+        ->columns('name','email','phone','shipping_address','business','item_name','amount','currency_code','status')
+        ->display_as('name','Name')
+        ->display_as('email','Email')
+        ->display_as('phone','Phone')
+        ->display_as('shipping_address','Shipping Address')
+        ->display_as('business','Business')
+        ->display_as('item_name','Item Name')
+        ->display_as('amount','Amount')
+        ->display_as('currency_code','Currency Code')
+        ->display_as('status','Status');
+            $crud->unset_add();
+           // $crud->unset_edit();
+            //$crud->unset_delete();
+    
+    $output = $crud->render();
+    $this->_example_output($output);
+} 
+
 }
  
 /* End of file admin.php */

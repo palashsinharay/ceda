@@ -70,7 +70,7 @@ class shop extends CI_Controller {
     public function success() {
         //$i_newid=$this->Cms->update_payment_status();
         echo "success";
-        //redirect(echo base_url('main/index')); 
+        redirect('main');
       }
  
     public function cancel() {

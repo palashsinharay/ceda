@@ -40,6 +40,7 @@
                                 <h4><?php echo $value->price; ?> USD</h4>
                                 <span class="badge badge-inverse">Stock:  <?php echo $value->stock;?></span>
                                <br/>
+                               <br/>
                                 <p> Without VAT, Plus Shipping Costs </p>
                             </div>
 

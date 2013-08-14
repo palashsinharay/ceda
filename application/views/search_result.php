@@ -22,14 +22,14 @@
                         ?>  
                         <div class="span8">
                         
-                        <hr />
+                        <hr-ceda />
                            <div class="media">
                            
                                <div class="media-body">
                             
                                           <div class="pull-left" style="margin-left:40px">
                                           <ul class="media-list">
-                                          <li><h2><a href="<?php echo base_url('blog/blogdetail').'/'.$value->blog_id; ?>"><?php echo $value->title; ?></a></h2></li>
+                                          <li><h4><a href="<?php echo base_url('blog/blogdetail').'/'.$value->blog_id; ?>"><?php echo $value->title; ?></a></h4></li>
                                           </ul>
                                           </div>
                                           <div class="clearfix"></div>
@@ -37,7 +37,7 @@
                                           <p><?php echo substr($value->desc,0,100); ?></p>
                                           <span class="pull-right"><p><a href="<?php echo base_url('blog/blogdetail').'/'.$value->blog_id; ?>">....more</a></p></span>
                                           </div>
-                                          <div class="clearfix"></div>
+                                         
                                         
                                 </div>
                           </div> 
@@ -64,22 +64,22 @@
                         ?>  
                         <div class="span8">
                         
-                        <hr />
+                        <hr-ceda />
                            <div class="media">
                            
                                <div class="media-body">
                             
                                           <div class="pull-left" style="margin-left:40px">
                                           <ul class="media-list">
-                                          <li><h2><a href="<?php echo base_url('main/page').'/'.$value->cid; ?>"><?php echo $value->menutitle; ?></a></h2></li>
+                                          <li><h4><a href="<?php echo base_url('main/page').'/'.$value->cid; ?>"><?php echo $value->menutitle; ?></a></h4></li>
                                           </ul>
                                           </div>
                                           <div class="clearfix"></div>
                                           <div class="span7" style="margin-left:40px">
-                                          <p><?php echo substr($value->content,0,500); ?></p>
+                                          <p><?php echo substr($value->content,0,100); ?></p>
                                           <span class="pull-right"><p><a href="<?php echo base_url('main/page').'/'.$value->cid; ?>">....more</a></p></span>
                                           </div>
-                                          <div class="clearfix"></div>
+                                          
                                         
                                 </div>
                           </div> 
@@ -106,22 +106,22 @@
                         ?>  
                         <div class="span8">
                         
-                        <hr />
+                        <hr-ceda />
                            <div class="media">
                            
                                <div class="media-body">
                             
                                           <div class="pull-left" style="margin-left:40px">
                                           <ul class="media-list">
-                                          <li><h2><a href="<?php echo base_url('main/productdetail').'/'.$value->pid; ?>"><?php echo $value->name; ?></a></h2></li>
+                                          <li><h4><a href="<?php echo base_url('main/productdetail').'/'.$value->pid; ?>"><?php echo $value->name; ?></a></h4></li>
                                           </ul>
                                           </div>
                                           <div class="clearfix"></div>
                                           <div class="span7" style="margin-left:40px">
-                                          <p><?php echo substr($value->desc,0,500); ?></p>
+                                          <p><?php echo substr($value->desc,0,100); ?></p>
                                           <span class="pull-right"><p><a href="<?php echo base_url('main/productdetail').'/'.$value->pid; ?>">....more</a></p></span>
                                           </div>
-                                          <div class="clearfix"></div>
+                                         
                                         
                                 </div>
                           </div> 
@@ -149,22 +149,22 @@
                         ?>  
                         <div class="span8">
                         
-                        <hr />
+                        <hr-ceda />
                            <div class="media">
                            
                                <div class="media-body">
                             
                                           <div class="pull-left" style="margin-left:40px">
                                           <ul class="media-list">
-                                          <li><h2><a href="<?php echo base_url('main/servicedetail').'/'.$value->s_id; ?>"><?php echo $value->s_name; ?></a></h2></li>
+                                          <li><h4><a href="<?php echo base_url('main/servicedetail').'/'.$value->s_id; ?>"><?php echo $value->s_name; ?></a></h4></li>
                                           </ul>
                                           </div>
                                           <div class="clearfix"></div>
                                           <div class="span7" style="margin-left:40px">
-                                          <p><?php echo substr($value->s_desc,0,500); ?></p>
+                                          <p><?php echo substr($value->s_desc,0,100); ?></p>
                                           <span class="pull-right"><p><a href="<?php echo base_url('main/servicedetail').'/'.$value->s_id; ?>">....more</a></p></span>
                                           </div>
-                                          <div class="clearfix"></div>
+                                        
                                         
                                 </div>
                           </div> 
@@ -192,22 +192,22 @@
                         ?>  
                         <div class="span8">
                         
-                        <hr />
+                        <hr-ceda />
                            <div class="media">
                            
                                <div class="media-body">
                             
                                           <div class="pull-left" style="margin-left:40px">
                                           <ul class="media-list">
-                                          <li><h2><a href="<?php echo base_url('main/newsdetail').'/'.$value->id; ?>"><?php echo $value->title; ?></a></h2></li>
+                                          <li><h4><a href="<?php echo base_url('main/newsdetail').'/'.$value->id; ?>"><?php echo $value->title; ?></a></h4></li>
                                           </ul>
                                           </div>
                                           <div class="clearfix"></div>
                                           <div class="span7" style="margin-left:40px">
-                                          <p><?php echo substr($value->description,0,500); ?></p>
+                                          <p><?php echo substr($value->description,0,100); ?></p>
                                           <span class="pull-right"><p><a href="<?php echo base_url('main/newsdetail').'/'.$value->id; ?>">....more</a></p></span>
                                           </div>
-                                          <div class="clearfix"></div>
+                                        
                                         
                                 </div>
                           </div> 
@@ -233,5 +233,5 @@
        <?php //echo $pagination_link_blog;?>
                
     </div>-->
-            <hr>
+            <hr-ceda>
             
