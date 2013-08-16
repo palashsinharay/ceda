@@ -45,18 +45,25 @@ class Main extends CI_Controller {
                 $this->load->view('footer.php',$data);
     }
 
-    public function _renderViewContact($page,$data) {
+    public function _renderViewOther($page,$data) {
                 
-                //$data['featured_menu'] = $this->Cms->get_featured_menu();
-                //$data['news'] = $this->Cms->get_news_list(1);
-                //$data['whoweare_links']=$this->Cms->get_page_basedonCatId('aboutus');
+                                $data['allCategoryData'] = $this->Cms->get_product_cat();
+                 $data['allServicesData'] = $this->Cms->get_service_list();
+                 $data['cmsData'] = $this->Cms->get_page_content_all();
+                 $data['siteConfig'] = $this->Cms->site_config_all();
+                 $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                 $data['allSliderData'] = $this->Cms->get_slider();
+                 
+                 //$data['top_menu']=$this->Cms->get_topmenu(); 
+                //$data['product_cat']=$this->Cms->get_product_cat();
+//                echo "<pre>";
+//                print_r($data['allSliderData']);
+//		echo "</pre>";
+//		die();
                 
-               // echo "hiii";
-                $data['top_menu']=$this->Cms->get_topmenu();
-                $data['product_cat']=$this->Cms->get_product_cat();
-                $this->load->view('fe/common/product_gallery_header.php',$data);
-                $this->load->view('fe/'.$page.'.php',$data);
-                $this->load->view('fe/common/footer.php',$data);
+                $this->load->view('header_other.php',$data);
+                $this->load->view($page.'.php',$data);
+                $this->load->view('footer.php',$data);
     }
 
     public function index()
@@ -88,7 +95,7 @@ class Main extends CI_Controller {
 //		echo "</pre>";
 //		die();
                 
-                $this->_renderView('product_list',$data);
+                $this->_renderViewOther('product_list',$data);
         
         
 
@@ -103,7 +110,7 @@ class Main extends CI_Controller {
 //                print_r($data['pagination_link_pro']);
 //		echo "</pre>";
 //		die();
-                $this->_renderView('product_list',$data);
+                $this->_renderViewOther('product_list',$data);
 	          
 
     }
@@ -118,7 +125,7 @@ class Main extends CI_Controller {
 //		die();
                  $data['pagination_link'] = $this->pagination_link_maker_news();
 	           
-                $this->_renderView('news_list',$data);
+                $this->_renderViewOther('news_list',$data);
         
         
 
@@ -134,7 +141,7 @@ class Main extends CI_Controller {
 //        echo "</pre>" ;
 //        die();
 
-       $this->_renderView('news_detail',$data);
+       $this->_renderViewOther('news_detail',$data);
     }
     
     function servicedetail($serviceID)
@@ -147,7 +154,7 @@ class Main extends CI_Controller {
 //        echo "</pre>" ;
 //        die();
 
-       $this->_renderView('service',$data);
+       $this->_renderViewOther('service',$data);
     }
     
     function productdetail($productID)
@@ -160,7 +167,7 @@ class Main extends CI_Controller {
 //        echo "</pre>" ;
 //        die();
 
-       $this->_renderView('product_details',$data);
+       $this->_renderViewOther('product_details',$data);
     }
     
     public function page($id)
@@ -172,12 +179,12 @@ class Main extends CI_Controller {
 //		echo "</pre>";
 //		die();
                 switch ($data['pageDetail']->type) {
-                    case 'content':$this->_renderView('inner',$data);
+                    case 'content':$this->_renderViewOther('inner',$data);
                         break;
-                    case 'contact':$this->_renderViewContact('contact_us',$data);
+                    case 'contact':$this->_renderViewOther('contact_us',$data);
                         break;
                     default:
-                      $this->_renderView('inner_page',$data);
+                      $this->_renderViewOther('inner_page',$data);
                         break;
                 }
  	    
@@ -190,7 +197,7 @@ class Main extends CI_Controller {
                         //$data['contact_us_data']=$this->Cms->get_page_content(19);
 		       
                         $data['newsList'] = $this->Cms->get_news_list();
-                        $this->_renderView('contact',$data);
+                        $this->_renderViewOther('contact',$data);
     }
  	
     public function contactus_email()
@@ -468,7 +475,7 @@ class Main extends CI_Controller {
 //        echo "</pre>" ;
 //        die();
         
-         $this->_renderView('search_result',$data);
+         $this->_renderViewOther('search_result',$data);
     
     }
 public function payment()

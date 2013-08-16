@@ -33,7 +33,7 @@ class Blog extends CI_Controller {
                 $data['rightPanelData'] = $this->Cms->get_right_panel_content();
                 $data['allSliderData'] = $this->Cms->get_slider();
                 
-                $this->load->view('header.php',$data);
+                $this->load->view('header_other.php',$data);
                 $this->load->view($page.'.php',$data);
                 $this->load->view('footer.php',$data);
     }    
