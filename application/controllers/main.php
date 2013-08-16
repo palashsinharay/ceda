@@ -14,6 +14,7 @@ class Main extends CI_Controller {
         $config['allowed_types'] = 'gif|jpg|png|pdf|doc|docx|txt';
         $this->load->library('upload', $config);
         $this->load->library('grocery_CRUD');
+        $this->load->config('paypal_config');
 		//$this->load->library('email');
 		//$config['protocol'] = 'sendmail';
 		//$config['charset'] = 'utf-8';
@@ -159,15 +160,34 @@ class Main extends CI_Controller {
     
     function productdetail($productID)
     {
-       $data['newsList'] = $this->Cms->get_news_list();
+        $data['newsList'] = $this->Cms->get_news_list();
         $data['productDetail'] = $this->Cms->get_productDetail($productID);
-       
+        $data['paypal_url']= $this->config->item('paypal_url');
+        $data['paypal_email']= $this->config->item('paypal_email');
+        $data['paypal_currency_code']= $this->config->item('paypal_currency_code');
+        $data['paypal_live']= $this->config->item('paypal_live');
+        
 //        echo "<pre>";
 //        print_r($data['productDetail']);
 //        echo "</pre>" ;
 //        die();
 
-       $this->_renderViewOther('product_details',$data);
+//         $this->load->library( 'Paypal' );
+//        $this->paypal->initialize();
+// 
+//        $this->paypal->add_field( 'return', site_url( 'shop/success' ) );
+//        $this->paypal->add_field( 'cancel_return', site_url( 'shop/cancel' ) );
+//        $this->paypal->add_field( 'notify_url', site_url( 'shop/ipn' ) );
+// 
+//        $this->paypal->add_field( 'item_name', "test");
+//        $this->paypal->add_field( 'amount', '19.99' );
+//        $this->paypal->add_field( 'quantity', '1');
+// 
+//        $data['paypal_form']=$this->paypal->paypal_auto_form();
+        
+        
+        
+        $this->_renderViewOther('product_details',$data);
     }
     
     public function page($id)

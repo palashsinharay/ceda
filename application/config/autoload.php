@@ -80,7 +80,8 @@ $autoload['helper'] = array('url');
 |
 */
 
-$autoload['config'] = array();
+//$autoload['config'] = array();
+$autoload['config'] = array('config', 'paypal_config');
 
 
 /*

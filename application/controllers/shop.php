@@ -21,15 +21,17 @@ class shop extends CI_Controller {
         $this->load->library( 'Paypal' );
         $this->paypal->initialize();
  
-//        $this->paypal->add_field( 'return', site_url( 'shop/success' ) );
-//        $this->paypal->add_field( 'cancel_return', site_url( 'shop/cancel' ) );
-//        $this->paypal->add_field( 'notify_url', site_url( 'shop/ipn' ) );
-// 
-//        $this->paypal->add_field( 'item_name', "test");
-//        $this->paypal->add_field( 'amount', '19.99' );
-//        $this->paypal->add_field( 'quantity', '1');
-// 
-//        $this->paypal->paypal_auto_form();
+        $this->paypal->add_field( 'return', site_url( 'shop/success' ) );
+        $this->paypal->add_field( 'cancel_return', site_url( 'shop/cancel' ) );
+        $this->paypal->add_field( 'notify_url', site_url( 'shop/ipn' ) );
+ 
+        $this->paypal->add_field( 'item_name', "test");
+        $this->paypal->add_field( 'amount', '19.99' );
+        $this->paypal->add_field( 'quantity', '1');
+ 
+        $data['paypal_form']=$this->paypal->paypal_auto_form();
+        //$this->load->view('product_details.php',$data);
+        
     }
  
     public function ipn() {
@@ -87,9 +89,9 @@ class shop extends CI_Controller {
                         
                        $data['userDetail'] = $this->Cms->get_userDetail($pdata['custom']);
                         
-                       // $i_updateid=$this->Cms->update_payment_status(2);
-                         $i_updateid=$this->Cms->update_payment_status($pdata['custom']);
-                       if($i_updateid!=0)
+                     //  $i_updateid=$this->Cms->update_payment_status($pdata['custom']);
+                       $i_updateid=$this->Cms->update_payment_status($pdata['custom']);
+                      if($i_updateid!=0)
                        {
                          $message='
                             <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 

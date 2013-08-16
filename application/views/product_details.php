@@ -115,11 +115,13 @@
                             <div class="modal-body">
 <div class="control-group">
 <div class="success-message" style="display:none; color:#FF0000; font-size:14px; font-weight:600; margin-left: 0px; margin-top: 2px;"></div>    
-<form name="_xclick" id="_xclick" action="https://www.sandbox.paypal.com/in/cgi-bin/webscr" method="POST" >
+<form name="_xclick" id="_xclick" action="<?php echo $paypal_url;?>" method="POST" >
 <!--<form name="_xclick" action="https://www.paypal.com/in/cgi-bin/webscr" method="post">-->
 <input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="sahani.bunty_buss@gmail.com">
-<input type="hidden" name="currency_code" value="USD">
+<!--<input type="hidden" name="business" value="sahani.bunty_buss@gmail.com">-->
+<input type="hidden" name="business" value="<?php echo $paypal_email;?>">
+<!--<input type="hidden" name="currency_code" value="USD">-->
+<input type="hidden" name="currency_code" value="<?php echo $paypal_currency_code;?>">
 <input type="hidden" name="item_name" value="<?php echo $productDetail->name;?>">
 <input type="hidden" name="amount" value="<?php echo $productDetail->price ?>">
 <input type="hidden" name="return" value="<?php echo site_url( 'shop/success' )?>">
