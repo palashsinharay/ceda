@@ -106,16 +106,21 @@ class Paypal {
  
         $this->ipn_data = $_POST;
  
-        if (strcmp ($res, "VERIFIED") == 0) {
-            return $this->log_ipn_results(true);
-        } else if (strcmp ($res, "INVALID") == 0) {
-            $this->last_error = 'IPN Validation Failed.';
-            $this->log_ipn_results(false);
-            return false;
+//        if (strcmp ($res, "VERIFIED") == 0) {
+//            return $this->log_ipn_results(true);
+//        } else if (strcmp ($res, "INVALID") == 0) {
+//            $this->last_error = 'IPN Validation Failed.';
+//            $this->log_ipn_results(false);
+//            return false;
+//        }
+   
+       return true;
+        
         }
-    }
  
     function log_ipn_results($success){
+       
+        echo "HELLOOOOOOOOOOOOO";
         if (!$this->ipn_log) return;  // is logging turned off?
  
         $text = '['.date('m/d/Y g:i A').'] - ';

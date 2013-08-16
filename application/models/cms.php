@@ -424,12 +424,33 @@ class Cms extends CI_Model {
             return $i_ret_;
 	}
 
-        function update_payment_status($custom)
+        function update_payment_status($pdata)
 	{
             $data = array(
-               'status' => '1'
+               'payment_status' => $pdata["payment_status"],
+               'payer_id' => $pdata["payer_id"],
+               'payment_date' => $pdata["payment_date"],
+               'payment_status' => $pdata["payment_status"],
+                'payment_date' => $pdata["payment_date"],
+                'address_street' => $pdata["address_street"],
+                'address_zip' => $pdata["address_zip"],
+                'address_country_code' => $pdata["address_country_code"],
+                'address_name' => $pdata["address_name"],
+                'address_zip' => $pdata["address_zip"],
+                'address_country' => $pdata["address_country"],
+                'address_city' => $pdata["address_city"],
+                'address_state' => $pdata["address_state"],
+                'verify_sign' => $pdata["verify_sign"],
+                'payer_email' => $pdata["payer_email"],
+                'txn_id' => $pdata["txn_id"],
+                'mc_gross' => $pdata["mc_gross"],
+                'mc_currency' => $pdata["mc_currency"],
+                'shipping' => $pdata["shipping"],
+                'payment_gross' => $pdata["payment_gross"],
+                'ipn_track_id' => $pdata["ipn_track_id"]
+                
             );
-        $this->db->where('id', $custom);
+        $this->db->where('id',  $pdata["custom"]);
         $result=$this->db->update($this->_paypal_log, $data); 
         $count = $this->db->affected_rows(); //should return the number of rows affected by the last query
         return $count;           

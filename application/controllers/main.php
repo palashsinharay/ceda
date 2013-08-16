@@ -166,6 +166,7 @@ class Main extends CI_Controller {
         $data['paypal_email']= $this->config->item('paypal_email');
         $data['paypal_currency_code']= $this->config->item('paypal_currency_code');
         $data['paypal_live']= $this->config->item('paypal_live');
+        $data['shipping']= $this->config->item('shipping');
         
 //        echo "<pre>";
 //        print_r($data['productDetail']);

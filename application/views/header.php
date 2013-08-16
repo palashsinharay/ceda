@@ -85,7 +85,7 @@
                 <div class="container">
                     <div class="row">
                     <div class="span3">
-                         <a class="brand" href="#"><img src="<?php echo base_url('img/ceda.jpg')?>" alt="logo" width="171px" height="27px"></a>
+                        <a class="brand" href="<?php echo base_url();?>"><img src="<?php echo base_url('img/ceda.jpg')?>" alt="logo" width="171" height="27"></a>
                     </div>    
                     <div class="span6 text-center header-text">RF AND EMC ENGINEERING SOLUTIONS</div>
                     <div class="span2 pull-right">

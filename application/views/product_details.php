@@ -109,7 +109,7 @@
                     </div>
              <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                             <h3 id="myModalLabel">Buy Form</h3>
                             </div>
                             <div class="modal-body">
@@ -128,7 +128,8 @@
 <input type="hidden" name="cancel_return" value="<?php echo site_url( 'shop/cancel' )?>">
 <input type="hidden" name="notify_url" value="<?php echo site_url( 'shop/ipn' )?>">
 <input type="hidden" name="custom" id="custom" value="">
-
+<input type="hidden" name="shipping" value="<?php echo $shipping;?>">
+<!--<input type="hidden" name="payer_email" value="sahani.bunty_per@gmail.com">-->
 <!--<ul>
     <li>Name : <input type="text" name="name" id="name" value=""/></li>
     <li>Email : <input type="text" name="email" id="email" value=""/></li>
