@@ -253,7 +253,7 @@ class Cms extends CI_Model {
          function get_productListpagei($catId,$offest = 0)
 	{
 		
-               $query = $this->db->get_where($this->_product,array('cat_id' => $catId,'status' => '1'),2,$offest);
+               $query = $this->db->get_where($this->_product,array('cat_id' => $catId,'status' => '1'),4,$offest);
 //               		echo $this->db->last_query();
 //                die();
             	$this->result = $query->result();

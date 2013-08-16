@@ -397,7 +397,7 @@ class Main extends CI_Controller {
         $config['total_rows'] = $this->Cms->count_table('productList',$cat_id);
         $config['uri_segment'] = 4;
         //print_r($config['total_rows']);die();
-        $config['per_page'] = 2;
+        $config['per_page'] = 4;
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';

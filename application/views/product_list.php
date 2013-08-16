@@ -37,31 +37,40 @@
                 
                 <div class="span8 vertical-ceda">
                     <div class="row">
-                  
-                        <?php foreach ($productList as $value): ?>  
-                        <div class="span8">
-                            <div class="span2">
+                  <?php $i=0; ?>
+                        <?php foreach ($productList as $value): 
+                        $i++; 
+                        if($i%2==0):
+                        ?>  
+                        <div class="span8-ceda-even" >
+                        <?php else:?>    
+                        <div class="span8-ceda-odd" >
+                        <?php endif; ?>
+                        <br/>
+                            <div class="span2"  ">
                                 <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>">
                                  <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$value->image);?>">
                                </a>
                             </div>
                             <div class="span3">
                                 <h4 class="media-heading"> <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>"><?php echo $value->name; ?></a></h4>
-                                <p><?php echo substr($value->desc,0, 200); ?></p>
+                                <p><?php echo substr($value->desc,0,100); ?></p>
                                 <a href="<?php echo base_url('assets/uploads/files/'.$value->cataloge) ;?>" target="_blank" ><img src="<?php echo base_url('img/ProductDatasheet_e.gif')?>"/></a>
                                 <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>" target="_blank" ><img src="<?php echo base_url('img/ProductDetails_e.gif')?>"/></a>
                             </div>
+                        
                             <div class="span2 pull-right">
                                 <h4><?php echo $value->price; ?> USD</h4>
                                 <span class="badge badge-inverse">Stock:  <?php echo $value->stock;?></span>
-                               <br/>
-                               <br/>
+                               
                                 <p> Without VAT, Plus Shipping Costs </p>
                             </div>
-
+                             
                         </div>                        
                       <div class="clearfix"></div>
-                        <hr>
+<!--                        <hr>-->
+                       
+
                        <?php endforeach;?>   
                        
                     </div>

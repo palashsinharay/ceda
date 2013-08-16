@@ -125,9 +125,25 @@ hr-ceda {
   border-bottom: 1px solid #ffffff;
 }
 
+  .span8-ceda-even {
+    width: 770px;
+    background-color: #FCF0D5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+/*    border-bottom: 0.5px solid #000000;*/
+    border-top: 0.5px solid #000000;
+  }
 
-
-
+ .span8-ceda-odd {
+    width: 770px;
+    background-color: #FFFFFF;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+/*    border-bottom: 0.5px solid #000000;*/
+    border-top: 0.5px solid #000000;
+}
 
 
 
