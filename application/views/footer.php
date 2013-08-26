@@ -273,15 +273,15 @@ function validateEmail(user_email){
 								
 			} 
                         
-              else if($('#shipping_address').val()=='')
-			{
-					//alert("Enter NAME");
-					msg="Shipping Address must not be blank !";
-					$('.success-message').html(msg);
-					$('.success-message').fadeIn(500).show();
-					return false;
-								
-			}           
+//              else if($('#shipping_address').val()=='')
+//			{
+//					//alert("Enter NAME");
+//					msg="Shipping Address must not be blank !";
+//					$('.success-message').html(msg);
+//					$('.success-message').fadeIn(500).show();
+//					return false;
+//								
+//			}           
                         else
                             {
                                 

@@ -48,7 +48,7 @@ class Main extends CI_Controller {
 
     public function _renderViewOther($page,$data) {
                 
-                                $data['allCategoryData'] = $this->Cms->get_product_cat();
+                 $data['allCategoryData'] = $this->Cms->get_product_cat();
                  $data['allServicesData'] = $this->Cms->get_service_list();
                  $data['cmsData'] = $this->Cms->get_page_content_all();
                  $data['siteConfig'] = $this->Cms->site_config_all();
@@ -508,7 +508,7 @@ public function payment()
                             $posted["name"]                 = trim($this->input->post("name"));
                             $posted["email"]                = trim($this->input->post("email"));
                             $posted["phone"]                = trim($this->input->post("phone"));
-                            $posted["shipping_address"]     = trim($this->input->post("shipping_address"));
+                            $posted["shipping_address"]     = 'static address abc';
                             $posted["business"]             = trim($this->input->post("business"));
                             $posted["currency_code"]        = trim($this->input->post("currency_code"));
                             $posted["item_name"]            = trim($this->input->post("item_name"));

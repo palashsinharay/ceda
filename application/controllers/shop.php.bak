@@ -1,6 +1,4 @@
-<?php 
-error_reporting(0);
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 class shop extends CI_Controller {
  
@@ -57,7 +55,7 @@ class shop extends CI_Controller {
                         $data['userDetail'] = $this->Cms->get_userDetail($pdata['custom']);
                       if($i_updateid!=0)
                        {
-                       //$id =  "<pre>" . print_r( $pdata, true ). "</pre>";
+                       $id =  "<pre>" . print_r( $pdata, true ). "</pre>";
                          $message='
                             <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
                             "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -94,12 +92,11 @@ class shop extends CI_Controller {
                         $email_setting  = array('mailtype'=>'html');
                         $this->email->initialize($email_setting);
                         // Give Probir da's email id here 
-                        $this->email->from('sahani.bunty_buss@gmail.com', 'Ceda');
+                        $this->email->from('sahani.bunty10@gmail.com', 'Ceda');
                         //$this->email->to($data['userDetail']->email);
                         $this->email->to('sahani.bunty9@gmail.com');
                         //Give Probir da's email id here 
-                      //  $this->email->bcc('palash.sinharay2000@gmail.com');
-					    $this->email->bcc('probir.debnath@gmail.com');
+                        $this->email->bcc('palash.sinharay2000@gmail.com');
                         $this->email->subject('Ceda :');
                         $this->email->message($message);
                         $this->email->send();
@@ -114,37 +111,15 @@ class shop extends CI_Controller {
         }
     }
    public function success() {
-          //ob_start();
         //$i_newid=$this->Cms->update_payment_status();
       
-       //echo "success";
-     
+       echo "success";
        //redirect('main');
-        $data['allCategoryData'] = $this->Cms->get_product_cat();
-        $data['allServicesData'] = $this->Cms->get_service_list();
-        $data['cmsData'] = $this->Cms->get_page_content_all();
-        $data['siteConfig'] = $this->Cms->site_config_all();
-        $data['rightPanelData'] = $this->Cms->get_right_panel_content();
-        $data['allSliderData'] = $this->Cms->get_slider();
-        $data['newsList'] = $this->Cms->get_news_list();
-       $this->load->view('header.php',$data);
-       $this->load->view(success.'.php',$data);
-       $this->load->view('footer.php',$data);
-       
-       
       }
  
     public function cancel() {
-        $data['allCategoryData'] = $this->Cms->get_product_cat();
-        $data['allServicesData'] = $this->Cms->get_service_list();
-        $data['cmsData'] = $this->Cms->get_page_content_all();
-        $data['siteConfig'] = $this->Cms->site_config_all();
-        $data['rightPanelData'] = $this->Cms->get_right_panel_content();
-        $data['allSliderData'] = $this->Cms->get_slider();
-        $data['newsList'] = $this->Cms->get_news_list();
-       $this->load->view('header.php',$data);
-       $this->load->view(failure.'.php',$data);
-       $this->load->view('footer.php',$data);
-        
+       echo "canceled / failed";
+       // redirect('main');
     }
 }
+?>

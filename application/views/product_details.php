@@ -109,7 +109,7 @@
                     </div>
              <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
+<!--                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>-->
                             <h3 id="myModalLabel">Buy Form</h3>
                             </div>
                             <div class="modal-body">
@@ -128,15 +128,8 @@
 <input type="hidden" name="cancel_return" value="<?php echo site_url( 'shop/cancel' )?>">
 <input type="hidden" name="notify_url" value="<?php echo site_url( 'shop/ipn' )?>">
 <input type="hidden" name="custom" id="custom" value="">
-<input type="hidden" name="shipping" value="<?php echo $shipping;?>">
-<!--<input type="hidden" name="payer_email" value="sahani.bunty_per@gmail.com">-->
-<!--<ul>
-    <li>Name : <input type="text" name="name" id="name" value=""/></li>
-    <li>Email : <input type="text" name="email" id="email" value=""/></li>
-    <li>Mobile : <input type="text" name="phone" id="phone" value=""/></li>
-    <li>Shipping Address : <input type="text" name="shipping_address" id="shipping_address" value=""/></li>
-    <li style="float:left;"><input type="image" id="paypal_button" class="btn btn-inverse pull-right" name="submit" value="Buy Now" /></li>
-</ul>-->
+<!--<input type="hidden" name="shipping" value="<?php //echo $shipping;?>">-->
+
 
 <div class="control-group">
 <label for="Name" class="control-label">	
@@ -168,7 +161,7 @@ Mobile :
 </div>
 </div>
 
-<div class="control-group">
+<!--<div class="control-group">
 <label for="Shipping Address" class="control-label">	
 Shipping Address :
 </label>
@@ -179,7 +172,7 @@ Shipping Address :
 
 <span class="help-inline"> </span>
 </div>
-</div>
+</div>-->
 
 <div class="control-group">
 <label for="button" class="control-label pull-left">	
