@@ -40,6 +40,7 @@ a:hover
             <ul class="fancyNav">
 <!--                <li id="home"><a href="#home" class="homeIcon">Home</a></li>-->
                 <li id="news"><a href='<?php echo base_url('admin/cms_page')?>'>CMS</a> </li>
+                <li id="about"><a href='<?php echo base_url('admin/video_page')?>'>Videos</a></li>
                 <li id="about"><a href='<?php echo base_url('admin/service')?>'>Service</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/product_categorie')?>'>Product Category</a></li>
                 <li id="contact"><a href='<?php echo base_url('admin/products')?>'>Products</a></li>

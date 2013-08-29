@@ -532,6 +532,34 @@ function  comments() {
     $this->_example_output($output);
 } 
 
+
+    function video_page() {
+        $crud = new grocery_CRUD();
+
+        //below code is for datagrid view
+        $crud->set_theme('datatables');
+        $crud->set_table('videopage')
+            ->set_subject('Video PAGE')
+
+         
+              ->columns('menutitle','content','metatitle','metadesc','metakey','status','date')                
+            
+            
+            ->display_as('menutitle','Title')
+            ->display_as('content','Content')
+            ->display_as('filename','Image')
+            ->display_as('metatitle','Metatitle')
+	    ->display_as('metadesc','Metadesc')
+	    ->display_as('metakey','Metakey');
+
+        $crud->add_fields('menutitle','content','metatitle','metadesc','metakey','status','date');
+        $crud->edit_fields('menutitle','content','metatitle','metadesc','metakey','status','date');
+        $crud->required_fields('menutitle','content','type','status','date');	
+       
+	$output = $crud->render();
+        $this->_example_output($output);
+    }
+
 }
  
 /* End of file admin.php */

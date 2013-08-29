@@ -189,7 +189,9 @@ function googleTranslateElementInit() {
                             <li>
                             <a href="<?php echo base_url('blog').'/';?>"> Blog </a>
                             </li>
-
+                            <li>
+                            <a href="<?php echo base_url('main').'/videoPage/15';?>"> Videos </a>
+                            </li>
                           </ul>
                           </div>
                           <div class="span3 pull-right" >

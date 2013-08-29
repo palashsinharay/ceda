@@ -5,6 +5,7 @@
 class Cms extends CI_Model {
 
 	public $_table = 'cmspage';
+        public $_videotable = 'videopage';
 	public $_meduiatable = 'media_gallery';
 	public $_topmenu = 'topmenu';
 	public $_product = 'product';
@@ -76,6 +77,17 @@ class Cms extends CI_Model {
 	{
 
 		$query = $this->db->get_where($this->_table,array('cid =' => $id));
+		$this->result = $query->result();
+		/*echo "<pre>";
+		print_r($this->result);
+		echo "</pre>";*/
+		return $this->result[0];
+
+	}
+        function get_video_page_content($id)
+	{
+
+		$query = $this->db->get_where($this->_videotable,array('vid =' => $id));
 		$this->result = $query->result();
 		/*echo "<pre>";
 		print_r($this->result);

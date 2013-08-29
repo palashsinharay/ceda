@@ -210,6 +210,20 @@ class Main extends CI_Controller {
                 }
  	    
     }
+    
+        public function videoPage($id)
+    {
+		$data['videoPageDetail'] = $this->Cms->get_video_page_content($id);
+                $data['newsList'] = $this->Cms->get_news_list();
+//		echo "<pre>";
+//                print_r($data['videoPageDetail']);
+//		echo "</pre>";
+//		die();
+                $this->_renderViewOther('videos',$data);
+                
+                
+ 	    
+    }
 
 
     public function contact_us()
