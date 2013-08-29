@@ -3,7 +3,32 @@
 //print_r($productDetail);
 //echo "</pre>";
 
-?>
+?>   
+    <div class="container well well-ceda">
+            <div class="row">
+                <div class="span10">
+
+<img src="<?php echo base_url('assets/uploads/files/'.$productDetail->heading_image);?>" width="1059" />
+                    <!-- #camera_wrap_1 -->
+                </div>
+                <div class="span2">
+                       <lable class="label">News updates</lable>
+                    <ul  class="media-list">
+                        <?php foreach ($newsList as $value): ?>  
+                        <li><h5><a href="<?php echo base_url('main/newsdetail').'/'.$value->id;?>"><?php echo $value->title;?></a></h5>
+                        <?php echo substr($value->description,0,90);?>
+                    </li>
+                    <?php endforeach;?>
+                <span class="pull-right"><p><a href="<?php echo base_url('main/newsList');?>">All News</a></p></span>                 
+                                   
+                    </ul>
+                    </div>
+            </div>
+            
+          </div> <!-- /container -->
+
+
+
         <!-- Example row of columns -->
         <div class="container well well-ceda">
             <div class="row">
@@ -76,17 +101,15 @@
                                     
                                     
                                        <span class="label">Name :</span>
-                                       <h5 class="offset1" style="display:inline;"><?php echo $productDetail->name;?></h5>
-                                       <br>
-                                       <br>
+                                       <h5><?php echo $productDetail->name;?></h5>
+                                      
                                        <span class="label">Price :</span>
-                                       <h5 class="offset1" style="display:inline;">US $<?php echo $productDetail->price;?></h5>
-                                       <br>
-                                       <br>
+                                       <h5 >US $<?php echo $productDetail->price;?></h5>
+                                      
                                        <span class="label">Payment :</span>
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                       <p><?php echo $productDetail->payment;?></p>
                                        <span class="label">Shipping :</span>
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                       <p><?php echo $productDetail->shipping;?></p>
                                        
                                        <span class="badge badge-inverse">Catalog</span><span class="offset1"><a href="<?php echo base_url('assets/uploads/files/'.$productDetail->cataloge) ;?>" target="_blank" ><img src="<?php echo base_url('img/pdf_icon.png');?>"/></a></span>
                                        <br><br>

@@ -220,7 +220,7 @@ class Admin extends CI_Controller {
     $crud->set_theme('datatables');
     $crud->set_table('product')
         ->set_subject('Product')
-        ->columns('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','product_meta_key','status','featured','review','stock')
+        ->columns('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','product_meta_key','status','featured','review','stock','heading_image','payment','shipping')
         ->display_as('name','Product Name')
         ->display_as('desc','Product Description')
         ->display_as('cat_id','Product Category')
@@ -236,22 +236,26 @@ class Admin extends CI_Controller {
         ->display_as('status','status')
         ->display_as('featured','Featured')
         ->display_as('review','Review')
-        ->display_as('stock','Stock');
+        ->display_as('stock','Stock')
+        ->display_as('heading_image','Heading-Image')
+        ->display_as('payment','Payment')
+        ->display_as('shipping','Shipping');
 
 
     //below code is for edit and add
-    $crud->fields('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','product_meta_key','status','featured','review','stock');
+    $crud->fields('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','product_meta_key','status','featured','review','stock','heading_image','payment','shipping');
     //$crud->required_fields('title','email',);
 
 
 
     //below is validation
-     $crud->required_fields('name','desc','cat_id','price','application','specs','cataloge','image','product_meta','product_meta_key','status','featured','stock');
+     $crud->required_fields('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','product_meta_key','status','featured','review','stock','heading_image','payment','shipping');
     //below code is for file upload
     $crud->set_field_upload('cataloge','assets/uploads/files');
     $crud->set_field_upload('image','assets/uploads/files');
     $crud->set_field_upload('image2','assets/uploads/files');
     $crud->set_field_upload('image3','assets/uploads/files');
+    $crud->set_field_upload('heading_image','assets/uploads/files');
     //$crud->set_relation('cid','cmspage','menutitle');
     $crud->set_relation('cat_id','product_category','cat_name');
     $output = $crud->render();

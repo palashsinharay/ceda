@@ -214,10 +214,10 @@ function googleTranslateElementInit() {
                          
         
         
-        <div class="container well well-ceda">
+<!--        <div class="container well well-ceda">
             <div class="row">
                 <div class="span10">
-<!--        <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+        <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
          <?php foreach ($allSliderData as $value): ?>  
            <div data-thumb="<?php echo base_url('img/slides/thumbs/bridge.jpg');?>" data-src="<?php echo base_url('assets/uploads/files/'.$value->image);?>">
                 <div class="camera_caption fadeFromBottom">
@@ -226,9 +226,9 @@ function googleTranslateElementInit() {
             </div>
             <?php endforeach; ?>       
 
-        </div>-->
+        </div>
 <img src="<?php echo base_url('assets/uploads/files/04a65-1101281484C89ekB.jpg')?>" width="1059" />
-                    <!-- #camera_wrap_1 -->
+                     #camera_wrap_1 
                 </div>
                 <div class="span2">
                        <lable class="label">News updates</lable>
@@ -244,4 +244,4 @@ function googleTranslateElementInit() {
                     </div>
             </div>
             
-          </div> <!-- /container -->
+          </div>  /container -->
