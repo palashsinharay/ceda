@@ -128,7 +128,7 @@
 <input type="hidden" name="cancel_return" value="<?php echo site_url( 'shop/cancel' )?>">
 <input type="hidden" name="notify_url" value="<?php echo site_url( 'shop/ipn' )?>">
 <input type="hidden" name="custom" id="custom" value="">
-<!--<input type="hidden" name="shipping" value="<?php //echo $shipping;?>">-->
+<input type="hidden" name="shipping" value="<?php echo $shipping;?>">
 
 
 <div class="control-group">

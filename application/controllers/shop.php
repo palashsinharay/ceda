@@ -96,10 +96,12 @@ class shop extends CI_Controller {
                         // Give Probir da's email id here 
                         $this->email->from('sahani.bunty_buss@gmail.com', 'Ceda');
                         //$this->email->to($data['userDetail']->email);
-                        $this->email->to('sahani.bunty9@gmail.com');
+                       // $this->email->to('sahani.bunty9@gmail.com');
+                        $this->email->to('probir.debnath@gmail.com');
                         //Give Probir da's email id here 
-                      //  $this->email->bcc('palash.sinharay2000@gmail.com');
-					    $this->email->bcc('probir.debnath@gmail.com');
+                        $this->email->bcc('palash.sinharay2000@gmail.com');
+                        $this->email->bcc('sahani.bunty9@gmail.com');
+	               // $this->email->bcc('probir.debnath@gmail.com');
                         $this->email->subject('Ceda :');
                         $this->email->message($message);
                         $this->email->send();
@@ -127,9 +129,9 @@ class shop extends CI_Controller {
         $data['rightPanelData'] = $this->Cms->get_right_panel_content();
         $data['allSliderData'] = $this->Cms->get_slider();
         $data['newsList'] = $this->Cms->get_news_list();
-       $this->load->view('header.php',$data);
+       //$this->load->view('header.php',$data);
        $this->load->view(success.'.php',$data);
-       $this->load->view('footer.php',$data);
+       //$this->load->view('footer.php',$data);
        
        
       }

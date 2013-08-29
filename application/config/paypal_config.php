@@ -10,6 +10,6 @@ $config['ipn_log'] = TRUE;      //bool: log active? requires database
 $config['paypal_url']="https://www.sandbox.paypal.com/in/cgi-bin/webscr";
 //$config['paypal_url']="https://www.paypal.com/in/cgi-bin/webscr";
 
-$config['shipping']="1";
+$config['shipping']="50.00";
 
 ?>
