@@ -84,22 +84,25 @@ class Cms extends CI_Model {
 		return $this->result[0];
 
 	}
-        function get_video_page_content($id)
+        function get_video_page_content($offset)
 	{
 
-		$query = $this->db->get_where($this->_videotable,array('vid =' => $id));
+		//$query = $this->db->get_where($this->_videotable,array('vid =' => $id));
+                $query = $this->db->order_by('vid', 'DESC')->get_where($this->_videotable,array('status'=>'1'),2,$offset);
 		$this->result = $query->result();
 		/*echo "<pre>";
 		print_r($this->result);
 		echo "</pre>";*/
-		return $this->result[0];
+		return $this->result;
 
 	}
-	
+        
+       
 	//function for getting gallery page content
 	function get_page_content_all()
 	{
-		$query = $this->db->get($this->_table);
+		//$query = $this->db->get($this->_table);
+                $query = $this->db->order_by('cid', 'ASC')->get_where($this->_table,array('status'=>'1'));
 		//echo $this->db->last_query();
 		//die();
 		$this->result = $query->result();
@@ -243,7 +246,11 @@ class Cms extends CI_Model {
                 case 'blog' :
                     return $this->db->count_all($this->_blogtable);
                     break;
+                case 'videolist' :
+                    return $this->db->count_all($this->_videotable);
+                    break;
 
+                
                 default:
                     echo "dieeeee"; die();
                     break;
@@ -256,7 +263,7 @@ class Cms extends CI_Model {
         function get_productList($catId)
 	{
 		// limit 4 for header link
-               $query = $this->db->get_where($this->_product,array('cat_id' => $catId,'status' => '1'),4);
+               $query = $this->db->get_where($this->_product,array('cat_id' => $catId,'status' => '1'));
                
             	$this->result = $query->result();
 

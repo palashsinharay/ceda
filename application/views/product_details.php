@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="span10">
 
-<img src="<?php echo base_url('assets/uploads/files/'.$productDetail->heading_image);?>" width="1059" />
+<img src="<?php echo base_url('assets/uploads/files/'.$productDetail->heading_image);?>" style="width: 971px; height: 253px;"/>
                     <!-- #camera_wrap_1 -->
                 </div>
                 <div class="span2">

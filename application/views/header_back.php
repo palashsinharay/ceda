@@ -117,7 +117,7 @@ function googleTranslateElementInit() {
                                        
                                       <ul class="thumbnails">
                                         <?php endif;?> 
-                                          <li class="span2">
+                                          <li class="span3">
                                         
                                             
                                         
@@ -137,7 +137,7 @@ function googleTranslateElementInit() {
                                   
                                                          
                                         
-                                      <?php if($count==4):?>
+                                      <?php if($count==3):?>
                                       </ul>
                                         
                                     </div>

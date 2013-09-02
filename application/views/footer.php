@@ -34,21 +34,21 @@
             
             
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="<?php echo base_url('js/vendor/jquery-1.10.1.min.js')?>"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="<?php echo base_url('js/vendor/jquery-1.10.1.min.js')?>"><\/script>')</script>
 
-        <script src="<?php echo base_url('js/vendor/bootstrap.min.js')?>"></script>
+<script src="<?php echo base_url('js/vendor/bootstrap.min.js')?>"></script>
 
-        <script src="<?php echo base_url('js/main.js')?>"></script>
-        <script src="<?php echo base_url('js/bootstrap-magnify.js')?>"></script>
+<script src="<?php echo base_url('js/main.js')?>"></script>
+<script src="<?php echo base_url('js/bootstrap-magnify.js')?>"></script>
         
-        <script>
+<script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
             g.src='//www.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
-   <script>
+<script>
            
     $(function () {
     $('#myTab a:first').tab('show');
@@ -202,10 +202,10 @@ function validateEmail(user_email){
 
 </script>
 <!--for slider-->
-        <script src="<?php echo base_url('js/jquery.camera.min.js')?>"></script>
-        <script src="<?php echo base_url('js/jquery.mobile.customized.min.js')?>"></script>
-        <script src="<?php echo base_url('js/jquery.easing.1.3.js')?>"></script>
-        <script src="<?php echo base_url('js/camera.min.js')?>"></script>
+<script src="<?php echo base_url('js/jquery.camera.min.js')?>"></script>
+<script src="<?php echo base_url('js/jquery.mobile.customized.min.js')?>"></script>
+<script src="<?php echo base_url('js/jquery.easing.1.3.js')?>"></script>
+<script src="<?php echo base_url('js/camera.min.js')?>"></script>
         
 <script>
 		jQuery.noConflict();
@@ -232,7 +232,7 @@ function validateEmail(user_email){
 		});});
 	</script>
         
- <script type="text/javascript">
+<script type="text/javascript">
         
  // function send_to_paypal(){
  $('#paypal_button').click(function() {

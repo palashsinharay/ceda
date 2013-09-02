@@ -36,6 +36,7 @@
             <div class="row">
                 
                 <div class="span8 vertical-ceda">
+                    
                     <div class="row">
                   <?php $i=0; ?>
                         <?php foreach ($productList as $value): 
@@ -47,14 +48,14 @@
                         <div class="span8-ceda-odd" >
                         <?php endif; ?>
                         <br/>
-                            <div class="span2"  ">
+                            <div class="span2">
                                 <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>">
                                  <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$value->image);?>">
                                </a>
                             </div>
                             <div class="span3">
-                                <h4 class="media-heading"> <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>"><?php echo $value->name; ?></a></h4>
-                                <p><?php echo substr($value->desc,0,100); ?></p>
+                                <h5 class="media-heading"> <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>"><?php echo $value->name; ?></a></h5>
+                                <p><?php echo strip_tags(htmlspecialchars_decode(substr($value->desc,0,200))); ?></p>
                                 <a href="<?php echo base_url('assets/uploads/files/'.$value->cataloge) ;?>" target="_blank" ><img src="<?php echo base_url('img/ProductDatasheet_e.gif')?>"/></a>
                                 <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>" target="_blank" ><img src="<?php echo base_url('img/ProductDetails_e.gif')?>"/></a>
                             </div>
@@ -77,13 +78,15 @@
                 </div>
                 
                 <?php include 'right_panel.php';?>
+                    
+                    
                       
      
             </div>
-        <div class="pagination">
-           <?php echo $pagination_link_pro;?>
+<!--        <div class="pagination">
+           <?php //echo $pagination_link_pro;?>
 
-        </div>
+        </div>-->
          
             
 

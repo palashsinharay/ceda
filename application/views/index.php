@@ -24,8 +24,8 @@
                                     <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$value->image);?>" height="150" width="150">
                                 </a>
                                 <div class="media-body">
-                                <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>"><h4 class="media-heading"><?php echo $value->name;?></h4></a>
-                                <p><?php  echo substr($value->desc,0, 200);?> </p>
+                                <a href="<?php echo base_url('main/productdetail').'/'.$value->pid;?>"><h5 class="media-heading"><?php echo $value->name;?></h5></a>
+                                <p><?php  echo strip_tags(htmlspecialchars_decode(substr($value->desc,0,200)));?> </p>
                                 <p><a href="<?php echo '#myModal'.$value->pid ;?>" role="button" class="btn pull-right" data-toggle="modal">Overview</a></p>
                                 </div>
                                 </div>

@@ -1,28 +1,8 @@
-<?php 
-
-//echo "<pre>";
-//print_r($productList);
-//echo "</pre>";
-//
-//echo "<pre>";
-//print_r($newsList);
-//echo "</pre>";
-//echo "<pre>";
-//print_r($allCategoryData);
-//echo "</pre>";
-//echo "<pre>";
-//print_r($allServicesData);
-//echo "</pre>";
-
-//echo "<pre>";
-//print_r($allSliderData);
-//echo "</pre>";
-
-//die();
-
-?>
-
 <!DOCTYPE html>
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+ <!--[if lt IE 9]>
+     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+ <![endif]-->
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -58,7 +38,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css')?>">
         <style>
             body {
-                padding-top: 112px;
+                padding-top: 145px;
 /*                padding-bottom: 40px;*/
                  background: url <?php echo base_url('img/gradient.png')?> repeat-x scroll 0 0 #FCF9F3;
             }
@@ -85,7 +65,7 @@
                 <div class="container">
                     <div class="row">
                     <div class="span3">
-                        <a class="brand" href="#"><img src="<?php echo base_url('img/ceda.jpg')?>" alt="logo"  width="225" height="150"></a>
+                        <a class="brand" href="#"><img src="<?php echo base_url('img/ceda.jpg')?>" alt="logo"  width="200" height="125"></a>
                     </div>    
                     <div class="span6 text-center header-text">RF AND EMC ENGINEERING SOLUTIONS</div>
                     <div class="span2 pull-right">
@@ -99,6 +79,7 @@ function googleTranslateElementInit() {
                     
                    </div>
                 <div class="row-fluid">
+                
                 <div class="navbar">
                	 
                  <div>
@@ -119,24 +100,8 @@ function googleTranslateElementInit() {
                             <li>
                             <a href="<?php echo base_url();?>"> Home </a>
                             </li>
-                            <?php foreach ($cmsData as $value): ?>  
-                            <li>
-                            <a href="<?php echo base_url('main/page').'/'.$value->cid;?>"> <?php echo $value->menutitle; ?> </a>
-                            </li>
-                            <?php endforeach;?> 
-                            <!-- Classic dropdown -->
-                            <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Services <b class="caret"></b> </a><!-- Classic Dropdown -->
-                              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                               <?php foreach ($allServicesData as $value): ?>  
-                                  <li>
-                                  <a tabindex="-1" href="<?php echo base_url('main/servicedetail').'/'.$value->s_id;?>"> <?php echo $value->s_name; ?> </a>
-                                </li>
-                               <?php endforeach;?>   
-                              </ul>
-                            </li>
-                            <!-- Pictures -->
-                         <li class="dropdown yamm-fullwidth">
+                            
+                             <li class="dropdown yamm-fullwidth">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Products <b class="caret"></b> </a>
                               <ul class="dropdown-menu">
                                 <li>
@@ -153,18 +118,19 @@ function googleTranslateElementInit() {
                                        
                                       <ul class="thumbnails">
                                         <?php endif;?> 
-                                          <li class="span3">
+                                          <li class="span2">
                                         
                                             
                                         
-                                       <a class="" href="<?php echo base_url('main/productListpagei').'/'.$value->cat_id;?>"> <img alt="150x120" src="<?php echo base_url('assets/uploads/files/category/'.$value->cat_image) ;?>" style=" max-height:80px; max-width: 100px;"> </a>
-                                      <a class="" href="<?php echo base_url('main/productListpagei').'/'.$value->cat_id;?>"><h5><?php echo $value->cat_name; ?></h5></a>
-                                          <ul class="media-list" style="list-style:square;">
-                                            <?php foreach ($data['productList'] as $pvalue): ?>
-                                                 <li><a href="<?php echo base_url('main/productdetail').'/'.$pvalue->pid;?>"><?php echo $pvalue->name; ?></a></li>
-                                            <?php  endforeach;?> 
+
+                                      <a class="" href="<?php echo base_url('main/productListpagei').'/'.$value->cat_id;?>"> <img alt="150x120" src="<?php echo base_url('assets/uploads/files/category/'.$value->cat_image) ;?>" style=" max-height:80px; max-width: 100px;" > </a>
+                                      <a class="" href="<?php echo base_url('main/productList').'/'.$value->cat_id;?>"><h5><?php echo $value->cat_name; ?></h5></a>
+<!--                                          <ul class="media-list" style="list-style:square;">
+                                            <?php //foreach ($data['productList'] as $pvalue): ?>
+                                                 <li><a href="<?php //echo base_url('main/productdetail').'/'.$pvalue->pid;?>"><?php //echo $pvalue->name; ?></a></li>
+                                            <?php  //endforeach;?> 
                                               
-                                          </ul>
+                                          </ul>-->
                                          
                                         
                                       </li>
@@ -172,7 +138,7 @@ function googleTranslateElementInit() {
                                   
                                                          
                                         
-                                      <?php if($count==3):?>
+                                      <?php if($count==4):?>
                                       </ul>
                                         
                                     </div>
@@ -186,12 +152,30 @@ function googleTranslateElementInit() {
                               </ul>
                             </li>
                             
+                           <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Services <b class="caret"></b> </a><!-- Classic Dropdown -->
+                              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                               <?php foreach ($allServicesData as $value): ?>  
+                                  <li>
+                                  <a tabindex="-1" href="<?php echo base_url('main/servicedetail').'/'.$value->s_id;?>"> <?php echo $value->s_name; ?> </a>
+                                </li>
+                               <?php endforeach;?>   
+                              </ul>
+                            </li>
+                            
+                            <?php foreach ($cmsData as $value): ?>  
+                            <li>
+                            <a href="<?php echo base_url('main/page').'/'.$value->cid;?>"> <?php echo $value->menutitle; ?> </a>
+                            </li>
+                            <?php endforeach;?> 
+                         
                             <li>
                             <a href="<?php echo base_url('blog').'/';?>"> Blog </a>
                             </li>
-                            <li>
-                            <a href="<?php echo base_url('main').'/videoPage/15';?>"> Videos </a>
+                             <li>
+                            <a href="<?php echo base_url('main').'/videoPage';?>"> Videos </a>
                             </li>
+
                           </ul>
                           </div>
                           <div class="span3 pull-right" >
@@ -207,43 +191,11 @@ function googleTranslateElementInit() {
                   </div>
                   </div>
       		
-            </div>
+            </div>    
+                    
                     </div>
                 </div>
                       <!--/.nav-collapse -->
                 </div>
             </div>
-                         
-        
-        
-<!--        <div class="container well well-ceda">
-            <div class="row">
-                <div class="span10">
-        <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
-         <?php foreach ($allSliderData as $value): ?>  
-           <div data-thumb="<?php echo base_url('img/slides/thumbs/bridge.jpg');?>" data-src="<?php echo base_url('assets/uploads/files/'.$value->image);?>">
-                <div class="camera_caption fadeFromBottom">
-                   <?php echo $value->image_caption; ?>
-                </div>
-            </div>
-            <?php endforeach; ?>       
 
-        </div>
-<img src="<?php echo base_url('assets/uploads/files/04a65-1101281484C89ekB.jpg')?>" width="1059" />
-                     #camera_wrap_1 
-                </div>
-                <div class="span2">
-                       <lable class="label">News updates</lable>
-                    <ul  class="media-list">
-                        <?php foreach ($newsList as $value): ?>  
-                        <li><h5><a href="<?php echo base_url('main/newsdetail').'/'.$value->id;?>"><?php echo $value->title;?></a></h5>
-                        <?php echo substr($value->description,0,90);?>
-                    </li>
-                    <?php endforeach;?>
-                <span class="pull-right"><p><a href="<?php echo base_url('main/newsList');?>">All News</a></p></span>                 
-                                   
-                    </ul>
-                    </div>
-            </div>
-            
-          </div>  /container -->

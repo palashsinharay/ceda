@@ -124,7 +124,7 @@ class Main extends CI_Controller {
 //                print_r($data['newsList']);
 //		echo "</pre>";
 //		die();
-                 $data['pagination_link'] = $this->pagination_link_maker_news();
+                $data['pagination_link'] = $this->pagination_link_maker_news();
 	           
                 $this->_renderViewOther('news_list',$data);
         
@@ -211,12 +211,14 @@ class Main extends CI_Controller {
  	    
     }
     
-        public function videoPage($id)
+        public function videoPage($offset=0)
     {
-		$data['videoPageDetail'] = $this->Cms->get_video_page_content($id);
+		//echo "hii";
+                $data['videoPageList'] = $this->Cms->get_video_page_content($offset);
                 $data['newsList'] = $this->Cms->get_news_list();
+                $data['pagination_link_video'] = $this->pagination_link_maker_videos();
 //		echo "<pre>";
-//                print_r($data['videoPageDetail']);
+//              print_r($data['videoPageList']);
 //		echo "</pre>";
 //		die();
                 $this->_renderViewOther('videos',$data);
@@ -435,7 +437,7 @@ class Main extends CI_Controller {
     //pagination for products
     public function pagination_link_maker_pro($cat_id) {
         
-        $config['base_url'] = 'http://local.ceda.com/main/productListpagei/'.$cat_id;
+        $config['base_url'] = base_url().'/main/productListpagei/'.$cat_id;
         $config['total_rows'] = $this->Cms->count_table('productList',$cat_id);
         $config['uri_segment'] = 4;
         //print_r($config['total_rows']);die();
@@ -466,7 +468,7 @@ class Main extends CI_Controller {
     
     public function pagination_link_maker_news() {
         
-        $config['base_url'] = 'http://local.ceda.com/main/newsList';
+        $config['base_url'] = base_url().'/main/newsList';
         $config['total_rows'] = $this->Cms->count_table('newsList');
         $config['per_page'] = 2;
         $config['full_tag_open'] = '<ul>';
@@ -492,6 +494,36 @@ class Main extends CI_Controller {
         //echo $this->Cms->rowcount('newsList');
         return $this->pagination->create_links();
     }
+    
+        public function pagination_link_maker_videos() {
+        
+        $config['base_url'] = base_url().'/main/videoPage';
+        $config['total_rows'] = $this->Cms->count_table('videolist');
+        $config['per_page'] = 2;
+        $config['full_tag_open'] = '<ul>';
+        $config['full_tag_close'] = '</ul>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['next_link'] = 'Next';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = 'Prev';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='active'><a href='#'>";
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        //$config['display_pages'] = FALSE; 
+        $this->pagination->initialize($config);
+        //echo $this->Cms->rowcount('newsList');
+        return $this->pagination->create_links();
+    }
+    
     
 
     public function callback() {
