@@ -10,8 +10,8 @@
         <div class="container well well-ceda">
             <div class="row">
                 <div class="span8 vertical-ceda">
-                   
-                    <img src="<?php echo base_url('img/Featured-Product.png');?>" />
+                    <lable class="label-ceda">Featured Product</lable>
+<!--                    <img src="<?php //echo base_url('img/Featured-Product.png');?>" />-->
                     <br>
                     <br>
                     

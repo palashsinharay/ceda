@@ -42,7 +42,8 @@ class Blog extends CI_Controller {
         
         
         $data['newsList'] = $this->Cms->get_news_list();
-        $data['blogList'] = $this->Cms->get_blog_list($offset);
+        //$data['blogList'] = $this->Cms->get_blog_list($offset);
+        $data['blogList'] = $this->Cms->get_blog_list();
         $data['pagination_link_blog'] = $this->pagination_link_maker_blog();
 //        foreach ($data['blogList']as $value)
 //        {

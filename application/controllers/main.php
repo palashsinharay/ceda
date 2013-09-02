@@ -118,7 +118,8 @@ class Main extends CI_Controller {
    
     public function newsList($offset=0)
     {
-                 $data['newsListAll'] = $this->Cms->get_news_list_all($offset);
+               //  $data['newsListAll'] = $this->Cms->get_news_list_all($offset);
+          $data['newsListAll'] = $this->Cms->get_news_list_all();
                  $data['newsList'] = $this->Cms->get_news_list();
 //                echo "<pre>";
 //                print_r($data['newsList']);
@@ -211,12 +212,28 @@ class Main extends CI_Controller {
  	    
     }
     
-        public function videoPage($offset=0)
+//   public function videoPage($offset=0)
+//    {
+//		//echo "hii";
+//                $data['videoPageList'] = $this->Cms->get_video_page_content($offset);
+//                $data['newsList'] = $this->Cms->get_news_list();
+//                $data['pagination_link_video'] = $this->pagination_link_maker_videos();
+////		echo "<pre>";
+////              print_r($data['videoPageList']);
+////		echo "</pre>";
+////		die();
+//                $this->_renderViewOther('videos',$data);
+//                
+//                
+// 	    
+//    }
+    
+   public function videoPage()
     {
 		//echo "hii";
-                $data['videoPageList'] = $this->Cms->get_video_page_content($offset);
+                $data['videoPageList'] = $this->Cms->get_video_page_content();
                 $data['newsList'] = $this->Cms->get_news_list();
-                $data['pagination_link_video'] = $this->pagination_link_maker_videos();
+                
 //		echo "<pre>";
 //              print_r($data['videoPageList']);
 //		echo "</pre>";
@@ -226,6 +243,7 @@ class Main extends CI_Controller {
                 
  	    
     }
+    
 
 
     public function contact_us()

@@ -84,11 +84,23 @@ class Cms extends CI_Model {
 		return $this->result[0];
 
 	}
-        function get_video_page_content($offset)
+//        function get_video_page_content($offset)
+//	{
+//
+//		//$query = $this->db->get_where($this->_videotable,array('vid =' => $id));
+//                $query = $this->db->order_by('vid', 'DESC')->get_where($this->_videotable,array('status'=>'1'),2,$offset);
+//		$this->result = $query->result();
+//		/*echo "<pre>";
+//		print_r($this->result);
+//		echo "</pre>";*/
+//		return $this->result;
+//
+//	}
+                function get_video_page_content()
 	{
 
 		//$query = $this->db->get_where($this->_videotable,array('vid =' => $id));
-                $query = $this->db->order_by('vid', 'DESC')->get_where($this->_videotable,array('status'=>'1'),2,$offset);
+                $query = $this->db->order_by('vid', 'DESC')->get_where($this->_videotable,array('status'=>'1'));
 		$this->result = $query->result();
 		/*echo "<pre>";
 		print_r($this->result);
@@ -119,9 +131,17 @@ class Cms extends CI_Model {
 	
 		return $this->result;
 	}
-        function get_news_list_all($offset)
+//        function get_news_list_all($offset)
+//	{
+//                $query = $this->db->get($this->_newstable,2,$offset);
+//		
+//		$this->result = $query->result();
+//	
+//		return $this->result;
+//	}
+         function get_news_list_all()
 	{
-                $query = $this->db->get($this->_newstable,2,$offset);
+                $query = $this->db->get($this->_newstable);
 		
 		$this->result = $query->result();
 	
@@ -138,9 +158,17 @@ class Cms extends CI_Model {
 		return $this->result[0];
 	}
       
-        function get_blog_list($offset)
+//        function get_blog_list($offset)
+//	{
+//                $query = $this->db->order_by('timestamp', 'DESC')->get($this->_blogtable,2,$offset);
+//		
+//		$this->result = $query->result();
+//	
+//		return $this->result;
+//	}
+            function get_blog_list()
 	{
-                $query = $this->db->order_by('timestamp', 'DESC')->get($this->_blogtable,2,$offset);
+                $query = $this->db->order_by('timestamp', 'DESC')->get($this->_blogtable);
 		
 		$this->result = $query->result();
 	

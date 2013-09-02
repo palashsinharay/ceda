@@ -4,7 +4,8 @@
             <div class="row">
                 
                 <div class="span8 vertical-ceda">
-                   <img src="<?php echo base_url('img/blog.png');?>" />
+<!--                   <img src="<?php //echo base_url('img/blog.png');?>" />-->
+                   <lable class="label-ceda">Blog</lable>
                     <div class="row">
                         
                         
@@ -66,9 +67,9 @@
         <?php include 'right_panel.php';?>     
      
             </div>
-             <div class="pagination">
-       <?php echo $pagination_link_blog;?>
+<!--             <div class="pagination">
+       <?php //echo $pagination_link_blog;?>
                
-    </div>
+    </div>-->
        
             

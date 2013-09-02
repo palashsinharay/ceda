@@ -14,7 +14,8 @@
         <div class="container well well-ceda">
              <div class="media">
                 <div class="span2 pull-left product-image-left-ceda">
-                    <img src="<?php echo base_url('img/videos_button.png');?>" />
+<!--                    <img src="<?php //echo base_url('img/videos_button.png');?>" />-->
+                    <lable class="label-ceda">Videos</lable>
                 </div>
              </div>
             <br>
@@ -53,11 +54,11 @@
                       
      
             </div>
-    <div class="pagination">
-       <?php echo $pagination_link_video;?>
+<!--    <div class="pagination">
+       <?php //echo $pagination_link_video;?>
                
     </div>
-            
+            -->
             
 
             

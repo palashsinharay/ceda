@@ -14,7 +14,8 @@
         <div class="container well well-ceda">
              <div class="media">
                 <div class="span2 pull-left product-image-left-ceda">
-                    <img src="<?php echo base_url('img/news.png');?>" />
+<!--                    <img src="<?php //echo base_url('img/news.png');?>" />-->
+                     <lable class="label-ceda">News</lable>
                 </div>
              </div>
             <br>
@@ -56,8 +57,8 @@
                       
      
             </div>
-            <div class="pagination">
-       <?php echo $pagination_link;?>
+<!--            <div class="pagination">
+       <?php //echo $pagination_link;?>
                
-    </div>
+    </div>-->
             
