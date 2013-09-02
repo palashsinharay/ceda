@@ -30,7 +30,9 @@ class Blog extends CI_Controller {
                 $data['cmsData'] = $this->Cms->get_page_content_all();
                 $data['allServicesData'] = $this->Cms->get_service_list();
                 $data['siteConfig'] = $this->Cms->site_config_all();
-                $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                if(!array_key_exists('rightPanelData',$data)) {
+                    $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                }          
                 $data['allSliderData'] = $this->Cms->get_slider();
                 
                 $this->load->view('header_other.php',$data);
@@ -45,6 +47,9 @@ class Blog extends CI_Controller {
         //$data['blogList'] = $this->Cms->get_blog_list($offset);
         $data['blogList'] = $this->Cms->get_blog_list();
         $data['pagination_link_blog'] = $this->pagination_link_maker_blog();
+        
+        
+        
 //        foreach ($data['blogList']as $value)
 //        {
 //            $data['recentcommentList'] = $this->Cms->get_recent_comment_list($value->id,3);
@@ -63,6 +68,11 @@ class Blog extends CI_Controller {
         $data['newsList'] = $this->Cms->get_news_list();
         $data['blogDetail'] = $this->Cms->get_blogDetail($blogID);
         $data['allcommentList'] = $this->Cms->get_all_comment_list($data['blogDetail']->blog_id);
+        
+        $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+        $data['rightPanelData']->lower_image = $data['blogDetail']->right_image1;
+        $data['rightPanelData']->lower_image2 = $data['blogDetail']->right_image2;
+        
 //        echo "<pre>";
 //        print_r($data);
 //        echo "</pre>" ;
