@@ -419,18 +419,23 @@ if ( ! $this->image_lib->resize())
     $crud->set_theme('datatables');
     $crud->set_table('blog')
         ->set_subject('Blog')
-        ->columns('title','desc','timestamp','author','metadesc','metakey')
+        ->columns('title','desc','timestamp','author','metadesc','metakey','right_image1','right_image2')
         ->display_as('title','Blog Title')
         ->display_as('desc','Blog Content')
         ->display_as('timestamp','Post Time')       
         ->display_as('author','Author')
         ->display_as('metadesc','Meta Desc')    
-        ->display_as('metakey','Meta Key');
+        ->display_as('metakey','Meta Key')
+        ->display_as('right_image1','Right Image1')
+        ->display_as('right_image2','Right Image2');
 
 
     //below code is for edit and add
-    $crud->fields('title','desc','timestamp','author','metadesc','metakey');
+    $crud->fields('title','desc','timestamp','author','metadesc','metakey','right_image1','right_image2');
     $crud->required_fields('title','desc','timestamp','author','metadesc','metakey');
+    $crud->set_field_upload('right_image1','assets/uploads/files');
+    $crud->set_field_upload('right_image2','assets/uploads/files');
+
     $output = $crud->render();
     $this->_example_output($output);
 } 
