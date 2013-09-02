@@ -31,7 +31,9 @@ class Main extends CI_Controller {
                  $data['allServicesData'] = $this->Cms->get_service_list();
                  $data['cmsData'] = $this->Cms->get_page_content_all();
                  $data['siteConfig'] = $this->Cms->site_config_all();
-                 $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                if(!array_key_exists('rightPanelData',$data)) {
+                    $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                }          
                  $data['allSliderData'] = $this->Cms->get_slider();
                  
                  //$data['top_menu']=$this->Cms->get_topmenu(); 
@@ -52,13 +54,20 @@ class Main extends CI_Controller {
                  $data['allServicesData'] = $this->Cms->get_service_list();
                  $data['cmsData'] = $this->Cms->get_page_content_all();
                  $data['siteConfig'] = $this->Cms->site_config_all();
-                 $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                 if(!array_key_exists('rightPanelData',$data)) {
+                    $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                }  
                  $data['allSliderData'] = $this->Cms->get_slider();
                  
                  //$data['top_menu']=$this->Cms->get_topmenu(); 
                 //$data['product_cat']=$this->Cms->get_product_cat();
 //                echo "<pre>";
 //                print_r($data['allSliderData']);
+//		echo "</pre>";
+//		die();
+                 
+//                 echo "<pre>";
+//                print_r($data['rightPanelData']);
 //		echo "</pre>";
 //		die();
                 
@@ -90,9 +99,15 @@ class Main extends CI_Controller {
                 $data['categoryList'] = $this->Cms->get_category_name($catId);
                 $data['productList'] = $this->Cms->get_productList($catId);
                 $data['newsList'] = $this->Cms->get_news_list();
-               // $data['pagination_link_pro'] = $this->pagination_link_maker_pro($catId);
+                $data['pagination_link_pro'] = $this->pagination_link_maker_pro($catId);
 //                echo "<pre>";
-//                print_r($data['pagination_link']);
+//                print_r($data['categoryList']);
+//		echo "</pre>";
+                $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                $data['rightPanelData']->lower_image = $data['categoryList']->right_image1;
+                $data['rightPanelData']->lower_image2 = $data['categoryList']->right_image2;
+//                echo "<pre>";
+//                print_r($data['rightPanelData']);
 //		echo "</pre>";
 //		die();
                 
@@ -135,8 +150,13 @@ class Main extends CI_Controller {
     
     function newsdetail($newsID)
     {
-       $data['newsList'] = $this->Cms->get_news_list();
+        $data['newsList'] = $this->Cms->get_news_list();
         $data['newsDetail'] = $this->Cms->get_news_content($newsID);
+       
+        $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+        $data['rightPanelData']->lower_image = $data['newsDetail']->right_image1;
+        $data['rightPanelData']->lower_image2 = $data['newsDetail']->right_image2;
+        
        
 //        echo "<pre>";
 //        print_r($data['blogDetail']);
@@ -149,7 +169,10 @@ class Main extends CI_Controller {
     function servicedetail($serviceID)
     {
         $data['newsList'] = $this->Cms->get_news_list();
-         $data['serviceDetail'] = $this->Cms->get_service_content($serviceID);
+        $data['serviceDetail'] = $this->Cms->get_service_content($serviceID);
+        $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+        $data['rightPanelData']->lower_image = $data['serviceDetail']->right_image1;
+        $data['rightPanelData']->lower_image2 = $data['serviceDetail']->right_image2;
        
 //        echo "<pre>";
 //        print_r($data['serviceDetail']);
@@ -168,6 +191,10 @@ class Main extends CI_Controller {
         $data['paypal_currency_code']= $this->config->item('paypal_currency_code');
         $data['paypal_live']= $this->config->item('paypal_live');
         $data['shipping']= $this->config->item('shipping');
+        
+         $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+        $data['rightPanelData']->lower_image = $data['productDetail']->right_image1;
+        $data['rightPanelData']->lower_image2 = $data['productDetail']->right_image2;
         
 //        echo "<pre>";
 //        print_r($data['productDetail']);
@@ -196,6 +223,10 @@ class Main extends CI_Controller {
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
                 $data['newsList'] = $this->Cms->get_news_list();
+                
+                $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                $data['rightPanelData']->lower_image = $data['pageDetail']->right_image1;
+                $data['rightPanelData']->lower_image2 = $data['pageDetail']->right_image2;
 //		echo "<pre>";
 //              print_r($data['pageDetail']);
 //		echo "</pre>";

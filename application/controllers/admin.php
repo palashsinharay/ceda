@@ -297,8 +297,8 @@ class Admin extends CI_Controller {
     //below code is for file upload
     
     $crud->set_field_upload('cat_image','assets/uploads/files/category');
-    $crud->set_field_upload('right_image1','assets/uploads/files/category');
-    $crud->set_field_upload('right_image2','assets/uploads/files/category');
+    $crud->set_field_upload('right_image1','assets/uploads/files');
+    $crud->set_field_upload('right_image2','assets/uploads/files');
     $output = $crud->render();
     $cat_image = $this->Cms->get_category_image();
   // echo "Apppath : ".FCPATH."</br>";
