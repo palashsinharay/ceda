@@ -394,28 +394,28 @@ class Cms extends CI_Model {
 	{
                
         //$sql = "SELECT * FROM blog WHERE MATCH (`desc`) AGAINST (? IN BOOLEAN MODE )limit 2";  
-        $sql = "SELECT * FROM blog WHERE MATCH (`desc`) AGAINST (? IN BOOLEAN MODE )";  
+        $sql = "SELECT * FROM blog WHERE MATCH (`desc`,`title`) AGAINST (? IN BOOLEAN MODE )";  
         $query = $this->db->query($sql, array($search_keyword) );
         $result['blog'] = $query->result();
         
        // $sql1 = "SELECT * FROM cmspage WHERE MATCH (`content`) AGAINST (? IN BOOLEAN MODE )limit 2";  
-         $sql1 = "SELECT * FROM cmspage WHERE MATCH (`content`) AGAINST (? IN BOOLEAN MODE )";  
+         $sql1 = "SELECT * FROM cmspage WHERE MATCH (`content`,`menutitle`) AGAINST (? IN BOOLEAN MODE )";  
         $query = $this->db->query($sql1, array($search_keyword) );
         $result['cms'] = $query->result();
         
        // $sql2 = "SELECT * FROM product WHERE MATCH (`desc`) AGAINST (? IN BOOLEAN MODE ) limit 2";  
-         $sql2 = "SELECT * FROM product WHERE MATCH (`desc`) AGAINST (? IN BOOLEAN MODE )";  
+         $sql2 = "SELECT * FROM product WHERE MATCH (`desc`,`name`) AGAINST (? IN BOOLEAN MODE )";  
         $query = $this->db->query($sql2, array($search_keyword) );
         $result['product'] = $query->result();
 
        // $sql3 = "SELECT * FROM service WHERE MATCH (`s_desc`) AGAINST (? IN BOOLEAN MODE )limit 2";  
-         $sql3 = "SELECT * FROM service WHERE MATCH (`s_desc`) AGAINST (? IN BOOLEAN MODE )";  
+         $sql3 = "SELECT * FROM service WHERE MATCH (`s_desc`,`s_name`) AGAINST (? IN BOOLEAN MODE )";  
         $query = $this->db->query($sql3, array($search_keyword) );
         //echo $this->db->last_query();
         $result['service'] = $query->result();
 
        // $sql3 = "SELECT * FROM news WHERE MATCH (`description`) AGAINST (? IN BOOLEAN MODE ) limit 2";  
-         $sql3 = "SELECT * FROM news WHERE MATCH (`description`) AGAINST (? IN BOOLEAN MODE )";  
+         $sql3 = "SELECT * FROM news WHERE MATCH (`description`,`title`) AGAINST (? IN BOOLEAN MODE )";  
         $query = $this->db->query($sql3, array($search_keyword) );
         //echo $this->db->last_query();
         $result['news'] = $query->result();

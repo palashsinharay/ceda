@@ -156,7 +156,7 @@ function googleTranslateElementInit() {
                               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                                <?php foreach ($allServicesData as $value): ?>  
                                   <li>
-                                  <a tabindex="-1" href="<?php echo base_url('main/servicedetail').'/'.$value->s_id;?>"> <?php echo $value->s_name; ?> </a>
+                                  <a tabindex="-1" href="<?php echo base_url('main/servicedetail').'/'.$value->s_id;?>"> <?php echo strip_tags(htmlspecialchars_decode($value->s_name)) ; ?> </a>
                                 </li>
                                <?php endforeach;?>   
                               </ul>
@@ -164,7 +164,7 @@ function googleTranslateElementInit() {
                             
                             <?php foreach ($cmsData as $value): ?>  
                             <li>
-                            <a href="<?php echo base_url('main/page').'/'.$value->cid;?>"> <?php echo $value->menutitle; ?> </a>
+                            <a href="<?php echo base_url('main/page').'/'.$value->cid;?>"> <?php echo strip_tags(htmlspecialchars_decode($value->menutitle)); ?> </a>
                             </li>
                             <?php endforeach;?> 
                          
