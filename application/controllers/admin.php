@@ -338,17 +338,18 @@ if ( ! $this->image_lib->resize())
     $crud->set_theme('datatables');
     $crud->set_table('contactus')
         ->set_subject('Contact Us')
-        ->columns('name','email','state','province','country','message')
+        ->columns('name','email','state','province','country','message','ip_address')
         ->display_as('name','Name')
         ->display_as('email','Email')
         ->display_as('state','State')
         ->display_as('province','Province')
         ->display_as('country','Country')
-        ->display_as('message','Message');
+        ->display_as('message','Message')
+            ->display_as('ip_address','IP Address');
 
 
     //below code is for edit and add
-    $crud->fields('name','email','state','province','country','message');
+    $crud->fields('name','email','state','province','country','message','ip_address');
    // $crud->required_fields('content','image','status');
 
     //below code is for file upload

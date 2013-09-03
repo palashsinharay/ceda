@@ -240,6 +240,7 @@ class Cms extends CI_Model {
                                 $s_qry.=",province=? ";
                                 $s_qry.=",country=? ";
                                 $s_qry.=",message=? ";
+                                $s_qry.=",ip_address=? ";
                                 $this->db->query($s_qry,array(
                                 $posted["name"],
                                 $posted["email"],
@@ -247,6 +248,7 @@ class Cms extends CI_Model {
                                 $posted["stateprovince"],
                                 $posted["country"],
                                 $posted["message"],
+                                getenv("REMOTE_ADDR"),    
              ));
                 //echo $this->db->last_query();
                 //die();

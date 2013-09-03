@@ -104,6 +104,7 @@ class Main extends CI_Controller {
 //                print_r($data['categoryList']);
 //		echo "</pre>";
                 $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                
                 $data['rightPanelData']->lower_image = $data['categoryList']->right_image1;
                 $data['rightPanelData']->lower_image2 = $data['categoryList']->right_image2;
 //                echo "<pre>";
@@ -336,14 +337,15 @@ class Main extends CI_Controller {
                             <tr><td>Province:</td><td>' . $posted["stateprovince"] . '</td></tr>
                             <tr><td>Country:</td><td>' . $posted["country"] . '</td></tr>    
                             <tr><td>Message:</td><td>' . nl2br($posted["message"]) . '</td></tr>
+                            <tr><td>Contact IP :</td><td>' . getenv("REMOTE_ADDR") . '</td></tr>    
                             </table>
                             </body>
                             </html>
                             ';
 
 
-                           // $status = $this->email_send($message,'sahani.bunty9@gmail.com',$posted["email"]);
-                            $status = $this->email_send($message,'probir.debnath@gmail.com',$posted["email"]);
+                          // $status = $this->email_send($message,'sahani.bunty9@gmail.com',$posted["email"]);
+                           $status = $this->email_send($message,'probir.debnath@gmail.com',$posted["email"]);
 
                             if($status == 'success'){
                                echo "Thank you for contacting us"; 
