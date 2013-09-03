@@ -63,7 +63,7 @@
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   white-space: nowrap;
   vertical-align: baseline;
-  background-color: #6D62FF;
+  background-color: #0088CC;
   -moz-border-radius: 15px;
     border-radius: 15px;
 }
@@ -143,6 +143,17 @@ hr-ceda {
     padding-right: 5px;
 /*    border-bottom: 0.5px solid #000000;*/
     border-top: 0.5px solid #000000;
+}
+.offset-ceda {
+  margin-left: 50px;
+}
+.badge-ceda {
+    border-radius:15px;
+    padding: 10px;
+    color: #fff;
+    background-color: #A8A8A8;
+    font-weight: bold;
+   
 }
 
 

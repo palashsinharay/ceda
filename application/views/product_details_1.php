@@ -101,21 +101,24 @@
                                     
                                     
 <!--                                       <span class="label">Name :</span>-->
-                                       <h3><?php echo $productDetail->name;?></h3>
-                                       <p style="color:#777575;"><?php echo strip_tags(htmlspecialchars_decode(substr($productDetail->desc,0,200)));?></p>
+                                       <h5><?php echo $productDetail->name;?></h5>
+                                       <p><?php echo strip_tags(htmlspecialchars_decode(substr($productDetail->desc,0,200)));?></p>
 <!--                                       <span class="label">Price :</span>-->
-                                       <h1 >US $<?php echo $productDetail->price;?></h1>
+                                       <h3 >US $<?php echo $productDetail->price;?></h3>
                                       
-                                      
+                                       <span class="label">Payment :</span>
+                                       <p><?php echo $productDetail->payment;?></p>
+                                       <span class="label">Shipping :</span>
+                                       <p><?php echo $productDetail->shipping;?></p>
                                        
 <!--                                       <span class="badge badge-inverse">Catalog</span>-->
-                                       <span class=""><a href="<?php echo base_url('assets/uploads/files/'.$productDetail->cataloge) ;?>" target="_blank" ><img src="<?php echo base_url('img/pdf_icon.png');?>"/></a></span>
-                                       
-                                       <span class="badge-ceda offset1">Stock:  <?php echo $productDetail->stock;?></span>
+                                       <span class="offset1"><a href="<?php echo base_url('assets/uploads/files/'.$productDetail->cataloge) ;?>" target="_blank" ><img src="<?php echo base_url('img/pdf_icon.png');?>"/></a></span>
+                                       <br><br>
+                                       <span class="badge badge-inverse">Stock:  <?php echo $productDetail->stock;?></span>
                                        <br><br>
                                        
        
- <p><a href="#myModal" role="button" class="btn btn-primary medium green" data-toggle="modal">&nbsp;&nbsp;&nbsp;&nbsp;Buy&nbsp;&nbsp;&nbsp;&nbsp;</a><span class="offset-ceda" style="color:#777575;">Credit Card, Paypal, Bank Transfer</span></p>
+ <p><a href="#myModal" role="button" class="btn" data-toggle="modal">Buy</a></p>
                                     
                                     
                                 </div>
@@ -225,8 +228,6 @@ Shipping Address :
     <li class=""><a href="#app">Application</a></li>
     <li class=""><a href="#spec">Specification</a></li>
     <li class=""><a href="#rev">Reviews</a></li>
-    <li class=""><a href="#payment">Payment</a></li>
-    <li class=""><a href="#ship">Shipping</a></li>
     
     </ul>
      
@@ -235,8 +236,6 @@ Shipping Address :
     <div class="tab-pane" id="app"><?php echo $productDetail->application;?></div>
     <div class="tab-pane" id="spec"><?php echo $productDetail->specs;?></div>
     <div class="tab-pane" id="rev"><?php echo $productDetail->review;?></div>
-    <div class="tab-pane" id="payment"><?php echo $productDetail->payment;?></div>
-    <div class="tab-pane" id="ship"><?php echo $productDetail->shipping;?></div>
     </div>
      
     
