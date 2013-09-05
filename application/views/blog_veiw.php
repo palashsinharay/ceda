@@ -5,7 +5,9 @@
                 
                 <div class="span8 vertical-ceda">
 <!--                   <img src="<?php //echo base_url('img/blog.png');?>" />-->
-                   <lable class="label-ceda">Blog</lable>
+                   <div class="label-ceda">Blog</div>
+                   
+                   
                     <div class="row">
                         
                         

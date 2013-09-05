@@ -15,7 +15,7 @@
              <div class="media">
                 <div class="span2 pull-left product-image-left-ceda">
 <!--                    <img src="<?php //echo base_url('img/videos_button.png');?>" />-->
-                    <lable class="label-ceda">Videos</lable>
+                    <div class="label-ceda">Videos</div>
                 </div>
              </div>
             <br>

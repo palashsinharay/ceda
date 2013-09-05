@@ -12,10 +12,10 @@
                     <!-- #camera_wrap_1 -->
                 </div>
                 <div class="span2">
-                       <lable class="label">News updates</lable>
+                        <div class="label-ceda">News updates</div><br/></br>
                     <ul  class="media-list">
                         <?php foreach ($newsList as $value): ?>  
-                        <li><h5><a href="<?php echo base_url('main/newsdetail').'/'.$value->id;?>"><?php echo $value->title;?></a></h5>
+                        <li><h5 style="line-height: 2px;"><a href="<?php echo base_url('main/newsdetail').'/'.$value->id;?>"><?php echo $value->title;?></a></h5>
                         <?php echo substr($value->description,0,90);?>
                     </li>
                     <?php endforeach;?>
