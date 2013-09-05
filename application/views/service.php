@@ -16,7 +16,9 @@
                     
                     <h4><?php echo $serviceDetail->s_name;?></h4>
                     <a class="pull-left" href="#">
+                        <div style=" height: 150px; width: 150px;">
                     <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$serviceDetail->s_image);?>" height="150" width="150">
+                        </div>
                     </a>
                     <p class="media">
                         <?php echo $serviceDetail->s_desc;?>
