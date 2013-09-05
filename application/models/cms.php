@@ -312,7 +312,7 @@ class Cms extends CI_Model {
         
 	function get_fetured_product()
 	{
-		$query = $this->db->get_where($this->_product,array('featured' => '1'),3);
+		$query = $this->db->get_where($this->_product,array('featured' => '1'));
 //		echo $this->db->last_query();
 //                die();
                 
