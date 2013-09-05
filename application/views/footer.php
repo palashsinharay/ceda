@@ -34,13 +34,13 @@
             
             
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="<?php echo base_url('js/vendor/jquery-1.10.1.min.js')?>"><\/script>')</script>
 
 <script src="<?php echo base_url('js/vendor/bootstrap.min.js')?>"></script>
 
 <script src="<?php echo base_url('js/main.js')?>"></script>
-<script src="<?php echo base_url('js/bootstrap-magnify.js')?>"></script>
+<script src="<?php echo base_url('js/jquery.elevatezoom.js')?>"></script>
         
 <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -50,21 +50,9 @@
         </script>
 <script>
            
-    $(function () {
-    $('#myTab a:first').tab('show');
-//    $('.cont img#1b').hide(); 
-    $('.cont img#2b').hide(); 
-    $('.cont img#3b').hide();
-    $('.cont img').magnify();
-    
-                $('.zoomthumb img').click( function(){
-                    var t = $(this).attr("id")
-                    $('.cont img#1b').hide(); 
-                    $('.cont img#2b').hide(); 
-                    $('.cont img#3b').hide(); 
-                    $('.cont img#'+t+'b').show();  
-                });
-    })
+$(function () {      
+    $('#myTab a:first').tab('show');   
+})
     
     $('#myTab a').click(function (e) {
     e.preventDefault();
@@ -322,7 +310,17 @@ function validateEmail(user_email){
 //echo trim($siteConfig->google_analytics);
 
 ?>
+<script type="text/javascript">
+$("#zoom_01").elevateZoom({
+    zoomType: "inner",
+    cursor: "crosshair",
+    zoomWindowFadeIn: 500,
+    zoomWindowFadeOut: 750,
+    gallery : "gallery_01",
+    galleryActiveClass: "active"
+}); 
 
+</script>
 
 </body>
 </html>

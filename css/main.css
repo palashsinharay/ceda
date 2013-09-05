@@ -156,6 +156,16 @@ hr-ceda {
    
 }
 
-
-
-
+h1, h2, h3{
+    line-height: 24px;
+}
+#zoom_01{
+    border: 1px solid #aeacac;
+    padding: 2px;
+}
+#gallery_01 img{
+    border: 1px solid #aeacac;
+    padding: 2px;
+    height: 100px\9;
+    width: 100px\9;
+}
