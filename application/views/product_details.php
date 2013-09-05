@@ -102,7 +102,7 @@
                                     
 <!--                                       <span class="label">Name :</span>-->
                                        <h3><?php echo $productDetail->name;?></h3>
-                                       <p style="color:#777575;"><?php echo strip_tags(htmlspecialchars_decode(substr($productDetail->desc,0,200)));?></p>
+                                       <p style="color:#777575;"><?php echo strip_tags(htmlspecialchars_decode(substr($productDetail->desc,0,500)));?></p>
 <!--                                       <span class="label">Price :</span>-->
                                        <h1 >US $<?php echo $productDetail->price;?></h1>
                                       
