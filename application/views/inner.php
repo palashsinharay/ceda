@@ -16,7 +16,8 @@
                     
                     <h2><?php echo $pageDetail->menutitle;?></h2>
                     <a class="pull-left" href="#">
-                    <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$pageDetail->filename);?>" height="150" width="150">
+                         <div style=" height: 150px; width: 150px;"> <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$pageDetail->filename);?>" height="150" width="150"></div>
+                    
                     </a>
                     <p class="media">
                         <?php echo $pageDetail->content;?>
