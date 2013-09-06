@@ -44,6 +44,8 @@ a:hover
                 <li id="about"><a href='<?php echo base_url('admin/service')?>'>Service</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/product_categorie')?>'>Product Category</a></li>
                 <li id="contact"><a href='<?php echo base_url('admin/products')?>'>Products</a></li>
+                <li id="services"><a href='<?php echo base_url('admin/download_categorie')?>'>Download Category</a></li>
+                <li id="contact"><a href='<?php echo base_url('admin/downloads')?>'>Downloads</a></li>
                 <li id="contact"><a href='<?php echo base_url('admin/product_sell')?>'>Sell</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/contactus')?>'>Contact Us</a></li>
                 <li id="services"><a href='<?php echo base_url('admin/news')?>'>News</a></li>

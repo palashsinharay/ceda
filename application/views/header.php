@@ -161,6 +161,17 @@ function googleTranslateElementInit() {
                               </ul>
                             </li>
                             
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Download <b class="caret"></b> </a><!-- Classic Dropdown -->
+                              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                               <?php foreach ($allDownloadcCat as $value): ?>  
+                                  <li>
+                                  <a tabindex="-1" href="<?php echo base_url('main/downloadCat').'/'.$value->dcat_id;?>"> <?php echo strip_tags(htmlspecialchars_decode($value->dcat_name)) ; ?> </a>
+                                </li>
+                               <?php endforeach;?>   
+                              </ul>
+                            </li>
+                            
                             <?php foreach ($cmsData as $value): ?>  
                             <li>
                             <a href="<?php echo base_url('main/page').'/'.$value->cid;?>"> <?php echo strip_tags(htmlspecialchars_decode($value->menutitle)); ?> </a>

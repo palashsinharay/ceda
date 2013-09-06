@@ -11,6 +11,8 @@ class Cms extends CI_Model {
 	public $_product = 'product';
         public $_newstable = 'news';
         public $_service= 'service';
+        public $_downloadcat = 'download_cat';
+        public $_download = 'download';
 	public $_resource_center = 'resource_center';
 	public $_categories = 'product_category';
 	public $_config = 'siteconfig';
@@ -299,6 +301,26 @@ class Cms extends CI_Model {
 
 		return $this->result;
 	}
+        
+        function get_downloadList($d_catId)
+	{
+		// limit 4 for header link
+               $query = $this->db->get_where($this->_download,array('dcat_id' => $d_catId,'status' => '1'));
+               
+            	$this->result = $query->result();
+
+		return $this->result;
+	}
+        
+        function get_downloadCatName($d_catId)
+        {
+            
+            $query = $this->db->get_where($this->_downloadcat,array('dcat_id =' => $d_catId));
+	
+            $this->result = $query->result();
+
+            return $this->result[0];
+        }
          function get_productListpagei($catId,$offest = 0)
 	{
 		
@@ -334,6 +356,16 @@ class Cms extends CI_Model {
         {
             
             $query = $this->db->get_where($this->_service,array());
+	
+            $this->result = $query->result();
+
+            return $this->result;
+        }
+        
+        function get_download_cat_list()
+        {
+            
+            $query = $this->db->get_where($this->_downloadcat,array('status =' => 1));
 	
             $this->result = $query->result();
 
