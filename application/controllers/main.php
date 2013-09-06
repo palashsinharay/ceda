@@ -282,7 +282,7 @@ class Main extends CI_Controller {
     {
                 
                 $data['downloadlist'] = $this->Cms->get_downloadList($d_catId);
-                $data['downloadcatname'] = $this->Cms->get_downloadCatName($d_catId);
+                $data['downloadcatdetails'] = $this->Cms->get_downloadCatName($d_catId);
                 $data['newsList'] = $this->Cms->get_news_list();
                
 //                echo "<pre>";
@@ -290,8 +290,8 @@ class Main extends CI_Controller {
 //		echo "</pre>";
                 $data['rightPanelData'] = $this->Cms->get_right_panel_content();
                 
-                //$data['rightPanelData']->lower_image = $data['downloadlist']->right_image1;
-                //$data['rightPanelData']->lower_image2 = $data['downloadlist']->right_image2;
+                $data['rightPanelData']->lower_image = $data['downloadcatdetails']->right_image1;
+                $data['rightPanelData']->lower_image2 = $data['downloadcatdetails']->right_image2;
 //                echo "<pre>";
 //                print_r($data['downloadcatname']);
 //		echo "</pre>";

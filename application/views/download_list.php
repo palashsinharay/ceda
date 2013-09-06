@@ -13,9 +13,9 @@
         <!-- Example row of columns -->
         <div class="container well well-ceda">
              <div class="media">
-                <div class="span2 pull-left product-image-left-ceda">
+                <div class="pull-left product-image-left-ceda">
 <!--                    <img src="<?php //echo base_url('img/news.png');?>" />-->
-                     <div class="label-ceda" style="margin-left:20px"><?php echo $downloadcatname->dcat_name;?></div>
+                     <div class="label-ceda" style="margin-left:20px"><?php echo $downloadcatdetails->dcat_name;?></div>
                 </div>
              </div>
             <br>
