@@ -14,9 +14,10 @@
                    
                     <h4><?php echo $newsDetail->title;?></h4>
                     <h5>Posted on: <?php echo $newsDetail->date;?></h5>
-                    <a class="pull-left" href="#">
+                    <div style=" height: 250px; width: 300px; float: left;margin-right: 5px; ">
                     <img class="media-object" src="<?php echo base_url('assets/uploads/files/'.$newsDetail->image) ;?>" width="285" height="190" >
-                    </a>
+                    </div>
+                    
                     <p class="media"><?php echo $newsDetail->description;?></p>
                     </div>  
                     </div> 

@@ -15,6 +15,7 @@
         <?php if(isset($productDetail)):?>
         <meta name="description" content="<?php echo $productDetail->product_meta;?>">
         <meta name="keywords" content="<?php echo $productDetail->product_meta_key;?>"/>
+        
          <?php elseif(isset($newsDetail)):?>
         <meta name="description" content="<?php echo $newsDetail->news_meta_desc;?>">
         <meta name="keywords" content="<?php echo $newsDetail->news_meta_key;?>"/>
