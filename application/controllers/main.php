@@ -29,6 +29,7 @@ class Main extends CI_Controller {
                 
                  $data['allCategoryData'] = $this->Cms->get_product_cat();
                  $data['allServicesData'] = $this->Cms->get_service_list();
+                 $data['allDownloadcCat'] = $this->Cms->get_download_cat_list();
                  $data['cmsData'] = $this->Cms->get_page_content_all();
                  $data['siteConfig'] = $this->Cms->site_config_all();
                 if(!array_key_exists('rightPanelData',$data)) {
@@ -52,6 +53,7 @@ class Main extends CI_Controller {
                 
                  $data['allCategoryData'] = $this->Cms->get_product_cat();
                  $data['allServicesData'] = $this->Cms->get_service_list();
+                 $data['allDownloadcCat'] = $this->Cms->get_download_cat_list();
                  $data['cmsData'] = $this->Cms->get_page_content_all();
                  $data['siteConfig'] = $this->Cms->site_config_all();
                  if(!array_key_exists('rightPanelData',$data)) {
@@ -274,6 +276,31 @@ class Main extends CI_Controller {
                 
                 
  	    
+    }
+    
+    public function downloadCat($d_catId)
+    {
+                
+                $data['downloadlist'] = $this->Cms->get_downloadList($d_catId);
+                $data['downloadcatdetails'] = $this->Cms->get_downloadCatName($d_catId);
+                $data['newsList'] = $this->Cms->get_news_list();
+               
+//                echo "<pre>";
+//                print_r($data['categoryList']);
+//		echo "</pre>";
+                $data['rightPanelData'] = $this->Cms->get_right_panel_content();
+                
+                $data['rightPanelData']->lower_image = $data['downloadcatdetails']->right_image1;
+                $data['rightPanelData']->lower_image2 = $data['downloadcatdetails']->right_image2;
+//                echo "<pre>";
+//                print_r($data['downloadcatname']);
+//		echo "</pre>";
+//		die();
+                
+                $this->_renderViewOther('download_list',$data);
+        
+        
+
     }
     
 

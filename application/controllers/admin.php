@@ -328,9 +328,6 @@ if ( ! $this->image_lib->resize())
     $this->_example_output($output);
 }
 
-   
-
-
     function  contactus() {
     $crud = new grocery_CRUD();
 
@@ -389,7 +386,8 @@ if ( ! $this->image_lib->resize())
     $output = $crud->render();
     $this->_example_output($output);
 }  
-     function  siteconfig() {
+    
+    function  siteconfig() {
     $crud = new grocery_CRUD();
 
     //below code is for datagrid view
@@ -413,7 +411,7 @@ if ( ! $this->image_lib->resize())
     $this->_example_output($output);
 } 
 
- function  blog() {
+    function  blog() {
     $crud = new grocery_CRUD();
 
     //below code is for datagrid view
@@ -441,7 +439,7 @@ if ( ! $this->image_lib->resize())
     $this->_example_output($output);
 } 
 
-function  comments() {
+    function  comments() {
     $crud = new grocery_CRUD();
 
     //below code is for datagrid view
@@ -583,6 +581,70 @@ function  comments() {
 	$output = $crud->render();
         $this->_example_output($output);
     }
+    
+    function  download_categorie() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('download_cat')
+        ->set_subject('Download Categories')
+        ->columns('dcat_name','status','dcat_image','right_image1','right_image2')
+        ->display_as('dcat_name','Download Categories Name')
+        ->display_as('status','Status')
+        ->display_as('dcat_image','Categories Image')
+        ->display_as('right_image1','Right Image1')
+        ->display_as('right_image2','Right Image2');
+        
+
+
+    //below code is for edit and add
+    $crud->fields('dcat_name','status','dcat_image','right_image1','right_image2');
+    //below is validation
+         $crud->set_rules('dcat_name','Categories Name ','required')
+               ->set_rules('status','Status','required')
+               ->set_rules('dcat_image','Image','required');
+    //below code is for file upload
+    
+    $crud->set_field_upload('dcat_image','assets/uploads/files/download/category');
+    $crud->set_field_upload('right_image1','assets/uploads/files');
+    $crud->set_field_upload('right_image2','assets/uploads/files');
+    $output = $crud->render();
+   
+    $this->_example_output($output);
+}
+
+    function  downloads() {
+    $crud = new grocery_CRUD();
+
+    //below code is for datagrid view
+    $crud->set_theme('datatables');
+    $crud->set_table('download')
+        ->set_subject('download')
+        ->columns('d_name','dcat_id','status','filename')
+        ->display_as('d_name','Download Name')
+        ->display_as('dcat_id','Download Category')
+        ->display_as('status','Status')
+        ->display_as('filename','File name');
+     
+
+
+    //below code is for edit and add
+    $crud->fields('d_name','dcat_id','status','filename');
+    //$crud->required_fields('title','email',);
+
+
+
+    //below is validation
+     $crud->required_fields('d_name','dcat_id','status','filename');
+    //below code is for file upload
+    $crud->set_field_upload('filename','assets/uploads/files/download');
+    
+    //$crud->set_relation('cid','cmspage','menutitle');
+    $crud->set_relation('dcat_id','download_cat','dcat_name');
+    $output = $crud->render();
+    $this->_example_output($output);
+}
 
 }
  

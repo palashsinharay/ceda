@@ -29,6 +29,7 @@ class Blog extends CI_Controller {
                 $data['allCategoryData'] = $this->Cms->get_product_cat();
                 $data['cmsData'] = $this->Cms->get_page_content_all();
                 $data['allServicesData'] = $this->Cms->get_service_list();
+                $data['allDownloadcCat'] = $this->Cms->get_download_cat_list();
                 $data['siteConfig'] = $this->Cms->site_config_all();
                 if(!array_key_exists('rightPanelData',$data)) {
                     $data['rightPanelData'] = $this->Cms->get_right_panel_content();
