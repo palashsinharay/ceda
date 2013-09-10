@@ -623,6 +623,23 @@ class Main extends CI_Controller {
          $this->_renderViewOther('search_result',$data);
     
     }
+    
+     public function sitemap() {
+         $data['cmsData'] = $this->Cms->get_page_content_all();
+         $data['allServicesData'] = $this->Cms->get_service_list();
+         $data['allDownloadcCat'] = $this->Cms->get_download_cat_list();
+         $data['newsList'] = $this->Cms->get_news_list_all();
+         $data['allCategoryData'] = $this->Cms->get_product_cat();
+        
+       
+//        echo "<pre>";
+//        print_r($data['allCategoryData']);
+//        echo "</pre>" ;
+//        die();
+        
+         $this->_renderViewOther('site_map',$data);
+    
+    }
 public function payment()
     {
                     try

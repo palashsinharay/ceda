@@ -197,20 +197,21 @@ class Admin extends CI_Controller {
         $crud->set_table('service')
             ->set_subject('Service PAGE')
           //  ->columns('mid','title','p_mid','cid','status')
-           ->columns('s_name','s_desc','s_image','s_status','s_meta_desc','s_meta_key','right_image1','right_image2')
+           ->columns('s_name','s_desc','s_image','s_status','s_meta_desc','s_meta_key','s_meta_title','right_image1','right_image2')
             ->display_as('s_name','Service Name')
             ->display_as('s_desc','Service Description')
             ->display_as('s_image','Image')
 	    ->display_as('s_status','Status')
-                 ->display_as('s_meta_desc','Meta Description')
-                 ->display_as('s_meta_key','Meta Keys')
-                 ->display_as('right_image1','Right Image 1')
-                 ->display_as('right_image2','Right Image 2');
+            ->display_as('s_meta_desc','Meta Description')
+            ->display_as('s_meta_key','Meta Keys')
+            ->display_as('s_meta_title','Meta Title')    
+            ->display_as('right_image1','Right Image 1')
+            ->display_as('right_image2','Right Image 2');
         	
         
         //below code is for edit and add
        // $crud->fields('title','p_mid','cid','status');
-         $crud->fields('s_name','s_desc','s_image','s_status','s_meta_desc','s_meta_key','right_image1','right_image2');
+         $crud->fields('s_name','s_desc','s_image','s_status','s_meta_desc','s_meta_key','s_meta_title','right_image1','right_image2');
        // $crud->required_fields('title','p_mid','p_mid','status','cid');
           $crud->required_fields('s_name','s_desc','s_image','s_status');
         

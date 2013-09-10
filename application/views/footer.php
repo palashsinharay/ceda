@@ -10,6 +10,7 @@
                    | <a  href="<?php echo base_url('main/page').'/11';?>">About Us</a>
                    | <a  href="<?php echo base_url('main/newsList');?>">News List</a>
                    | <a  href="<?php echo base_url('main/contact_us');?>">Contact Us</a>
+                   | <a href="<?php echo base_url('main').'/sitemap';?>">Site Map</a> 
                                
                 </div>
                 <div class="span3 "><strong>Follow Us:</strong><br>
@@ -19,14 +20,14 @@
                             <button type="button" class="btn"><i class="icon-pinterest "></i></button>
                 </div>
    
-                <div class="span4 pull-right">
+<!--                <div class="span4 pull-right">
                         <address>
                         <strong>Contact Us:</strong><br>
                         <abbr title="Phone">P:</abbr> (123) 456-7890
                         <abbr title="Phone">P:</abbr> (123) 456-7890
                         </address>
                        
-                </div>
+                </div>-->
         	</footer>
         	
             </div>
