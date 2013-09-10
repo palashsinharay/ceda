@@ -13,7 +13,7 @@
 }
 .header-text{
     color: #FFFFFF;
-    padding-top: 15px;
+    padding-top: 34px;
 }
 #google_translate_element{
     padding: 10px;
@@ -203,4 +203,7 @@ h1, h2, h3{
     width: 150px;
     height: 150px\9;
     width: 150px\9;
+}
+.span3-ceda {
+  width: 175px;
 }
