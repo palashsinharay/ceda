@@ -19,7 +19,7 @@
                     <h4>Pages</h4>
                     <ul>
                         <?php foreach ($cmsData as $value): ?>
-                        <li><a href="<?php echo base_url('main/page').'/'.$value->cid;?>"><?php  echo $value->menutitle; ?></a></li>
+                        <li><a href="<?php echo base_url('main/page').'/'.$value->cid;?>"><?php echo strip_tags(htmlspecialchars_decode($value->menutitle)); ?> </a></li>
                         <?php endforeach;?> 
                         <li><a  href="<?php echo base_url('main/contact_us');?>">Contact Us</a></li>
                     </ul>
@@ -38,7 +38,7 @@
                     <h4>News</h4>
                     <ul>
                         <?php foreach ($newsList as $value): ?>
-                        <li><a href="<?php echo base_url('main/newsdetail').'/'.$value->id;?>"><?php echo $value->title;?></a></li>
+                        <li><a href="<?php echo base_url('main/newsdetail').'/'.$value->id;?>"><?php echo strip_tags(htmlspecialchars_decode($value->title));?></a></li>
                         <?php endforeach;?> 
                     </ul>
                     </p>
