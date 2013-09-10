@@ -154,9 +154,9 @@ class Admin extends CI_Controller {
         //$crud->add_fields('menutitle','content','type','metatitle','metadesc','metakey','status','pid','date','filename','cid');
         //$crud->edit_fields('menutitle','content','type','metatitle','metadesc','metakey','status','pid','date','filename','cid');
 
-        $crud->add_fields('menutitle','content','metatitle','metadesc','metakey','status','date','filename','right_image1','right_image2');
-        $crud->edit_fields('menutitle','content','metatitle','metadesc','metakey','status','date','filename','right_image1','right_image2');
-        $crud->required_fields('menutitle','content','type','status','date');	
+        $crud->add_fields('menutitle','content','metatitle','metadesc','metakey','metatitle','status','date','filename','right_image1','right_image2');
+        $crud->edit_fields('menutitle','content','metatitle','metadesc','metakey','metatitle','status','date','filename','right_image1','right_image2');
+        $crud->required_fields('menutitle','content','metatitle','metadesc','metakey','metatitle','status','date','filename','right_image1','right_image2');	
        // $crud->callback_add_field('pid',array($this,'add_field_callback_1'));
        // $crud->callback_edit_field('pid', array($this, 'add_field_callback_1'));
 
@@ -197,16 +197,20 @@ class Admin extends CI_Controller {
         $crud->set_table('service')
             ->set_subject('Service PAGE')
           //  ->columns('mid','title','p_mid','cid','status')
-           ->columns('s_name','s_desc','s_image','s_status','right_image1','right_image2')
+           ->columns('s_name','s_desc','s_image','s_status','s_meta_desc','s_meta_key','right_image1','right_image2')
             ->display_as('s_name','Service Name')
             ->display_as('s_desc','Service Description')
             ->display_as('s_image','Image')
-	    ->display_as('s_status','Status');
+	    ->display_as('s_status','Status')
+                 ->display_as('s_meta_desc','Meta Description')
+                 ->display_as('s_meta_key','Meta Keys')
+                 ->display_as('right_image1','Right Image 1')
+                 ->display_as('right_image2','Right Image 2');
         	
         
         //below code is for edit and add
        // $crud->fields('title','p_mid','cid','status');
-         $crud->fields('s_name','s_desc','s_image','s_status','right_image1','right_image2');
+         $crud->fields('s_name','s_desc','s_image','s_status','s_meta_desc','s_meta_key','right_image1','right_image2');
        // $crud->required_fields('title','p_mid','p_mid','status','cid');
           $crud->required_fields('s_name','s_desc','s_image','s_status');
         
@@ -226,7 +230,7 @@ class Admin extends CI_Controller {
     $crud->set_theme('datatables');
     $crud->set_table('product')
         ->set_subject('Product')
-        ->columns('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','product_meta_key','status','featured','review','stock','heading_image','payment','shipping','right_image1','right_image2')
+        ->columns('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','product_meta_key','product_meta_title','status','featured','review','stock','heading_image','payment','shipping','right_image1','right_image2')
         ->display_as('name','Product Name')
         ->display_as('desc','Product Description')
         ->display_as('cat_id','Product Category')
@@ -239,6 +243,7 @@ class Admin extends CI_Controller {
         ->display_as('image3','Product Side image')
         ->display_as('product_meta','Product Meta Description')
         ->display_as('product_meta_key','Product Meta Key')
+        ->display_as('product_meta_title','Product Meta Title')    
         ->display_as('status','status')
         ->display_as('featured','Featured')
         ->display_as('review','Review')
@@ -251,13 +256,13 @@ class Admin extends CI_Controller {
 
 
     //below code is for edit and add
-    $crud->fields('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','product_meta_key','status','featured','review','stock','heading_image','payment','shipping','right_image1','right_image2');
+    $crud->fields('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','product_meta_key','product_meta_title','status','featured','review','stock','heading_image','payment','shipping','right_image1','right_image2');
     //$crud->required_fields('title','email',);
 
 
 
     //below is validation
-     $crud->required_fields('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','product_meta_key','status','featured','review','stock','heading_image','payment','shipping');
+     $crud->required_fields('name','desc','cat_id','price','application','specs','cataloge','image','image2','image3','product_meta','product_meta_key','product_meta_title','status','featured','review','stock','heading_image','payment','shipping');
     //below code is for file upload
     $crud->set_field_upload('cataloge','assets/uploads/files');
     $crud->set_field_upload('image','assets/uploads/files');
@@ -363,20 +368,21 @@ if ( ! $this->image_lib->resize())
     $crud->set_theme('datatables');
     $crud->set_table('news')
         ->set_subject('News')
-        ->columns('title','description','date','image', 'status','news_meta_desc','news_meta_key','right_image1','right_image2')
+        ->columns('title','description','date','image', 'status','news_meta_desc','news_meta_key','news_meta_title','right_image1','right_image2')
         ->display_as('title','News Title')
         ->display_as('description','Description')
         ->display_as('image','News Image')       
         ->display_as('status','Status')
         ->display_as('news_meta_desc','Meta Desc')    
         ->display_as('news_meta_key','Meta Key')
+        ->display_as('news_meta_title','Meta Title')
         ->display_as('right_image1','Right Image1')
         ->display_as('right_image2','Right Image2');
 
 
     //below code is for edit and add
-    $crud->fields('title','description','date','image', 'status','news_meta_desc','news_meta_key','right_image1','right_image2');
-    $crud->required_fields('title','description','date','image', 'status','news_meta_desc','news_meta_key');
+    $crud->fields('title','description','date','image', 'status','news_meta_desc','news_meta_key','news_meta_title','right_image1','right_image2');
+    $crud->required_fields('title','description','date','image', 'status','news_meta_desc','news_meta_title','news_meta_key');
 
     //below code is for file upload
     $crud->set_field_upload('image','assets/uploads/files');
@@ -418,20 +424,21 @@ if ( ! $this->image_lib->resize())
     $crud->set_theme('datatables');
     $crud->set_table('blog')
         ->set_subject('Blog')
-        ->columns('title','desc','timestamp','author','metadesc','metakey','right_image1','right_image2')
+        ->columns('title','desc','timestamp','author','metadesc','metakey','metatitle','right_image1','right_image2')
         ->display_as('title','Blog Title')
         ->display_as('desc','Blog Content')
         ->display_as('timestamp','Post Time')       
         ->display_as('author','Author')
         ->display_as('metadesc','Meta Desc')    
         ->display_as('metakey','Meta Key')
+        ->display_as('metatitle','Meta Title')            
         ->display_as('right_image1','Right Image1')
         ->display_as('right_image2','Right Image2');
 
 
     //below code is for edit and add
-    $crud->fields('title','desc','timestamp','author','metadesc','metakey','right_image1','right_image2');
-    $crud->required_fields('title','desc','timestamp','author','metadesc','metakey');
+    $crud->fields('title','desc','timestamp','author','metadesc','metakey','metatitle','right_image1','right_image2');
+    $crud->required_fields('title','desc','timestamp','author','metadesc','metakey','metatitle','right_image1','right_image2');
     $crud->set_field_upload('right_image1','assets/uploads/files');
     $crud->set_field_upload('right_image2','assets/uploads/files');
 
@@ -589,21 +596,22 @@ if ( ! $this->image_lib->resize())
     $crud->set_theme('datatables');
     $crud->set_table('download_cat')
         ->set_subject('Download Categories')
-        ->columns('dcat_name','status','dcat_image','right_image1','right_image2')
+        ->columns('dcat_name','status','dcat_image','metadesc','metakey','metatitle','right_image1','right_image2')
         ->display_as('dcat_name','Download Categories Name')
         ->display_as('status','Status')
         ->display_as('dcat_image','Categories Image')
+        ->display_as('metadesc','Meta Desc')
+        ->display_as('metakey','Meta Key')
+        ->display_as('metatitle','Meta Title')    
         ->display_as('right_image1','Right Image1')
         ->display_as('right_image2','Right Image2');
         
 
 
     //below code is for edit and add
-    $crud->fields('dcat_name','status','dcat_image','right_image1','right_image2');
+    $crud->fields('dcat_name','status','dcat_image','metadesc','metakey','metatitle','right_image1','right_image2');
     //below is validation
-         $crud->set_rules('dcat_name','Categories Name ','required')
-               ->set_rules('status','Status','required')
-               ->set_rules('dcat_image','Image','required');
+   $crud->required_fields('dcat_name','status','dcat_image','metadesc','metakey','metatitle','right_image1','right_image2');	
     //below code is for file upload
     
     $crud->set_field_upload('dcat_image','assets/uploads/files/download/category');

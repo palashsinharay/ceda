@@ -1,3 +1,8 @@
+<?php 
+//echo "<pre>";
+//print_r($videoPageList);
+//echo "</pre>";
+?>
 <!DOCTYPE html>
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
  <!--[if lt IE 9]>
@@ -10,7 +15,27 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title><?php echo $siteConfig->sitename;?></title>
+        <title> 
+        <?php if(isset($productDetail)):?>
+        <?php echo $productDetail->product_meta_title;?>
+        <?php elseif(isset($newsDetail)):?>
+        <?php echo $newsDetail->news_meta_title;?>
+        
+        <?php elseif(isset($serviceDetail)): ?>
+        <?php echo $serviceDetail->s_meta_title;?>
+        
+        <?php elseif(isset($pageDetail)): ?>
+        <?php echo $pageDetail->metatitle;?>
+        
+        <?php elseif(isset($blogDetail)): ?>
+        <?php echo $blogDetail->metatitle;?>
+        <?php elseif(isset($downloadcatdetails)): ?>
+        <?php echo $downloadcatdetails->metatitle;?>    
+             
+        <?php else: ?>
+        <?php echo $siteConfig->sitename;?>
+        <?php endif; ?>
+        </title>
     
         <?php if(isset($productDetail)):?>
         <meta name="description" content="<?php echo $productDetail->product_meta;?>">
@@ -27,6 +52,13 @@
         <?php elseif(isset($blogDetail)): ?>
         <meta name="description" content="<?php echo $blogDetail->metadesc;?>">
         <meta name="keywords" content="<?php echo $blogDetail->metakey;?>"/>
+        <?php elseif(isset($downloadcatdetails)): ?>
+        <meta name="description" content="<?php echo $downloadcatdetails->metadesc;?>">
+        <meta name="keywords" content="<?php echo $downloadcatdetails->metakey;?>"/>
+<!--        <?php //elseif(isset($videoPageList)): ?>
+        <meta name="description" content="<?php echo $videoPageList->metadesc;?>">
+        <meta name="keywords" content="<?php echo $videoPageList->metakey;?>"/>-->
+
         <?php else: ?>
         <meta name="description" content="<?php echo $siteConfig->metadesc;?>">
         <meta name="keywords" content="<?php echo $siteConfig->metakey;?>"/>
