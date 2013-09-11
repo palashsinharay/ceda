@@ -1125,9 +1125,15 @@ Zimbabwe
                 
                        <div class="success-message" style="display:none; color:#FF0000; font-size:14px; font-weight:600; margin-left: 309px; margin-top: 20px;"></div>    
                     
-                    </div>  
+                    </div>
+                        <address>
+                            <?php echo $rightPanelData->address; ?>
+                        </address>
+                        
+                            
                     </div> 
                    
+
 
                         
                     </div>
