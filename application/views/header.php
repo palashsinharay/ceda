@@ -90,7 +90,7 @@
                         <a class="brand" href="<?php echo base_url();?>"><img src="<?php echo base_url('img/ceda.jpg')?>" alt="logo" width="200" height="125"></a>
                     
                     </div> 
-                         <div class="span6 header-text">RF AND EMC ENGINEERING SOLUTIONS</div>   
+                         <div class="span6 header-text">RF AND POWER ENGINEERING SOLUTIONS</div>   
                     
                     <div class="span2 pull-right">
                             <div id="google_translate_element" ></div><script type="text/javascript">
