@@ -238,6 +238,14 @@ function validateEmail(user_email){
         }
         });
     });
+    
+      $('#destroy_cart').click(function(){
+        alert("hiii");
+        $.ajax({
+        url: "<?php echo site_url('main/distroycart'); ?>"
+        });
+       $('#add_cart').click(); 
+    });
    
    
  // function send_to_paypal(){
