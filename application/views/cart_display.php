@@ -39,21 +39,23 @@
 			  <?php foreach ($cart as $value):?>
                           
                             <tr>
-				<td class=""><input type="checkbox" id="optionsCheckbox" value="<?php echo $value['rowid']?>"></td>
+				
 				<td class="muted center_text"><a href="#"><div style=" height: 50px; width: 50px;"><img src="<?php echo base_url('assets/uploads/files/'.$value['image']);?>"></div></a></td>
 				<td><?php echo $value['name'] ;?></td>
 				<td><input type="text" class="input-mini" placeholder="1" value="<?php echo $value['qty'] ;?>"></td>
 				<td><?php echo $value['price'] ;?></td>
 				<td><?php echo $value['subtotal'] ;?></td>
+                                <td class=""><button class="btn" type="button"><i class="icon-remove"></i></button> &nbsp <button class="btn" type="button"><i class="icon-edit"></i></button></td>
 			  </tr>			  
 			  <?php endforeach;?>				 
 			  <tr>
-				<td>&nbsp;</td>
+				
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td><strong><?php echo  $cart_total; ?></strong></td>
+                                <td>&nbsp;</td>
 			  </tr>		  
 			</tbody>
 		  </table>
