@@ -728,6 +728,9 @@ class Main extends CI_Controller {
         $data['cart_total'] = $this->cart->total();
         $this->_renderViewOther('cart_display',$data);  
     }
+    public function distroycart() {
+        $this->cart->destroy(); 
+    }
     
 
 

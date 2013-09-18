@@ -40,7 +40,7 @@
                           
                             <tr>
 				<td class=""><input type="checkbox" id="optionsCheckbox" value="<?php echo $value['rowid']?>"></td>
-				<td class="muted center_text"><a href="#"><img src="<?php echo base_url('assets/uploads/files/'.$value['image']);?>"></a></td>
+				<td class="muted center_text"><a href="#"><div style=" height: 50px; width: 50px;"><img src="<?php echo base_url('assets/uploads/files/'.$value['image']);?>"></div></a></td>
 				<td><?php echo $value['name'] ;?></td>
 				<td><input type="text" class="input-mini" placeholder="1" value="<?php echo $value['qty'] ;?>"></td>
 				<td><?php echo $value['price'] ;?></td>
