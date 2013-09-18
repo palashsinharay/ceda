@@ -92,7 +92,7 @@
                     
                     </div> 
                          <div class="span6 header-text">RF AND POWER ENGINEERING SOLUTIONS</div>   
-                         <div id="cart_bucket" style="color: #FFFFFF;"><a href="<?php echo base_url('main/displaycart')?>"><i class="icon-shopping-cart"></i>Shopping Cart(<div id="cart_bucket_count"><?php if(isset($total_cart_items)): echo $total_cart_items; endif;?></div>)</a></div>
+                         <div id="cart_bucket" style="color: #FFFFFF;"><a href="<?php echo base_url('main/displaycart')?>"><i class="icon-shopping-cart"></i>Shopping Cart(<span id="cart_bucket_count"><?php if(isset($total_cart_items)): echo $total_cart_items; endif;?></span>)</a></div>
                     <div class="span2 pull-right">
                             <div id="google_translate_element" ></div><script type="text/javascript">
 function googleTranslateElementInit() {
