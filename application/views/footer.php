@@ -244,7 +244,7 @@ function validateEmail(user_email){
         $.ajax({
         url: "<?php echo site_url('main/distroycart'); ?>"
         });
-       $('#cart_bucket_count').html(msg);
+       $('#cart_bucket_count').html('0');
     });
    
    
