@@ -731,7 +731,37 @@ class Main extends CI_Controller {
     public function distroycart() {
         $this->cart->destroy(); 
     }
-    
+     public function updatecart() {
+            $posted                         = array();
+            $posted["rowid"]                 = trim($this->input->post("rowid"));
+            $posted["qty"]                   = trim($this->input->post("qty"));
+//            echo "<pre>";
+//            print_r($posted);
+//            echo "</pre>";
+            
+            $data = array(
+               'rowid' => $posted["rowid"],
+               'qty'   => $posted["qty"] 
+            );
+
+            $this->cart->update($data); 
+    }
+      public function deletecart() {
+            $posted                         = array();
+            $posted["rowid"]                 = trim($this->input->post("rowid"));
+            $posted["qty"]                   = trim($this->input->post("qty"));
+//            echo "<pre>";
+//            print_r($posted);
+//            echo "</pre>";
+            
+            $data = array(
+               'rowid' => $posted["rowid"],
+               'qty'   => 0 
+            );
+
+            $this->cart->update($data);
+            
+    }
 
 
 }

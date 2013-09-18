@@ -246,6 +246,43 @@ function validateEmail(user_email){
         });
        $('#cart_bucket_count').html('0');
     });
+    
+     $('.product_update').click(function(){
+        //alert($(this).attr('id'));
+        $.ajax({
+        url: "<?php echo site_url('main/updatecart'); ?>",
+        type: 'POST',
+        data: $('#row_'+$(this).attr('id')).serialize(),
+        success: function(msg) {
+            //$('#custom').val(msg);
+            //$('#_xclick').submit();
+           // alert(msg);
+           // $('#cart_bucket_count').html(msg);
+            return true;
+        }
+        });
+    });
+    
+     $('.product_delete').click(function(){
+        //alert($(this).attr('id'));
+        var str=$(this).attr('id');
+        id = str.substr(4)  
+        alert(id);
+        
+        $.ajax({
+        url: "<?php echo site_url('main/deletecart'); ?>",
+        type: 'POST',
+        data: $('#row_'+id).serialize(),
+        success: function(msg) {
+            //$('#custom').val(msg);
+            //$('#_xclick').submit();
+            //alert(msg);
+           // $('#cart_bucket_count').html(msg);
+           location.reload();
+            return true;
+        }
+        });
+    });
    
    
  // function send_to_paypal(){

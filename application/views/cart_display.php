@@ -27,26 +27,35 @@
                     <table class="table table-bordered table-striped">
                         <thead>
 			  <tr>
-				<th>Remove</th>
 				<th>Image</th>
 				<th>Product Name</th>
 				<th>Quantity</th>
 				<th>Unit Price</th>
-				<th>Total</th>
+				<th>Total Price</th>
+				<th>Action</th>
 			  </tr>
 			</thead>
+                        <?php 
+                        echo "<pre>";
+                        print_r($cart);
+                        echo "</pre>";
+                        ?>
 			<tbody>
 			  <?php foreach ($cart as $value):?>
                           
                             <tr>
-				
+                        <form class="product_row" name="row_<?php  echo $value['id']?>" id="row_<?php  echo $value['id']?>" action="#" method="POST" >
+				<input type="hidden" name="rowid" value="<?php echo $value['rowid'];?>">
 				<td class="muted center_text"><a href="#"><div style=" height: 50px; width: 50px;"><img src="<?php echo base_url('assets/uploads/files/'.$value['image']);?>"></div></a></td>
 				<td><?php echo $value['name'] ;?></td>
-				<td><input type="text" class="input-mini" placeholder="1" value="<?php echo $value['qty'] ;?>"></td>
+				<td><input name="qty" type="text" class="input-mini" placeholder="1" value="<?php echo $value['qty'] ;?>"></td>
 				<td><?php echo $value['price'] ;?></td>
 				<td><?php echo $value['subtotal'] ;?></td>
-                                <td class=""><button class="btn" type="button"><i class="icon-remove"></i></button> &nbsp <button class="btn" type="button"><i class="icon-edit"></i></button></td>
-			  </tr>			  
+                                <td class="">
+                                    <button class="btn product_delete" type="button" id="del_<?php  echo $value['id']?>"><i class="icon-remove"></i></button> &nbsp 
+                                    <button class="btn product_update" type="button" id="<?php  echo $value['id']?>" ><i  class="icon-edit"></i></button></td>
+			</form>  
+                        </tr>			  
 			  <?php endforeach;?>				 
 			  <tr>
 				
