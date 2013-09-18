@@ -640,7 +640,7 @@ class Main extends CI_Controller {
          $this->_renderViewOther('site_map',$data);
     
     }
-public function payment()
+    public function payment()
     {
                     try
                     {
@@ -707,6 +707,12 @@ public function payment()
             die();
                             
             }
+            
+    public function displaycart() {
+        $data['cart'] = $this->cart->contents();
+        $data['cart_total'] = $this->cart->total();
+        $this->_renderViewOther('cart_display',$data);  
+    }
     
 
 
