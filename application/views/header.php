@@ -94,7 +94,7 @@
                          <div class="span4 header-text"><span>RF AND POWER ENGINEERING SOLUTIONS</span></div>   
                          <div class="span2" id="cart_bucket" style="color: #FFFFFF;">
                         <a class="pull-right" href="<?php echo base_url('main/displaycart')?>"><i class="icon-shopping-cart"></i>Shopping Cart(<span id="cart_bucket_count"><?php if(isset($total_cart_items)): echo $total_cart_items; endif;?></span>)</a>
-                        <a class="pull-right" id="destroy_cart" href="http://local.ceda.com/main/displaycart"><i class="icon-shopping-cart"></i>Empty Cart</a>
+                        <a class="pull-right" id="destroy_cart" href="#"><i class="icon-shopping-cart"></i>Empty Cart</a>
                         </div>
                     <div class="span2 pull-right">
                             <div id="google_translate_element" ></div><script type="text/javascript">
