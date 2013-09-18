@@ -83,12 +83,20 @@
         </div>    
         
         <div class="span4">
-            <form class="form-inline">
+            <form class="form-inline" name="_xclick" id="_xclick" action="#<?php //echo $paypal_url;?>" method="POST">
+<input type="hidden" name="business" value="<?php echo $paypal_email;?>">
+<!--<input type="hidden" name="currency_code" value="USD">-->
+
+<input type="hidden" name="item_name" value="<?php echo $productDetail->name;?>">
+<input type="hidden" name="amount" value="<?php echo $productDetail->price ?>">
+<input type="hidden" name="product_id" value="<?php echo $productDetail->pid;?>">
+<input type="hidden" name="image" value="<?php echo $productDetail->image;?>">                
                 <div>
-                    <!--<label>Qty:</label>-->
-                    <!--<input type="text" placeholder="1" class="span1">-->
+                    <label>Qty:</label>
+                    <input name="qty" id="qty" type="text" placeholder="1" class="span1">
                     <!--<button type="submit" class="btn btn-primary">Add to cart</button>-->
-                    <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Buy</a>
+<!--                    <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Buy</a>-->
+                    <input type="button" id="add_cart" class="btn btn-primary" name="add_cart" value="Add To cart" />
                 </div>        
             </form>
         </div>        
@@ -104,115 +112,7 @@
                         </div>
                                               
                     </div>
-             <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-header">
-<!--                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>-->
-                            <h3 id="myModalLabel">Buy Form</h3>
-                            </div>
-                            <div class="modal-body">
-<div class="control-group">
-<div class="success-message" style="display:none; color:#FF0000; font-size:14px; font-weight:600; margin-left: 0px; margin-top: 2px;"></div>    
-<form name="_xclick" id="_xclick" action="#<?php //echo $paypal_url;?>" method="POST" >
-<!--<form name="_xclick" action="https://www.paypal.com/in/cgi-bin/webscr" method="post">-->
-<input type="hidden" name="cmd" value="_xclick">
-<!--<input type="hidden" name="business" value="sahani.bunty_buss@gmail.com">-->
-<input type="hidden" name="business" value="<?php echo $paypal_email;?>">
-<!--<input type="hidden" name="currency_code" value="USD">-->
-<input type="hidden" name="currency_code" value="<?php echo $paypal_currency_code;?>">
-<input type="hidden" name="item_name" value="<?php echo $productDetail->name;?>">
-<input type="hidden" name="amount" value="<?php echo $productDetail->price ?>">
-<input type="hidden" name="return" value="<?php echo site_url( 'shop/success' )?>">
-<input type="hidden" name="cancel_return" value="<?php echo site_url( 'shop/cancel' )?>">
-<input type="hidden" name="notify_url" value="<?php echo site_url( 'shop/ipn' )?>">
-<input type="hidden" name="custom" id="custom" value="">
-<input type="hidden" name="shipping" value="<?php echo $shipping;?>">
-<input type="hidden" name="product_id" value="<?php echo $productDetail->pid;?>">
-<input type="hidden" name="image" value="<?php echo $productDetail->image;?>">
-<label for="Name" class="control-label">	
-Product : <?php echo $productDetail->name;?>
-</label>
-
-<label for="Name" class="control-label">	
-Price : <?php echo $productDetail->price;?>
-</label>
-
-<div class="control-group">
-<label for="Name" class="control-label">	
-Name :
-</label>
-<div class="controls">
-<input type="text" name="name" id="name" value=""/>
-<span class="help-inline"> </span>
-</div>
-</div>
-
-<div class="control-group">
-<label for="Email" class="control-label">	
-Email :
-</label>
-<div class="controls">
-<input type="text" name="email" id="email" value=""/>
-<span class="help-inline"> </span>
-</div>
-</div>
-
-<div class="control-group">
-<label for=">Mobile" class="control-label">	
-Mobile :
-</label>
-<div class="controls">
-<input type="text" name="phone" id="phone" value=""/>
-<span class="help-inline"> </span>
-</div>
-</div>
-
-<div class="control-group">
-<label for=">Qty" class="control-label">	
-Qty :
-</label>
-<div class="controls">
-<input type="text" name="qty" id="qty" value=""/>
-<span class="help-inline"> </span>
-</div>
-</div>
-
-<!--<div class="control-group">
-<label for="Shipping Address" class="control-label">	
-Shipping Address :
-</label>
-<div class="controls">
-    <textarea rows="4" cols="50" name="shipping_address" id="shipping_address">
-
-    </textarea>
-
-<span class="help-inline"> </span>
-</div>
-</div>-->
-
-<div class="control-group">
-<label for="button" class="control-label pull-left">	
-<input type="image" id="paypal_button" class="btn btn-inverse pull-right" name="submit" value="Buy Now" />
-<input type="button" id="add_cart" class="btn btn-inverse pull-left" name="add_cart" value="Add To cart" />
-</label>
-</div>
-
-
-
-
-</div>
-
-
-<!--<input type="image" src="http://www.paypal.com/en_GB/i/btn/x-click-but01.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">-->
-
-</form> 
-<br/>    
-
-                                
-                            </div>
-                            <div class="modal-footer">
-                               <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                            </div>
-             </div>  
+            
                     
       <div class="media well-small">
     <ul class="nav nav-tabs" id="myTab">

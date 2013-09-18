@@ -23,7 +23,8 @@ class Cms extends CI_Model {
         public $_rightpanel = 'rightpanel';
         public $_upperslider = 'upperslider';
         public $_paypal_log = 'paypal_log';
-	public $result = null;
+        public $_ordertbl = 'order_table';
+        public $result = null;
 
 	function __construct()
 	{
@@ -553,7 +554,70 @@ class Cms extends CI_Model {
 		return $this->result[0];
         }
 
-        
+         function insertOrder($data)
+	{
+//            echo "<pre>";
+//            print_r($data);
+//            echo "</pre>";
+//            die();
+            $transcation_id=rand();
+          // die();
+            foreach($data['cart'] as $value){
+                //echo $value['name'];
+            if(!empty($value))
+            {
+                                $s_qry="Insert Into ".$this->_ordertbl." Set ";
+                                $s_qry.=" transaction_id=? ";
+                                $s_qry.=", product_id=? ";
+                                $s_qry.=", product_name=? ";
+                                $s_qry.=", quanitity=? ";
+                                $s_qry.=", price=? ";
+                                $s_qry.=", payment_status=? ";
+                                
+                                $this->db->query($s_qry,array(
+                                $transcation_id,
+                                $value['id'],
+                                $value['name'],
+                                $value['qty'],
+                                $value['price'],    
+                                '0',
+             ));
+                echo $this->db->last_query();
+               // die();
+                $i_ret_=$this->db->insert_id();     
+                
+            }
+                
+                
+                
+            }
+              die();   
+            
+            
+            
+            $i_ret_=0; ////Returns false
+            if(!empty($posted))
+            {
+                                $s_qry="Insert Into ".$this->_commenttable." Set ";
+                                $s_qry.=" blog_id=? ";
+                                $s_qry.=", comment_text=? ";
+                                $s_qry.=", author=? ";
+                                $s_qry.=", status=? ";
+                                
+                                $this->db->query($s_qry,array(
+                                $posted["blog_id"],
+                                $posted["comment"],
+                                $posted["author"],
+                                '0',
+             ));
+                //echo $this->db->last_query();
+                //die();
+                $i_ret_=$this->db->insert_id();     
+                
+            }
+            unset($s_qry, $info );
+            return $i_ret_;
+	} 
         
 }	
 

@@ -254,10 +254,9 @@ function validateEmail(user_email){
         type: 'POST',
         data: $('#row_'+$(this).attr('id')).serialize(),
         success: function(msg) {
-            //$('#custom').val(msg);
-            //$('#_xclick').submit();
-           // alert(msg);
-           // $('#cart_bucket_count').html(msg);
+            //alert(msg);
+            $('.success-message-cart').html(msg);
+            $('.success-message-cart').fadeIn(500).show();
             return true;
         }
         });
@@ -279,6 +278,22 @@ function validateEmail(user_email){
             //alert(msg);
            // $('#cart_bucket_count').html(msg);
            location.reload();
+            return true;
+        }
+        });
+    });
+    
+    
+     $('#checkout').click(function(){
+        $.ajax({
+        url: "<?php echo site_url('main/checkout'); ?>",
+        //type: 'POST',
+        //data: $('#_customer_details').serialize(),
+        success: function(msg) {
+            //$('#custom').val(msg);
+            //$('#_xclick').submit();
+            alert(msg);
+           // $('#cart_bucket_count').html(msg);
             return true;
         }
         });

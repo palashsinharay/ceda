@@ -744,7 +744,10 @@ class Main extends CI_Controller {
                'qty'   => $posted["qty"] 
             );
 
-            $this->cart->update($data); 
+           if($this->cart->update($data))
+           {
+               echo "Cart Updated";
+           }
     }
       public function deletecart() {
             $posted                         = array();
@@ -761,6 +764,12 @@ class Main extends CI_Controller {
 
             $this->cart->update($data);
             
+    }
+    
+      public function checkout() {
+        echo "palash";
+        $data['cart'] = $this->cart->contents();
+        $i_newid=$this->Cms->insertOrder($data);
     }
 
 

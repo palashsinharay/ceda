@@ -65,7 +65,13 @@
 				<td>&nbsp;</td>
 				<td><strong><?php echo  $cart_total; ?></strong></td>
                                 <td>&nbsp;</td>
-			  </tr>		  
+			  </tr>	
+                           <tr>
+				
+				<td colspan="5" class="success-message-cart">&nbsp;</td>
+                                <td><input type="button" id="checkout" class="btn btn-primary" name="Check Out" value="Check Out" /></td>
+				
+			  </tr>	
 			</tbody>
 		  </table>
                     </div>  
