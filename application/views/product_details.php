@@ -112,7 +112,7 @@
                             <div class="modal-body">
 <div class="control-group">
 <div class="success-message" style="display:none; color:#FF0000; font-size:14px; font-weight:600; margin-left: 0px; margin-top: 2px;"></div>    
-<form name="_xclick" id="_xclick" action="<?php echo $paypal_url;?>" method="POST" >
+<form name="_xclick" id="_xclick" action="#<?php //echo $paypal_url;?>" method="POST" >
 <!--<form name="_xclick" action="https://www.paypal.com/in/cgi-bin/webscr" method="post">-->
 <input type="hidden" name="cmd" value="_xclick">
 <!--<input type="hidden" name="business" value="sahani.bunty_buss@gmail.com">-->
@@ -126,7 +126,8 @@
 <input type="hidden" name="notify_url" value="<?php echo site_url( 'shop/ipn' )?>">
 <input type="hidden" name="custom" id="custom" value="">
 <input type="hidden" name="shipping" value="<?php echo $shipping;?>">
-
+<input type="hidden" name="product_id" value="<?php echo $productDetail->pid;?>">
+<input type="hidden" name="image" value="<?php echo $productDetail->image;?>">
 <label for="Name" class="control-label">	
 Product : <?php echo $productDetail->name;?>
 </label>

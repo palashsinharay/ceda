@@ -224,6 +224,7 @@ function validateEmail(user_email){
 <script type="text/javascript">
    
     $('#add_cart').click(function(){
+        alert("hiii");
         $.ajax({
         url: "<?php echo site_url('main/addtocart'); ?>",
         type: 'POST',
@@ -231,6 +232,8 @@ function validateEmail(user_email){
         success: function(msg) {
             //$('#custom').val(msg);
             //$('#_xclick').submit();
+            alert(msg);
+            $('#cart_bucket_count').html(msg);
             return true;
         }
         });
