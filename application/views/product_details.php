@@ -85,8 +85,8 @@
         <div class="span4">
             <form class="form-inline">
                 <div>
-                    <label>Qty:</label>
-                    <input type="text" placeholder="1" class="span1">
+                    <!--<label>Qty:</label>-->
+                    <!--<input type="text" placeholder="1" class="span1">-->
                     <!--<button type="submit" class="btn btn-primary">Add to cart</button>-->
                     <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Buy</a>
                 </div>        
@@ -127,6 +127,13 @@
 <input type="hidden" name="custom" id="custom" value="">
 <input type="hidden" name="shipping" value="<?php echo $shipping;?>">
 
+<label for="Name" class="control-label">	
+Product : <?php echo $productDetail->name;?>
+</label>
+
+<label for="Name" class="control-label">	
+Price : <?php echo $productDetail->price;?>
+</label>
 
 <div class="control-group">
 <label for="Name" class="control-label">	
@@ -158,6 +165,16 @@ Mobile :
 </div>
 </div>
 
+<div class="control-group">
+<label for=">Qty" class="control-label">	
+Qty :
+</label>
+<div class="controls">
+<input type="text" name="qty" id="qty" value=""/>
+<span class="help-inline"> </span>
+</div>
+</div>
+
 <!--<div class="control-group">
 <label for="Shipping Address" class="control-label">	
 Shipping Address :
@@ -174,6 +191,7 @@ Shipping Address :
 <div class="control-group">
 <label for="button" class="control-label pull-left">	
 <input type="image" id="paypal_button" class="btn btn-inverse pull-right" name="submit" value="Buy Now" />
+<input type="button" id="add_cart" class="btn btn-inverse pull-left" name="add_cart" value="Add To cart" />
 </label>
 </div>
 

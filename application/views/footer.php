@@ -222,7 +222,21 @@ function validateEmail(user_email){
 	</script>
         
 <script type="text/javascript">
-        
+   
+    $('#add_cart').click(function(){
+        $.ajax({
+        url: "<?php echo site_url('main/addtocart'); ?>",
+        type: 'POST',
+        data: $('#_xclick').serialize(),
+        success: function(msg) {
+            //$('#custom').val(msg);
+            //$('#_xclick').submit();
+            return true;
+        }
+        });
+    });
+   
+   
  // function send_to_paypal(){
  $('#paypal_button').click(function() {
  

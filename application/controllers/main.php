@@ -679,7 +679,34 @@ public function payment()
                     {
                                     show_error($err_obj->getMessage());
                     }
-            }    
+            }  
+            
+    public function addtocart() {
+            $posted                         = array();
+            $posted["name"]                 = trim($this->input->post("name"));
+            $posted["email"]                = trim($this->input->post("email"));
+            $posted["phone"]                = trim($this->input->post("phone"));
+            $posted["shipping_address"]     = 'static address abc';
+            $posted["business"]             = trim($this->input->post("business"));
+            $posted["currency_code"]        = trim($this->input->post("currency_code"));
+            $posted["item_name"]            = trim($this->input->post("item_name"));
+            $posted["amount"]               = trim($this->input->post("amount"));
+            $posted["qty"]               = trim($this->input->post("qty"));
+                            
+                            
+            $data = array(
+               'id'      => $posted["item_name"],
+               'qty'     =>$posted["qty"] ,
+               'price'   => $posted["amount"],
+               'name'    => $posted["item_name"]
+              
+            );
+
+            $this->cart->insert($data);
+            print_r($this->cart->contents());
+            die();
+                            
+            }
     
 
 
