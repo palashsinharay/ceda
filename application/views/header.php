@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
  <!--[if lt IE 9]>
@@ -91,7 +92,7 @@
                     
                     </div> 
                          <div class="span6 header-text">RF AND POWER ENGINEERING SOLUTIONS</div>   
-                    
+                         <div id="cart_bucket" style="color: #FFFFFF;"><i class="icon-shopping-cart"></i>Shopping Cart(<div id="cart_bucket_count"><?php if(isset($total_cart_items)): echo $total_cart_items; endif;?></div>)</div>
                     <div class="span2 pull-right">
                             <div id="google_translate_element" ></div><script type="text/javascript">
 function googleTranslateElementInit() {

@@ -36,6 +36,7 @@ class Main extends CI_Controller {
                     $data['rightPanelData'] = $this->Cms->get_right_panel_content();
                 }          
                  $data['allSliderData'] = $this->Cms->get_slider();
+                 $data['total_cart_items'] = $this->cart->total_items();
                  
                  //$data['top_menu']=$this->Cms->get_topmenu(); 
                 //$data['product_cat']=$this->Cms->get_product_cat();
@@ -56,6 +57,7 @@ class Main extends CI_Controller {
                  $data['allDownloadcCat'] = $this->Cms->get_download_cat_list();
                  $data['cmsData'] = $this->Cms->get_page_content_all();
                  $data['siteConfig'] = $this->Cms->site_config_all();
+                 $data['total_cart_items'] = $this->cart->total_items();
                  if(!array_key_exists('rightPanelData',$data)) {
                     $data['rightPanelData'] = $this->Cms->get_right_panel_content();
                 }  
@@ -682,6 +684,8 @@ class Main extends CI_Controller {
             }  
             
     public function addtocart() {
+            
+            //echo "hiiii";        
             $posted                         = array();
             $posted["name"]                 = trim($this->input->post("name"));
             $posted["email"]                = trim($this->input->post("email"));
@@ -691,21 +695,32 @@ class Main extends CI_Controller {
             $posted["currency_code"]        = trim($this->input->post("currency_code"));
             $posted["item_name"]            = trim($this->input->post("item_name"));
             $posted["amount"]               = trim($this->input->post("amount"));
-            $posted["qty"]               = trim($this->input->post("qty"));
+            $posted["qty"]                  = trim($this->input->post("qty"));
+            $posted["product_id"]           = trim($this->input->post("product_id"));
+            $posted["image"]                = trim($this->input->post("image"));
                             
                             
             $data = array(
-               'id'      => $posted["item_name"],
+               'id'      => $posted["product_id"],
                'qty'     =>$posted["qty"] ,
                'price'   => $posted["amount"],
-               'name'    => $posted["item_name"]
+               'name'    => $posted["item_name"],
+               'image'    => $posted["image"]     
               
             );
 
+//            echo "<pre>";
+//            print_r($data);
+//            echo "</pre>";
+           // echo "<br/>";        
             $this->cart->insert($data);
-            print_r($this->cart->contents());
-            die();
-                            
+           // $this->cart->destroy();
+          //  print_r($this->cart->contents());
+            echo $this->cart->total_items();
+           // die();
+            
+            //echo $this->cart->total_items();                 
+            
             }
             
     public function displaycart() {
