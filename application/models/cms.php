@@ -479,11 +479,12 @@ class Cms extends CI_Model {
 //            echo "<pre>";
 //            print_r($posted);
 //            echo "</pre>";
-           // die();
+//            die();
             if(!empty($posted))
             {
                                 $s_qry="Insert Into ".$this->_paypal_log." Set ";
-                                $s_qry.="name=? ";
+                                $s_qry.="transaction_id=? ";
+                                $s_qry.=",name=? ";
                                 $s_qry.=",email=? ";
                                 $s_qry.=",phone=? ";
                                 $s_qry.=",shipping_address=? ";
@@ -492,6 +493,7 @@ class Cms extends CI_Model {
                                 $s_qry.=",amount=? ";
                                 $s_qry.=",currency_code=? ";
                                 $this->db->query($s_qry,array(
+                                $posted["transaction_id"],
                                 $posted["name"],
                                 $posted["email"],
                                 $posted["phone"],
@@ -534,11 +536,22 @@ class Cms extends CI_Model {
                 'mc_currency' => $pdata["mc_currency"],
                 'shipping' => $pdata["shipping"],
                 'payment_gross' => $pdata["payment_gross"],
-                'ipn_track_id' => $pdata["ipn_track_id"]
-                
+                'ipn_track_id' => $pdata["ipn_track_id"],
+                'status'=>'1'
             );
-        $this->db->where('id',  $pdata["custom"]);
+        $this->db->where('transaction_id',  $pdata["custom"]);
         $result=$this->db->update($this->_paypal_log, $data); 
+        $count = $this->db->affected_rows(); //should return the number of rows affected by the last query
+        return $count;           
+	}
+        
+        function update_order_status($pdata)
+	{
+            $data = array(
+                'payment_status'=>'1'
+            );
+        $this->db->where('transaction_id',  $pdata["custom"]);
+        $result=$this->db->update($this->_ordertbl, $data); 
         $count = $this->db->affected_rows(); //should return the number of rows affected by the last query
         return $count;           
 	}
@@ -547,23 +560,35 @@ class Cms extends CI_Model {
       function get_userDetail($id) {
                 
           
-               $query = $this->db->get_where($this->_paypal_log,array('id' => $id));
+               $query = $this->db->get_where($this->_paypal_log,array('transaction_id' => $id));
 		
 		$this->result = $query->result();
 
 		return $this->result[0];
         }
+      function get_orderDetail($id) {
+                
+          
+                $query = $this->db->get_where($this->_ordertbl,array('transaction_id' => $id));
+		
+		$this->result = $query->result();
 
-         function insertOrder($data)
+		return $this->result;
+        }
+
+         function insertOrder($data,$transcation_id)
 	{
 //            echo "<pre>";
 //            print_r($data);
 //            echo "</pre>";
-//            die();
-            $transcation_id=rand();
+            //die();
+            
           // die();
             foreach($data['cart'] as $value){
                 //echo $value['name'];
+            echo "<pre>";
+            print_r($value);
+            echo "</pre>";
             if(!empty($value))
             {
                                 $s_qry="Insert Into ".$this->_ordertbl." Set ";
@@ -579,7 +604,7 @@ class Cms extends CI_Model {
                                 $value['id'],
                                 $value['name'],
                                 $value['qty'],
-                                $value['price'],    
+                                $value['subtotal'],    
                                 '0',
              ));
                 echo $this->db->last_query();
@@ -591,32 +616,7 @@ class Cms extends CI_Model {
                 
                 
             }
-              die();   
-            
-            
-            
-            $i_ret_=0; ////Returns false
-            if(!empty($posted))
-            {
-                                $s_qry="Insert Into ".$this->_commenttable." Set ";
-                                $s_qry.=" blog_id=? ";
-                                $s_qry.=", comment_text=? ";
-                                $s_qry.=", author=? ";
-                                $s_qry.=", status=? ";
-                                
-                                $this->db->query($s_qry,array(
-                                $posted["blog_id"],
-                                $posted["comment"],
-                                $posted["author"],
-                                '0',
-             ));
-                //echo $this->db->last_query();
-                //die();
-                $i_ret_=$this->db->insert_id();     
-                
-            }
-            unset($s_qry, $info );
-            return $i_ret_;
+             
 	} 
         
 }	

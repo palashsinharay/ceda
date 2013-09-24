@@ -37,10 +37,12 @@ class shop extends CI_Controller {
     }
  
     public function ipn() {
-
-
-        if ( $this->paypal->validate_ipn() ) {
+         if ( $this->paypal->validate_ipn() ) {
             $pdata = $this->paypal->ipn_data;
+            //$msgg =  "<pre>" . print_r( $pdata, true ). "</pre>";
+            $id =  "<pre>" . print_r( $pdata, true ). "</pre>";
+            
+
             if ($pdata['txn_type'] == "web_accept") {
                 //if($pdata['payment_status'] == "Completed"){ // for PayPal live
                 if($pdata['payment_status'] == "Pending"){ // f0r sandbox                    
@@ -48,14 +50,22 @@ class shop extends CI_Controller {
                     if($pdata['business'] == $this->config->item( 'paypal_email' )) {
                         //handle payment...
                         //you call a model from here to update the status of this order.
-                        //$this->orders->update($pdata['custom'], "yes");
-                        
-                      // $data['userDetail'] = $this->Cms->get_userDetail($pdata['custom']);
-                        
-                     //  $i_updateid=$this->Cms->update_payment_status($pdata['custom']);
+                    
                         $i_updateid=$this->Cms->update_payment_status($pdata);
+                        $i_updateorderid=$this->Cms->update_order_status($pdata);
                         $data['userDetail'] = $this->Cms->get_userDetail($pdata['custom']);
-                      if($i_updateid!=0)
+                        $data['orderDetail'] = $this->Cms->get_orderDetail($pdata['custom']);
+                       // $content =  "<pre>" . print_r( $data['orderDetail'], true ). "</pre>";
+                        foreach ($data['orderDetail'] as $value) {
+                            $content.='
+                            <tr><td>Purchased Product:</td><td>' . $value->product_name. '</td></tr>
+                            <tr><td>Product Qyantity:</td><td>' . $value->quanitity. '</td></tr>
+                            <tr><td>Product Price :</td><td>' .$value->price .' '.$data['userDetail']->currency_code. '</td></tr>
+                            <tr><td colspan="2"> <hr> </td></tr>   
+                                ';
+                        }
+                        
+                       if($i_updateid!=0)
                        {
                        //$id =  "<pre>" . print_r( $pdata, true ). "</pre>";
                          $message='
@@ -75,13 +85,13 @@ class shop extends CI_Controller {
                             <tr><td>Customer Address :</td><td>' . $data['userDetail']->address_street.' ,'.$data['userDetail']->address_city.' '.$data['userDetail']->address_state.' - '.$data['userDetail']->address_zip.' '.$data['userDetail']->address_country.'</td></tr>
                             <tr><td colspan="2"> <hr> </td></tr>  
                             <tr><td><h3><u>Purchase Detail</u></h3></td></tr>
-                            <tr><td colspan="2">&nbsp;</td></tr>
-                            <tr><td>Purchased Product:</td><td>' . $data['userDetail']->item_name . '</td></tr>
-                            <tr><td>Product Price :</td><td>' . $data['userDetail']->amount .' '.$data['userDetail']->currency_code. '</td></tr>
+                            <tr><td colspan="2">&nbsp;</td></tr>'.$content.'
+                               
                             <tr><td>Shipping Price :</td><td>' . $data['userDetail']->shipping .' USD </td></tr>
                             <tr><td colspan="2"> <hr> </td></tr>    
                             <tr><td>Total Price :</td><td>' . $data['userDetail']->payment_gross .' USD </td></tr>    
                             <tr><td>Paypal Transaction ID :</td><td>' . $data['userDetail']->txn_id .'</td></tr>
+                            <tr><td>Ceda Transaction ID :</td><td>' . $data['userDetail']->transaction_id.'</td></tr>
                             <tr><td  colspan="2">&nbsp;</td></tr>
                             
                             </table>
@@ -96,11 +106,11 @@ class shop extends CI_Controller {
                         // Give Probir da's email id here 
                         $this->email->from('sahani.bunty_buss@gmail.com', 'Ceda');
                         //$this->email->to($data['userDetail']->email);
-                       // $this->email->to('sahani.bunty9@gmail.com');
-                        $this->email->to('probir.debnath@gmail.com');
+                        $this->email->to('sahani.bunty9@gmail.com');
+                       // $this->email->to('probir.debnath@gmail.com');
                         //Give Probir da's email id here 
                         $this->email->bcc('palash.sinharay2000@gmail.com');
-                        $this->email->bcc('sahani.bunty9@gmail.com');
+                        //$this->email->bcc('sahani.bunty9@gmail.com');
 	               // $this->email->bcc('probir.debnath@gmail.com');
                         $this->email->subject('Ceda :');
                         $this->email->message($message);
@@ -122,6 +132,7 @@ class shop extends CI_Controller {
        //echo "success";
      
        //redirect('main');
+        
         $data['allCategoryData'] = $this->Cms->get_product_cat();
         $data['allServicesData'] = $this->Cms->get_service_list();
         $data['cmsData'] = $this->Cms->get_page_content_all();
@@ -148,5 +159,23 @@ class shop extends CI_Controller {
        $this->load->view(failure.'.php',$data);
        $this->load->view('footer.php',$data);
         
+    }
+    
+    public function testmail($message){
+                        $this->load->library('email');
+                        $email_setting  = array('mailtype'=>'html');
+                        $this->email->initialize($email_setting);
+                        // Give Probir da's email id here 
+                        $this->email->from('sahani.bunty_buss@gmail.com', 'Ceda');
+                        //$this->email->to($data['userDetail']->email);
+                        $this->email->to('sahani.bunty9@gmail.com');
+                       // $this->email->to('palash.sinharay2000@gmail.com');
+                        //Give Probir da's email id here 
+                        //$this->email->bcc('palash.sinharay2000@gmail.com');
+                        //$this->email->bcc('sahani.bunty9@gmail.com');
+	               // $this->email->bcc('probir.debnath@gmail.com');
+                        $this->email->subject('Ceda :');
+                        $this->email->message($message);
+                        $this->email->send();
     }
 }

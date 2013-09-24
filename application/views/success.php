@@ -5,7 +5,7 @@
            
                <script type="text/JavaScript">
                
-                    setTimeout("location.href = '<?php echo base_url();?>';", 1500);
+                    setTimeout("location.href = '<?php echo base_url('main/distroycart');?>';", 1500);
              
                 </script>
                    

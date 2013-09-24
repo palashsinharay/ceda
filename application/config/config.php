@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-//$config['base_url']	= 'http://local.ceda.com';
+//$config['base_url']	= 'http://www.acaciatechnologysolutions.com/ceda';
 $config['base_url']	= 'http://'.$_SERVER['HTTP_HOST'];
 
 /*

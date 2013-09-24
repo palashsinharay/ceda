@@ -79,15 +79,16 @@
         <div class="span4">
             <h3 style="line-height: 10px;">
                 <strong>Price: $<?php echo $productDetail->price;?></strong> <br><br>
+               <?php  //echo $productDetail->name; ?>
             </h3>
         </div>    
         
         <div class="span4">
-            <form class="form-inline" name="_xclick" id="_xclick" action="#<?php //echo $paypal_url;?>" method="POST">
+       <form class="form-inline" name="_xclick" id="_xclick" action="#<?php //echo $paypal_url;?>" method="POST">
 <input type="hidden" name="business" value="<?php echo $paypal_email;?>">
 <!--<input type="hidden" name="currency_code" value="USD">-->
 
-<input type="hidden" name="item_name" value="<?php echo $productDetail->name;?>">
+<input type="hidden" name="item_name" value="<?php echo trim(strip_tags(htmlspecialchars_decode($productDetail->name))); ?>">
 <input type="hidden" name="amount" value="<?php echo $productDetail->price ?>">
 <input type="hidden" name="product_id" value="<?php echo $productDetail->pid;?>">
 <input type="hidden" name="image" value="<?php echo $productDetail->image;?>">                

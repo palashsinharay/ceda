@@ -15,15 +15,7 @@
                     
                     
                     <h2>Shopping Cart<?php //echo $pageDetail->menutitle;?></h2>
-<!--                    <a class="pull-left" href="#">
-                         <div style=" height: 150px; width: 150px;"> <img class="media-object" src="<?php //echo base_url('assets/uploads/files/'.$pageDetail->filename);?>" height="150" width="150"></div>
                     
-                    </a>-->
-<!--                    <p class="media">
-                        <?php // echo '<pre>';  print_r($cart) ; echo '<pre>' ;?>
-                        
-                        
-                    </p>-->
                     <table class="table table-bordered table-striped">
                         <thead>
 			  <tr>
@@ -36,13 +28,13 @@
 			  </tr>
 			</thead>
                         <?php 
-                        echo "<pre>";
-                        print_r($cart);
-                        echo "</pre>";
+//                        echo "<pre>";
+//                        print_r($cart);
+//                        echo "</pre>";
                         ?>
 			<tbody>
 			  <?php foreach ($cart as $value):?>
-                          
+                          <?php //$paypalItemName .=$value['name'].'|' ;?>
                             <tr>
                         <form class="product_row" name="row_<?php  echo $value['id']?>" id="row_<?php  echo $value['id']?>" action="#" method="POST" >
 				<input type="hidden" name="rowid" value="<?php echo $value['rowid'];?>">
@@ -68,15 +60,56 @@
 			  </tr>	
                            <tr>
 				
-				<td colspan="5" class="success-message-cart">&nbsp;</td>
-                                <td><input type="button" id="checkout" class="btn btn-primary" name="Check Out" value="Check Out" /></td>
+				<td colspan="6" class="success-message-cart">&nbsp;</td>
+                                
 				
 			  </tr>	
 			</tbody>
 		  </table>
+                    
+                    <table class="table table-bordered table-striped">
+                     <form name="_xclick" id="_xclick" method="POST" action="<?php echo $paypal_url;?>">
+                        <input type="hidden" name="cmd" value="_xclick">
+                            
+                        <input type="hidden" name="business" value="<?php echo $paypal_email;?>">
+
+                        <input type="hidden" name="currency_code" value="<?php echo $paypal_currency_code;?>">
+                        <input type="hidden" name="item_name" value="<?php echo strip_tags(htmlspecialchars_decode($paypalItemName));?>">
+                        <input type="hidden" name="amount" value="<?php echo  $cart_total; ?>">
+                        <input type="hidden" name="return" value="<?php echo site_url( 'shop/success' )?>">
+                        <input type="hidden" name="cancel_return" value="<?php echo site_url( 'shop/cancel' )?>">
+                        <input type="hidden" name="notify_url" value="<?php echo site_url( 'shop/ipn' )?>">
+                        <input type="hidden" name="custom" id="custom" value="<?php echo $transcation_id ; ?>">
+                        <input type="hidden" name="shipping" value="<?php echo $shipping;?>">
+                        <!--<input type="hidden" name="add" value="1">-->
+<!--                        <input type="hidden" name="upload" value="1">-->
+
+                         <thead>
+			  <tr colspan="2">
+				<th>Customer Information</th>
+			  </tr>
+			</thead>
+
+                        <tr>
+                            <td>
+                            <input type="text" name="name" id="name" placeholder="Name" required="true" /><br/>
+                            <input type="email" name="email" id="email" placeholder="Email" required="true"/><br/>
+                            <input type="text" name="phone" id="phone" placeholder="phone" required="true"/>
+                            </td>
+                           <td><textarea name="address" id="address" placeholder="Shipping Address" required="true"></textarea><br/>
+                            <input type="button" id="checkout" class="btn btn-primary" name="Check Out" value="Check Out" />
+                           </td>
+
+                        </tr>
+                    </form>
+                    </table>
+                 
+                        
+                      
+                    
                     </div>  
                     </div> 
-                   
+                  
 
                         
                     </div>

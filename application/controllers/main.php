@@ -25,7 +25,9 @@ class Main extends CI_Controller {
 	$this->load->model('Cms');
  
     }
-    public function _renderView($page,$data) {
+    
+    public function _renderView($page,$data) 
+    {
                 
                  $data['allCategoryData'] = $this->Cms->get_product_cat();
                  $data['allServicesData'] = $this->Cms->get_service_list();
@@ -50,7 +52,8 @@ class Main extends CI_Controller {
                 $this->load->view('footer.php',$data);
     }
 
-    public function _renderViewOther($page,$data) {
+    public function _renderViewOther($page,$data) 
+    {
                 
                  $data['allCategoryData'] = $this->Cms->get_product_cat();
                  $data['allServicesData'] = $this->Cms->get_service_list();
@@ -97,7 +100,6 @@ class Main extends CI_Controller {
 
     }
 
-    
     public function productList($catId)
     {
                 $data['categoryList'] = $this->Cms->get_category_name($catId);
@@ -121,6 +123,7 @@ class Main extends CI_Controller {
         
 
     }
+    
     public function productListpagei($catId,$offset = 0)
     {           
                 $data['categoryList'] = $this->Cms->get_category_name($catId);
@@ -247,24 +250,8 @@ class Main extends CI_Controller {
                 }
  	    
     }
-    
-//   public function videoPage($offset=0)
-//    {
-//		//echo "hii";
-//                $data['videoPageList'] = $this->Cms->get_video_page_content($offset);
-//                $data['newsList'] = $this->Cms->get_news_list();
-//                $data['pagination_link_video'] = $this->pagination_link_maker_videos();
-////		echo "<pre>";
-////              print_r($data['videoPageList']);
-////		echo "</pre>";
-////		die();
-//                $this->_renderViewOther('videos',$data);
-//                
-//                
-// 	    
-//    }
-    
-   public function videoPage()
+   
+    public function videoPage()
     {
 		//echo "hii";
                 $data['videoPageList'] = $this->Cms->get_video_page_content();
@@ -305,8 +292,6 @@ class Main extends CI_Controller {
 
     }
     
-
-
     public function contact_us()
     {
 				
@@ -315,7 +300,7 @@ class Main extends CI_Controller {
                         $data['newsList'] = $this->Cms->get_news_list();
                         $this->_renderViewOther('contact',$data);
     }
- 	
+    
     public function contactus_email()
     {
                     try
@@ -389,8 +374,7 @@ class Main extends CI_Controller {
                                     show_error($err_obj->getMessage());
                     }
             }
-            
-            
+    
     public function enquiry_email()
     {
                     try
@@ -472,8 +456,7 @@ class Main extends CI_Controller {
                                     show_error($err_obj->getMessage());
                     }
             }            
-        
-	
+    
     public function email_send($message,$email_to,$email_from,$filepath = null)
     {
     try
@@ -514,8 +497,11 @@ class Main extends CI_Controller {
     }
 
     }
+    
     //pagination for products
-    public function pagination_link_maker_pro($cat_id) {
+    
+    public function pagination_link_maker_pro($cat_id) 
+    {
         
         $config['base_url'] = base_url().'/main/productListpagei/'.$cat_id;
         $config['total_rows'] = $this->Cms->count_table('productList',$cat_id);
@@ -546,7 +532,8 @@ class Main extends CI_Controller {
         return $this->pagination->create_links();
     }
     
-    public function pagination_link_maker_news() {
+    public function pagination_link_maker_news() 
+    {
         
         $config['base_url'] = base_url().'/main/newsList';
         $config['total_rows'] = $this->Cms->count_table('newsList');
@@ -575,7 +562,8 @@ class Main extends CI_Controller {
         return $this->pagination->create_links();
     }
     
-        public function pagination_link_maker_videos() {
+    public function pagination_link_maker_videos() 
+    {
         
         $config['base_url'] = base_url().'/main/videoPage';
         $config['total_rows'] = $this->Cms->count_table('videolist');
@@ -604,14 +592,14 @@ class Main extends CI_Controller {
         return $this->pagination->create_links();
     }
     
-    
-
-    public function callback() {
+    public function callback() 
+    {
         echo "Purchase successfull ";
         
     }
     
-    public function searchAll() {
+    public function searchAll() 
+    {
         $data['newsList'] = $this->Cms->get_news_list();
         
         $search_keyword  	= trim($this->input->post("search_keyword"));
@@ -626,7 +614,8 @@ class Main extends CI_Controller {
     
     }
     
-     public function sitemap() {
+    public function sitemap() 
+    {
          $data['cmsData'] = $this->Cms->get_page_content_all();
          $data['allServicesData'] = $this->Cms->get_service_list();
          $data['allDownloadcCat'] = $this->Cms->get_download_cat_list();
@@ -642,12 +631,16 @@ class Main extends CI_Controller {
          $this->_renderViewOther('site_map',$data);
     
     }
+    
     public function payment()
-    {
+    {             
+//        print_r($_POST);
+//        die();
                     try
                     {
                             
                             $posted                         = array();
+                            $posted["transaction_id"]       = trim($this->input->post("custom"));
                             $posted["name"]                 = trim($this->input->post("name"));
                             $posted["email"]                = trim($this->input->post("email"));
                             $posted["phone"]                = trim($this->input->post("phone"));
@@ -656,8 +649,7 @@ class Main extends CI_Controller {
                             $posted["currency_code"]        = trim($this->input->post("currency_code"));
                             $posted["item_name"]            = trim($this->input->post("item_name"));
                             $posted["amount"]               = trim($this->input->post("amount"));
-                            $posted["name"]                 = trim($this->input->post("name"));
-                            $posted["email"]                = trim($this->input->post("email"));
+                           
                             
 //            echo "<pre>";
 //            print_r($posted);
@@ -682,8 +674,37 @@ class Main extends CI_Controller {
                                     show_error($err_obj->getMessage());
                     }
             }  
+    
+    /*Cart Section START*/        
+    public function addtocartTest() 
+    {
             
-    public function addtocart() {
+            //echo "hiiii";        
+      
+                            
+                            
+            $data = array(
+               'id'      => 1,
+               'qty'     =>2,
+               'price'   => 1,
+               'name'    => test
+                );
+
+//            echo "<pre>";
+//            print_r($data);
+//            echo "</pre>";
+           // echo "<br/>";        
+            $this->cart->insert($data);
+           // $this->cart->destroy();
+            print_r($this->cart->contents());
+            echo $this->cart->total_items();
+           // die();
+            
+            //echo $this->cart->total_items();                 
+            
+    }
+            public function addtocart() 
+    {
             
             //echo "hiiii";        
             $posted                         = array();
@@ -693,7 +714,7 @@ class Main extends CI_Controller {
             $posted["shipping_address"]     = 'static address abc';
             $posted["business"]             = trim($this->input->post("business"));
             $posted["currency_code"]        = trim($this->input->post("currency_code"));
-            $posted["item_name"]            = trim($this->input->post("item_name"));
+            $posted["item_name"]            = trim($this->input->post("item_name"));//htmlspecialchars_decode();
             $posted["amount"]               = trim($this->input->post("amount"));
             $posted["qty"]                  = trim($this->input->post("qty"));
             $posted["product_id"]           = trim($this->input->post("product_id"));
@@ -706,13 +727,13 @@ class Main extends CI_Controller {
                'price'   => $posted["amount"],
                'name'    => $posted["item_name"],
                'image'    => $posted["image"]     
-              
+             
             );
 
 //            echo "<pre>";
 //            print_r($data);
 //            echo "</pre>";
-           // echo "<br/>";        
+//            echo "<br/>";        
             $this->cart->insert($data);
            // $this->cart->destroy();
           //  print_r($this->cart->contents());
@@ -722,16 +743,42 @@ class Main extends CI_Controller {
             //echo $this->cart->total_items();                 
             
             }
-            
-    public function displaycart() {
+    
+    public function displaycart() 
+    {
         $data['cart'] = $this->cart->contents();
         $data['cart_total'] = $this->cart->total();
+        $data['paypal_url']= $this->config->item('paypal_url');
+        $data['paypal_email']= $this->config->item('paypal_email');
+        $data['paypal_currency_code']= $this->config->item('paypal_currency_code');
+        $data['paypal_live']= $this->config->item('paypal_live');
+        $data['shipping']= $this->config->item('shipping');
+        $data['paypalItemName'] = '';
+        foreach ($data['cart'] as $value) {
+           $data['paypalItemName'] .= $value['name'].' | ';
+        }
+        $data['transcation_id']=rand(); 
+        
+        
         $this->_renderViewOther('cart_display',$data);  
     }
-    public function distroycart() {
-        $this->cart->destroy(); 
+    
+    public function distroycart() 
+    {
+        $this->cart->destroy();
+            $data['feturedProduct'] = $this->Cms->get_fetured_product();
+                $data['newsList'] = $this->Cms->get_news_list();
+//                echo "<pre>";
+//                print_r($data['newsList']);
+//		echo "</pre>";
+//		die();
+	           
+                $this->_renderView('index',$data);
+        
     }
-     public function updatecart() {
+    
+    public function updatecart() 
+    {
             $posted                         = array();
             $posted["rowid"]                 = trim($this->input->post("rowid"));
             $posted["qty"]                   = trim($this->input->post("qty"));
@@ -746,10 +793,14 @@ class Main extends CI_Controller {
 
            if($this->cart->update($data))
            {
+               
                echo "Cart Updated";
+               
            }
     }
-      public function deletecart() {
+    
+    public function deletecart() 
+    {
             $posted                         = array();
             $posted["rowid"]                 = trim($this->input->post("rowid"));
             $posted["qty"]                   = trim($this->input->post("qty"));
@@ -766,12 +817,29 @@ class Main extends CI_Controller {
             
     }
     
-      public function checkout() {
-        echo "palash";
+    public function checkout() 
+    {
+       
+        $transcation_id = trim($this->input->post("custom"));
         $data['cart'] = $this->cart->contents();
-        $i_newid=$this->Cms->insertOrder($data);
+        $i_newid=$this->Cms->insertOrder($data,$transcation_id);
+        $this->payment();
     }
-
+    /*Cart Section END*/
+    
+    /*  public function videoPage($offset=0)
+    {
+		echo "hii";
+                $data['videoPageList'] = $this->Cms->get_video_page_content($offset);
+                $data['newsList'] = $this->Cms->get_news_list();
+                $data['pagination_link_video'] = $this->pagination_link_maker_videos();
+		echo "<pre>";
+                print_r($data['videoPageList']);
+		echo "</pre>";
+		die();
+                $this->_renderViewOther('videos',$data);
+  
+    } */
 
 }
  

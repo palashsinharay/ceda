@@ -225,6 +225,7 @@ function validateEmail(user_email){
    
     $('#add_cart').click(function(){
         alert("hiii");
+        
         $.ajax({
         url: "<?php echo site_url('main/addtocart'); ?>",
         type: 'POST',
@@ -255,6 +256,7 @@ function validateEmail(user_email){
         data: $('#row_'+$(this).attr('id')).serialize(),
         success: function(msg) {
             //alert(msg);
+            location.reload();
             $('.success-message-cart').html(msg);
             $('.success-message-cart').fadeIn(500).show();
             return true;
@@ -287,12 +289,13 @@ function validateEmail(user_email){
      $('#checkout').click(function(){
         $.ajax({
         url: "<?php echo site_url('main/checkout'); ?>",
-        //type: 'POST',
-        //data: $('#_customer_details').serialize(),
+        type: 'POST',
+        data: $('#_xclick').serialize(),
         success: function(msg) {
             //$('#custom').val(msg);
-            //$('#_xclick').submit();
-            alert(msg);
+           // alert(msg);
+            $('#_xclick').submit();
+            
            // $('#cart_bucket_count').html(msg);
             return true;
         }
